@@ -204,7 +204,7 @@ export default function HomePage() {
             Finding the right kind of help
           </h2>
           <p className="text-slate-400 mb-8">
-            Psychiatrist, psychologist, social worker, counsellor — the differences matter and the wrong fit costs time and money. We break down what each provider does, what they can prescribe, and which Canadian health plans cover them.
+            Psychiatrist, psychologist, social worker, counsellor — the differences matter and the wrong fit costs time and money. We break down what each provider does, what they can prescribe, and which Canadian and US health plans cover them.
           </p>
           <Link
             href="/providers"

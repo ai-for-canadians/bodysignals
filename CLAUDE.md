@@ -40,7 +40,7 @@ All source sites are in `../extracted-apps/`:
 - Canadian spelling (colour, behaviour, centre)
 - No "studies show" without specific citation
 - Medical disclaimer on every health page
-- Crisis numbers on mental health pages (988 Canada/US, Kids Help Phone 1-800-668-6868)
+- Crisis numbers on mental health pages (jurisdiction-correct): 988 Canada/US, text HOME to 741741 US / CONNECT to 686868 Canada, Kids Help Phone 1-800-668-6868 Canada, LGBT Youth Line 1-800-268-9688 Canada, Trevor Project 1-866-488-7386 US
 - Full rules in `docs/CONTENT_STANDARDS.md`
 
 ## Key Commands

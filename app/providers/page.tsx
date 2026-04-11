@@ -6,11 +6,11 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui';
 export const metadata: Metadata = {
   title: 'Find the Right Provider',
   description:
-    'Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? A practical guide with Canadian context. Launching Q2 2026.',
+    'Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? A practical guide with Canadian and US context. Launching Q2 2026.',
   openGraph: {
     title: 'Find the Right Provider | Body Signals',
     description:
-      'Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? A practical guide with Canadian context. Launching Q2 2026.',
+      'Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? A practical guide with Canadian and US context. Launching Q2 2026.',
   },
 };
 
@@ -21,15 +21,22 @@ const providerTypes = [
     canPrescribe: 'Yes',
     bestFor:
       'Complex mental health conditions requiring medication management, psychotic disorders, severe depression, bipolar.',
-    coverage: 'Covered by provincial health plans (OHIP, MSP, etc.) with a referral.',
+    coverageCA:
+      'Covered by provincial health plans (OHIP, MSP, etc.) with a referral.',
+    coverageUS:
+      'Medicare Part B covers outpatient psychiatric care (80% after deductible) for 65+/disabled nationwide; Medicaid coverage varies by state; community mental health centers offer sliding-scale access.',
   },
   {
     name: 'Psychologist',
     qualifications: 'PhD or PsyD',
-    canPrescribe: 'No (in most provinces)',
+    canPrescribe:
+      'No (in most jurisdictions; some US states allow prescribing psychologists)',
     bestFor:
       'Psychotherapy, formal assessment and diagnosis, evidence-based therapy modalities (CBT, ACT, DBT).',
-    coverage: 'Coverage varies by province; often covered by employer benefits.',
+    coverageCA:
+      'Coverage varies by province; often covered by employer benefits.',
+    coverageUS:
+      'Commonly covered by insurance for diagnosed conditions (in-network vs out-of-network affects cost); Medicare Part B covers clinical psychologists; Medicaid varies by state; sliding-scale and community clinics available.',
   },
   {
     name: 'Licensed Clinical Social Worker (LCSW / MSW)',
@@ -37,7 +44,10 @@ const providerTypes = [
     canPrescribe: 'No',
     bestFor:
       'Therapy for life transitions, grief, family systems, case management, navigating community resources.',
-    coverage: 'Typically not covered by provincial plans; often covered by employer benefits.',
+    coverageCA:
+      'Typically not covered by provincial plans; often covered by employer benefits.',
+    coverageUS:
+      'Commonly covered by private insurance and Medicaid; widely available through community mental health centers and federally qualified health centers (FQHCs); Medicare covers LCSWs for mental health.',
   },
   {
     name: 'Counsellor / Therapist',
@@ -45,7 +55,10 @@ const providerTypes = [
     canPrescribe: 'No',
     bestFor:
       'Talk therapy, life transitions, relationship work, stress management, mild-to-moderate concerns.',
-    coverage: 'Typically not covered by provincial plans; check employer benefits.',
+    coverageCA:
+      'Typically not covered by provincial plans; check employer benefits.',
+    coverageUS:
+      'Variable insurance coverage depending on licensure (LPC, LMFT, etc.); not covered by Medicare; Medicaid varies; sliding-scale widely available.',
   },
 ];
 
@@ -62,7 +75,7 @@ export default function ProvidersPage() {
             Find the Right Provider
           </h1>
           <p className="text-xl text-slate-400">
-            Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? Here&apos;s a quick comparison of the four most common provider types in Canada.
+            Confused about whether you need a psychiatrist, psychologist, social worker, or counsellor? Here&apos;s a quick comparison of the four most common provider types in Canada and the US.
           </p>
         </div>
 
@@ -83,8 +96,12 @@ export default function ProvidersPage() {
                   <span className="text-slate-300">{provider.bestFor}</span>
                 </div>
                 <div>
-                  <span className="text-amber-400 font-medium">Coverage: </span>
-                  <span className="text-slate-300">{provider.coverage}</span>
+                  <span className="text-amber-400 font-medium">Coverage (Canada): </span>
+                  <span className="text-slate-300">{provider.coverageCA}</span>
+                </div>
+                <div>
+                  <span className="text-amber-400 font-medium">Coverage (US): </span>
+                  <span className="text-slate-300">{provider.coverageUS}</span>
                 </div>
               </div>
             </Card>
@@ -93,7 +110,7 @@ export default function ProvidersPage() {
 
         <div className="border-t border-slate-800 pt-8">
           <p className="text-slate-400 mb-4">
-            The full provider directory will include a decision tree, sample questions to ask on a first call, and Canadian crisis resources.
+            The full provider directory will include a decision tree, sample questions to ask on a first call, and Canadian and US crisis resources.
           </p>
           <Link
             href="/about"

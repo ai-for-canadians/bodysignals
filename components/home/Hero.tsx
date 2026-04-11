@@ -18,7 +18,7 @@ export function Hero() {
                     </h1>
 
                     <p className="text-xl text-slate-400 mb-8">
-                        Symptoms, conditions, and what actually works. Evidence-based, Canadian-focused, with transparent methodology.
+                        Symptoms, conditions, and what actually works. Evidence-based, built for Canadian and US readers, with transparent methodology.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

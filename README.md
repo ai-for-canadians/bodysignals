@@ -1,6 +1,6 @@
 # Body Signals
 
-A unified, evidence-rated health and body destination built on Next.js 14. Consolidates symptoms, conditions, and deep topic hubs for sleep, ADHD, and movement into a single static site with Canadian context throughout.
+A unified, evidence-rated health and body destination built on Next.js 14. Consolidates symptoms, conditions, and deep topic hubs for sleep, ADHD, and movement into a single static site with Canadian and US context throughout (Canadian spelling is retained as a deliberate positioning choice).
 
 **Live:** _deploy URL goes here once Vercel is connected_
 
@@ -27,7 +27,7 @@ Every health claim on this site is held to the following rules:
 - **A–F evidence ratings** are required on all interventions and claims. The scale is: `A` emerald (strong RCT evidence), `B` green (good evidence), `C` amber (mixed or practitioner consensus), `D` orange (weak evidence), `F` red (disproven or harmful).
 - **No "studies show"** without a specific citation. Every source is either a named study, a medical guideline, a peer-reviewed review, or a recognised organisation.
 - **Medical disclaimer** on every health page, with supplement, drug-interaction, and underlying-condition warnings tuned per topic.
-- **Crisis numbers** on every mental health and ADHD page: 988 (Suicide & Crisis Lifeline, Canada/US) and Kids Help Phone 1-800-668-6868.
+- **Crisis numbers** on every mental health and ADHD page, jurisdiction-correct: 988 (Suicide & Crisis Lifeline, Canada and US), text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada), LGBT Youth Line 1-800-268-9688 (Canada), Trans Lifeline 1-877-330-6366 (Canada), and Trevor Project 1-866-488-7386 (US).
 - **Canadian spelling** throughout (colour, behaviour, centre, practise, stabilise, minimise). `program` stays as-is (Canadian computing/rehab convention).
 - **Unicode ×** (U+00D7) is locked in for exercise set formatting — never lowercase `x`.
 
@@ -115,7 +115,7 @@ To add a new condition, sleep intervention, ADHD system, or movement program:
 
 ## Medical disclaimer
 
-This is educational information, not medical advice. Every piece of content on this site is intended to help people make informed decisions and have better conversations with their healthcare providers. If you are in a crisis, call or text **988** (Suicide & Crisis Lifeline, Canada/US) or **Kids Help Phone 1-800-668-6868**. In an emergency, call **911**.
+This is educational information, not medical advice. Every piece of content on this site is intended to help people make informed decisions and have better conversations with their healthcare providers. If you are in crisis, call or text **988** (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support, text **HOME to 741741** (Crisis Text Line, US) or **CONNECT to 686868** (Kids Help Phone, Canada). In an emergency, call **911**.
 
 ## License
 

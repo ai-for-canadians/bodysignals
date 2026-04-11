@@ -92,7 +92,7 @@ export function ConditionsLibrary({ conditions }: ConditionsLibraryProps) {
             Condition Library
           </h1>
           <p className="text-xl text-slate-400">
-            Comprehensive guides for chronic, digestive, mental health, and other conditions — each with evidence-rated treatments, lifestyle factors, and Canadian provider context. Every intervention is graded on the A–F evidence scale.
+            Comprehensive guides for chronic, digestive, mental health, and other conditions — each with evidence-rated treatments, lifestyle factors, and Canadian and US provider context. Every intervention is graded on the A–F evidence scale.
           </p>
         </div>
 

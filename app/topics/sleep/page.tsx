@@ -5,11 +5,11 @@ import { SleepLibrary } from '@/components/topics/SleepLibrary';
 export const metadata: Metadata = {
   title: 'Sleep Hub',
   description:
-    'Evidence-rated sleep interventions: hygiene, environment, supplements, tools, and clinical protocols. Every entry graded on the A–F scale with Canadian safety context.',
+    'Evidence-rated sleep interventions: hygiene, environment, supplements, tools, and clinical protocols. A–F scale with Canadian + US safety context.',
   openGraph: {
     title: 'Sleep Hub | Body Signals',
     description:
-      'Evidence-rated sleep interventions: hygiene, environment, supplements, tools, and clinical protocols. Every entry graded on the A–F scale with Canadian safety context.',
+      'Evidence-rated sleep interventions: hygiene, environment, supplements, tools, and clinical protocols. A–F scale with Canadian + US safety context.',
   },
 };
 

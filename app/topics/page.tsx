@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: 'Topic Hubs',
   description:
-    'Deep guides on the topics that matter most: evidence-rated sleep interventions, physiotherapist-validated movement programs, and tactical ADHD systems — all rated on the A–F scale with Canadian context.',
+    'Evidence-rated sleep interventions, physiotherapist-validated movement programs, and tactical ADHD systems — A–F scale with Canadian and US context.',
   openGraph: {
     title: 'Topic Hubs | Body Signals',
     description:
@@ -103,7 +103,7 @@ export default function TopicsPage() {
             Topic Hubs
           </h1>
           <p className="text-xl text-slate-400">
-            Deep guides on the topics that matter most: sleep, movement, and ADHD systems. Each hub is built around evidence-rated interventions with safety profiles and Canadian context.
+            Deep guides on the topics that matter most: sleep, movement, and ADHD systems. Each hub is built around evidence-rated interventions with safety profiles and Canadian and US context.
           </p>
         </div>
 
@@ -179,7 +179,7 @@ export default function TopicsPage() {
         <div className="border-t border-slate-800 pt-8">
           <p className="text-sm text-slate-500">
             All hubs are built around evidence-rated interventions with safety
-            profiles and Canadian context.
+            profiles and Canadian and US context.
           </p>
         </div>
       </div>

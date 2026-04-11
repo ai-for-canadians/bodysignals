@@ -12,7 +12,7 @@ import { ADHDToolCard } from '@/components/topics/ADHDToolCard';
 export const metadata: Metadata = {
   title: 'ADHD Systems Hub',
   description:
-    '18 tactical systems and 6 recommended tools for ADHD brains — rated by difficulty and impact, with hand-authored evidence grades and Canadian crisis context.',
+    '18 tactical systems and 6 tools for ADHD brains — rated by difficulty and impact, with hand-authored evidence grades and Canadian + US crisis context.',
   openGraph: {
     title: 'ADHD Systems Hub | Body Signals',
     description:

@@ -5,11 +5,11 @@ import { ConditionsLibrary } from '@/components/conditions/ConditionsLibrary';
 export const metadata: Metadata = {
   title: 'Condition Library',
   description:
-    'Evidence-rated guides for 27 conditions across digestive, mental health, metabolic, cardiovascular, and pain. Every intervention graded on the A–F scale with Canadian provider context.',
+    'Evidence-rated guides for 27 conditions — digestive, mental health, metabolic, cardiovascular, pain. A–F grades with Canadian and US provider context.',
   openGraph: {
     title: 'Condition Library | Body Signals',
     description:
-      'Evidence-rated guides for 27 conditions across digestive, mental health, metabolic, cardiovascular, and pain. Every intervention graded on the A–F scale with Canadian provider context.',
+      'Evidence-rated guides for 27 conditions — digestive, mental health, metabolic, cardiovascular, pain. A–F grades with Canadian and US provider context.',
   },
 };
 

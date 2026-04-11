@@ -9,7 +9,7 @@ import { MovementProgramCard } from '@/components/topics/MovementProgramCard';
 export const metadata: Metadata = {
   title: 'Movement RX Hub',
   description:
-    'Three physiotherapist-validated rehabilitation programs for common musculoskeletal pain: jumper\'s knee, low-back pain (McGill Big 3), and shoulder impingement. Evidence-rated with contraindication guidance.',
+    'Three physiotherapist-validated rehab programs: jumper\'s knee, low-back pain (McGill Big 3), and shoulder impingement. Evidence-rated with contraindications.',
   openGraph: {
     title: 'Movement RX Hub | Body Signals',
     description:
