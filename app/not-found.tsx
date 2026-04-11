@@ -7,7 +7,7 @@ export default function NotFound() {
             <AlertCircle className="w-16 h-16 text-slate-600 mb-6" />
             <h2 className="text-3xl font-bold text-slate-50 mb-4">Page Not Found</h2>
             <p className="text-slate-400 mb-8 max-w-md">
-                We couldn't find the page you're looking for. It might have been moved or doesn't exist.
+                We couldn&rsquo;t find the page you&rsquo;re looking for. It might have been moved or doesn&rsquo;t exist.
             </p>
             <Link
                 href="/"

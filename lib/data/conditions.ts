@@ -73,8 +73,7 @@ export const CATEGORY_DISPLAY_ORDER: Array<
 // If you add a new CC intervention, add it here AND update the corresponding
 // condition's interventions array below.
 //
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const CC_INTERVENTION_CATEGORY_REFERENCE = {
+export const CC_INTERVENTION_CATEGORY_REFERENCE = {
   // type-2-diabetes
   'low-carb': 'diet',
   'intermittent-fasting': 'protocol',

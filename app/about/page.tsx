@@ -15,7 +15,7 @@ export default function AboutPage() {
             </h2>
             <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
               <p className="text-slate-300 leading-relaxed mb-4">
-                BodySignals exists to bridge the gap between "Dr. Google" panic and actual medical knowledge. We believe everyone should understand what their body is telling them without navigating through jargon or alarmist clickbait.
+                BodySignals exists to bridge the gap between &ldquo;Dr. Google&rdquo; panic and actual medical knowledge. We believe everyone should understand what their body is telling them without navigating through jargon or alarmist clickbait.
               </p>
               <p className="text-slate-300 leading-relaxed">
                 Our goal is to provide clear, evidence-based context for symptoms so you know when to seek help immediately, when to make a routine appointment, and when to practice self-care at home.
