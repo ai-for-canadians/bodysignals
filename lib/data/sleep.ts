@@ -319,8 +319,17 @@ export const sleepInterventions: SleepIntervention[] = [
     },
     evidenceRating: 'B',
     researchSummary:
-      'Controlled studies show even small amounts of ambient light correlate with measurable increases in nighttime heart rate and insulin resistance.',
-    sources: [],
+      'A 2022 Northwestern study (Mason et al, PNAS) in 20 healthy adults found that a single night of dim ambient light during sleep was associated with measurable increases in nighttime heart rate and next-morning insulin resistance compared with sleeping in darkness.',
+    sources: [
+      {
+        title:
+          'Light exposure during sleep impairs cardiometabolic function',
+        url: 'https://www.pnas.org/doi/10.1073/pnas.2113290119',
+        type: 'study',
+        year: 2022,
+        authors: 'Mason IC, Grimaldi D, Reid KJ, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -643,8 +652,17 @@ export const sleepInterventions: SleepIntervention[] = [
     },
     evidenceRating: 'C',
     researchSummary:
-      'Small studies show benefit for mild apnoea and snoring. Not a substitute for a CPAP machine if you have diagnosed moderate-to-severe sleep apnoea.',
-    sources: [],
+      'A 2022 single-arm preliminary trial (Lee et al, Healthcare) in 20 patients with mild obstructive sleep apnoea reported reduced AHI and snoring with mouth taping, but the evidence is preliminary and the sample is small. Mouth taping is not a substitute for CPAP in diagnosed moderate-to-severe sleep apnoea — and it can be actively dangerous if OSA has not been ruled out.',
+    sources: [
+      {
+        title:
+          'The Impact of Mouth-Taping in Mouth-Breathers with Mild Obstructive Sleep Apnea: A Preliminary Study',
+        url: 'https://doi.org/10.3390/healthcare10091755',
+        type: 'study',
+        year: 2022,
+        authors: 'Lee Y-C, Lu C-T, Cheng W-N, Li H-Y.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
