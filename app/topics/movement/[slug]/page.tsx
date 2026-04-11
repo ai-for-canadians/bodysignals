@@ -284,6 +284,41 @@ export default function MovementProgramPage({
               </section>
             )}
 
+            {/* Sources */}
+            {program.sources && program.sources.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-bold text-slate-50 mb-4">
+                  Sources
+                </h2>
+                <ul className="space-y-2">
+                  {program.sources.map((src, idx) => (
+                    <li key={idx}>
+                      <a
+                        href={src.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-amber-400 hover:text-amber-300 transition-colors inline-flex items-start gap-2"
+                      >
+                        <span className="text-slate-500 mt-1">•</span>
+                        <span>
+                          {src.title}
+                          {src.authors && (
+                            <span className="text-slate-500">
+                              {' '}
+                              — {src.authors}
+                            </span>
+                          )}
+                          {src.year && (
+                            <span className="text-slate-500"> ({src.year})</span>
+                          )}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* Last updated footer */}
             <p className="text-xs text-slate-500 pt-6 border-t border-slate-800">
               Last updated: {program.lastUpdated}

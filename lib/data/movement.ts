@@ -18,8 +18,9 @@
 //        "3×15-6" for rep-range pyramids, "3×10-15" for standard ranges.
 //      - MovementPhase.slug: source has it, target does not — dropped.
 //        Phases do not get their own routes.
-//   3. `sources[]` is not in the source data and not required by the target
-//      type — skipped. Could be backfilled in a later sources-hardening pass.
+//   3. `sources[]` was backfilled with primary literature after the initial
+//      migration. Each program carries the RCTs, systematic reviews, or
+//      clinical guidelines that support its evidence rating.
 //   4. MOVEMENT_DISCLAIMER expanded to include the "when to see a physio"
 //      content and the Canadian 911 emergency reference.
 //   5. Source content expanded: the phase descriptions and contraindications
@@ -135,6 +136,32 @@ export const movementPrograms: MovementProgram[] = [
       },
     ],
     evidenceRating: 'A',
+    sources: [
+      {
+        title:
+          'Isometric exercise induces analgesia and reduces inhibition in patellar tendinopathy',
+        url: 'https://bjsm.bmj.com/content/49/19/1277',
+        type: 'study',
+        year: 2015,
+        authors: 'Rio E, Kidgell D, Purdam C, et al.',
+      },
+      {
+        title:
+          'Heavy Slow Resistance Versus Eccentric Training as Treatment for Achilles and Patellar Tendinopathy: A Randomized Controlled Trial',
+        url: 'https://journals.sagepub.com/doi/10.1177/0363546515584760',
+        type: 'study',
+        year: 2015,
+        authors: 'Beyer R, Kongsgaard M, Hougs Kjær B, et al.',
+      },
+      {
+        title:
+          'Physical therapies for patellar tendinopathy: a systematic review',
+        url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6376548/',
+        type: 'review',
+        year: 2019,
+        authors: 'Mendonça LD, Leitão L, Ocarino JM, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -203,6 +230,32 @@ export const movementPrograms: MovementProgram[] = [
       },
     ],
     evidenceRating: 'B',
+    sources: [
+      {
+        title:
+          'Core training: evidence translating to better performance and injury prevention',
+        url: 'https://journals.lww.com/nsca-scj/fulltext/2010/06000/core_training__evidence_translating_to_better.2.aspx',
+        type: 'review',
+        year: 2010,
+        authors: 'McGill SM',
+      },
+      {
+        title:
+          'Low back disorders: evidence-based prevention and rehabilitation (3rd ed.)',
+        url: 'https://www.backfitpro.com/books/low-back-disorders-book/',
+        type: 'medical_guideline',
+        year: 2015,
+        authors: 'McGill SM',
+      },
+      {
+        title:
+          'Effectiveness of core muscle strengthening for improving pain and dynamic balance among female patients with chronic non-specific low back pain',
+        url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6102078/',
+        type: 'study',
+        year: 2018,
+        authors: 'Bagheri R, Takamjani IE, Dadgoo M, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -295,6 +348,32 @@ export const movementPrograms: MovementProgram[] = [
       },
     ],
     evidenceRating: 'B',
+    sources: [
+      {
+        title:
+          'Effectiveness of physical therapy in treating atraumatic full-thickness rotator cuff tears: a multicenter prospective cohort study',
+        url: 'https://www.jshoulderelbow.org/article/S1058-2746(13)00132-6/fulltext',
+        type: 'study',
+        year: 2013,
+        authors: 'Kuhn JE, Dunn WR, Sanders R, et al. (MOON Shoulder Group)',
+      },
+      {
+        title:
+          'Exercise for rotator cuff tendinopathy: a systematic review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/20362508/',
+        type: 'review',
+        year: 2010,
+        authors: 'Kuhn JE',
+      },
+      {
+        title:
+          'Subacromial impingement syndrome — effectiveness of physiotherapy and manual therapy',
+        url: 'https://bjsm.bmj.com/content/47/14/886',
+        type: 'review',
+        year: 2013,
+        authors: 'Hanratty CE, McVeigh JG, Kerr DP, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 ];

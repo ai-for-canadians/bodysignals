@@ -234,6 +234,9 @@ export interface MovementProgram {
   equipmentNeeded: string[];
   contraindications: string[];
   evidenceRating: EvidenceRating;
+  /** Primary literature and guidelines supporting the protocol. Optional
+   * because not every program has been formally sourced yet. */
+  sources?: Source[];
   lastUpdated: string;
 }
 
