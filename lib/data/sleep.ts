@@ -636,7 +636,7 @@ export const sleepInterventions: SleepIntervention[] = [
       'Stop immediately if you feel any breathing difficulty.',
     ],
     safetyProfile: {
-      riskLevel: 'low',
+      riskLevel: 'moderate',
       sideEffects: [
         {
           name: 'Anxiety — feeling of suffocation if nose becomes blocked',
@@ -645,9 +645,11 @@ export const sleepInterventions: SleepIntervention[] = [
         },
       ],
       contraindications: [
+        'Untreated obstructive sleep apnoea (OSA) — mouth taping without diagnosis can be fatal',
+        'Do not use without first screening for sleep apnoea — contact a physician for a home sleep study if you snore loudly, wake gasping, or experience daytime sleepiness',
         'Nasal congestion or obstruction',
-        'Sleep apnoea (undiagnosed or untreated)',
-        'High vomiting risk (alcohol, medications, illness)',
+        'High vomiting risk (alcohol, medications, illness, pregnancy)',
+        'Any cardiopulmonary condition that affects breathing',
       ],
     },
     evidenceRating: 'C',

@@ -122,6 +122,29 @@ export default function SleepInterventionPage({
         <div className="grid md:grid-cols-3 gap-8">
           {/* Main content */}
           <div className="md:col-span-2 space-y-12">
+            {/* High-risk callout — mouth taping + OSA */}
+            {intervention.slug === 'mouth-tape' && (
+              <section className="bg-red-950/30 border border-red-900/50 rounded-xl p-6">
+                <h2 className="text-2xl font-bold text-red-400 mb-3 flex items-center gap-2">
+                  <AlertTriangle className="w-6 h-6" />
+                  Screen for sleep apnoea first — this is not optional
+                </h2>
+                <p className="text-slate-200 leading-relaxed mb-3">
+                  Mouth taping without first ruling out <strong>obstructive sleep apnoea (OSA)</strong> can be actively dangerous. If you snore loudly, wake gasping or choking, or have daytime sleepiness, speak to a physician about a home sleep study <em>before</em> trying this intervention. Mouth taping is <strong>not</strong> a substitute for CPAP in diagnosed moderate-to-severe OSA.
+                </p>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  Learn more about breathing symptoms in our{' '}
+                  <Link
+                    href="/symptoms/shortness-of-breath"
+                    className="text-amber-400 hover:text-amber-300 underline underline-offset-2"
+                  >
+                    shortness of breath guide
+                  </Link>
+                  , which covers sleep apnoea as a possible cause. Stop immediately if you experience any breathing difficulty.
+                </p>
+              </section>
+            )}
+
             {/* Overview */}
             <section>
               <h2 className="text-2xl font-bold text-slate-50 mb-4">
