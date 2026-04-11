@@ -29,9 +29,10 @@
 //      source typos were fixed at author time: "Relationship savor" →
 //      "Relationship saver", "you wont get them" → "you won't get them",
 //      "safetly" → "safely".
-//   6. ADHD_DISCLAIMER includes crisis contacts (988, Kids Help Phone)
-//      per the Phase 2 MH_DISCLAIMER pattern — ADHD commonly co-occurs
-//      with depression/anxiety.
+//   6. ADHD_DISCLAIMER includes jurisdiction-correct crisis contacts
+//      (988 Canada/US, 741741 US Crisis Text Line, 686868 Canada via
+//      Kids Help Phone) per the Phase 2 MH_DISCLAIMER pattern — ADHD
+//      commonly co-occurs with depression/anxiety.
 
 import type { ADHDSystem, ADHDTool } from '@/types';
 
@@ -42,7 +43,7 @@ import type { ADHDSystem, ADHDTool } from '@/types';
 const LAST_UPDATED = '2026-04-10';
 
 export const ADHD_DISCLAIMER =
-  'This is educational information, not medical advice. ADHD management is highly individual — what works for one person may not work for another. These are tactical systems, not medical treatment. If you suspect untreated ADHD, speak with a physician or psychologist. ADHD commonly co-occurs with depression and anxiety; if you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada/US) or Kids Help Phone 1-800-668-6868.';
+  'This is educational information, not medical advice. ADHD management is highly individual — what works for one person may not work for another. These are tactical systems, not medical treatment. If you suspect untreated ADHD, speak with a physician or psychologist. ADHD commonly co-occurs with depression and anxiety; if you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US), text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada).';
 
 export const ADHD_RATING_NOTE =
   "Evidence ratings on this hub are hand-authored per system. 'B' where the tactic maps to well-studied research (body doubling, implementation intentions, externalising working memory, time-boxing). 'C' where evidence is practitioner consensus without direct RCT support. The primary metrics on this hub are difficulty (ease of adoption) and impact (reported life effect) — evidence ratings are a secondary signal. See individual system tooltips for per-system rating context.";

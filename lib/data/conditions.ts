@@ -39,7 +39,7 @@ const STANDARD_DISCLAIMER =
   'This is educational information, not medical advice. Consult a qualified healthcare provider before making changes to diet, exercise, supplements, or medication — especially if you have existing conditions or take prescription drugs.';
 
 const MH_DISCLAIMER =
-  'This is educational information, not medical advice. Mental health care works best with a qualified provider. If you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada/US) or Kids Help Phone 1-800-668-6868. In an emergency, call 911. Evidence ratings for mental health interventions default to B (standard clinical treatments with established research); individual response varies.';
+  'This is educational information, not medical advice. Mental health care works best with a qualified provider. If you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support: text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada). Canadian LGBTQ+ youth can reach LGBT Youth Line 1-800-268-9688 or Trans Lifeline 1-877-330-6366; US LGBTQ+ youth can reach the Trevor Project 1-866-488-7386. In an emergency, call 911. Evidence ratings for mental health interventions default to B (standard clinical treatments with established research); individual response varies.';
 
 // Canadian category display labels (used by UI layers)
 export const CATEGORY_LABELS: Record<
@@ -1281,7 +1281,7 @@ export const conditions: Condition[] = [
     firstSteps: [
       'Schedule an appointment with your primary care provider to rule out physical causes (thyroid, B12, anaemia).',
       'Reach out to a trusted friend or family member — isolation worsens depression.',
-      'Call or text 988 (Canada/US) if you are experiencing a crisis or having thoughts of self-harm.',
+      'Call or text 988 (Canada and US) for immediate crisis support, or text HOME to 741741 (US) / CONNECT to 686868 (Kids Help Phone, Canada) for text-only support if you are experiencing thoughts of self-harm.',
     ],
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
