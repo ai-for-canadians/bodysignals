@@ -35,7 +35,7 @@ import type { Condition, EvidenceRating } from '@/types';
 
 const LAST_UPDATED = '2026-04-10';
 
-const STANDARD_DISCLAIMER =
+export const STANDARD_DISCLAIMER =
   'This is educational information, not medical advice. Consult a qualified healthcare provider before making changes to diet, exercise, supplements, or medication — especially if you have existing conditions or take prescription drugs.';
 
 const MH_DISCLAIMER =

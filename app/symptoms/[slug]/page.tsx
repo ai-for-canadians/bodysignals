@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { symptoms } from '@/lib/data/symptoms';
 import { bodyAreas } from '@/lib/data/categories';
+import { STANDARD_DISCLAIMER } from '@/lib/data/conditions';
 import { AlertTriangle, Clock, Stethoscope, Home, Activity, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 
@@ -196,6 +197,17 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Medical Disclaimer */}
+                        <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
+                            <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
+                                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                                Medical Disclaimer
+                            </h3>
+                            <p className="text-sm text-slate-300 leading-relaxed">
+                                {STANDARD_DISCLAIMER}
+                            </p>
                         </div>
                     </div>
                 </div>
