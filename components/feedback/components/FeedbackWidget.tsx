@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { MessageSquare, X, Send, Bug, Lightbulb, FileText, Heart, HelpCircle, ChevronLeft } from 'lucide-react';
+import { useState, useEffect, useId } from 'react';
+import { MessageSquare, X, Send, Bug, Lightbulb, FileText, Heart, HelpCircle, ChevronLeft, AlertTriangle } from 'lucide-react';
 import type { FeedbackType, FeedbackWidgetProps } from '../types';
 
 const feedbackTypes: { type: FeedbackType; label: string; icon: typeof Bug; description: string }[] = [
@@ -11,6 +11,10 @@ const feedbackTypes: { type: FeedbackType; label: string; icon: typeof Bug; desc
     { type: 'praise', label: 'Praise', icon: Heart, description: 'Something you love' },
     { type: 'other', label: 'Other', icon: HelpCircle, description: 'Anything else' },
 ];
+
+// NEXT_PUBLIC_FEEDBACK_FORM_ID is set in Vercel project settings (Formspree form ID, e.g. "xyzabc12").
+// If not set, the widget renders in "launching soon" fallback mode — never silently swallows submissions.
+const FORMSPREE_FORM_ID = process.env.NEXT_PUBLIC_FEEDBACK_FORM_ID ?? '';
 
 export function FeedbackWidget({
     siteId,
@@ -22,9 +26,15 @@ export function FeedbackWidget({
     const [selectedType, setSelectedType] = useState<FeedbackType | null>(null);
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('');
+    const [confirmedAdult, setConfirmedAdult] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [pageUrl, setPageUrl] = useState('');
+
+    const messageId = useId();
+    const emailId = useId();
+    const adultId = useId();
 
     useEffect(() => {
         setPageUrl(window.location.href);
@@ -65,11 +75,18 @@ export function FeedbackWidget({
 
     const accent = accentClasses[accentColor as keyof typeof accentClasses] || accentClasses.amber;
 
+    // Widget is in fallback mode when Formspree form ID is not configured
+    // AND no custom onSubmit handler is provided. In fallback mode, the
+    // form renders a "launching soon" state pointing users to the
+    // corrections email rather than silently swallowing submissions.
+    const isFallbackMode = !FORMSPREE_FORM_ID && !onSubmit;
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!selectedType || !message.trim()) return;
+        if (!selectedType || !message.trim() || !confirmedAdult) return;
 
         setIsSubmitting(true);
+        setError(null);
 
         const feedback = {
             siteId,
@@ -83,11 +100,20 @@ export function FeedbackWidget({
         try {
             if (onSubmit) {
                 await onSubmit(feedback);
+            } else if (FORMSPREE_FORM_ID) {
+                const response = await fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: 'application/json',
+                    },
+                    body: JSON.stringify(feedback),
+                });
+                if (!response.ok) {
+                    throw new Error(`Formspree returned ${response.status}`);
+                }
             } else {
-                // Default: log to console (replace with API endpoint)
-                console.log('[Feedback]', feedback);
-                // Simulate network delay
-                await new Promise(resolve => setTimeout(resolve, 500));
+                throw new Error('No submission handler configured');
             }
 
             setSubmitted(true);
@@ -99,9 +125,10 @@ export function FeedbackWidget({
                 setSelectedType(null);
                 setMessage('');
                 setEmail('');
+                setConfirmedAdult(false);
             }, 3000);
-        } catch (error) {
-            console.error('Failed to submit feedback:', error);
+        } catch (err) {
+            setError('Could not send — please try again, or email corrections@bodysignals.org directly.');
         } finally {
             setIsSubmitting(false);
         }
@@ -110,6 +137,7 @@ export function FeedbackWidget({
     const reset = () => {
         setSelectedType(null);
         setMessage('');
+        setError(null);
     };
 
     return (
@@ -117,6 +145,7 @@ export function FeedbackWidget({
             {/* Toggle Button */}
             {!isOpen && (
                 <button
+                    type="button"
                     onClick={() => setIsOpen(true)}
                     className={`${accent.button} text-slate-900 p-3 rounded-full shadow-lg transition-all hover:scale-105 group`}
                     aria-label="Open feedback"
@@ -138,7 +167,9 @@ export function FeedbackWidget({
                             <h3 className="font-semibold text-slate-50">Send Feedback</h3>
                         </div>
                         <button
+                            type="button"
                             onClick={() => setIsOpen(false)}
+                            aria-label="Close feedback"
                             className="text-slate-400 hover:text-slate-50 transition-colors p-1 rounded-lg hover:bg-slate-700"
                         >
                             <X className="w-5 h-5" />
@@ -147,7 +178,25 @@ export function FeedbackWidget({
 
                     {/* Content */}
                     <div className="p-4">
-                        {submitted ? (
+                        {isFallbackMode ? (
+                            /* Fallback state — no endpoint configured */
+                            <div className="text-center py-6">
+                                <div className="w-14 h-14 bg-amber-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <MessageSquare className="w-7 h-7 text-amber-400" />
+                                </div>
+                                <p className="text-slate-50 font-semibold text-lg mb-2">Feedback form launching soon</p>
+                                <p className="text-slate-400 text-sm mb-4">
+                                    In the meantime, please email us directly. We respond to medical-content corrections within 48 hours.
+                                </p>
+                                <a
+                                    href="mailto:corrections@bodysignals.org?subject=Body%20Signals%20feedback"
+                                    className={`inline-flex items-center justify-center gap-2 ${accent.button} text-slate-900 font-semibold px-5 py-2.5 rounded-xl transition-colors`}
+                                >
+                                    <Send className="w-4 h-4" />
+                                    corrections@bodysignals.org
+                                </a>
+                            </div>
+                        ) : submitted ? (
                             /* Thank You State */
                             <div className="text-center py-8">
                                 <div className="w-14 h-14 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -163,6 +212,7 @@ export function FeedbackWidget({
                                 {feedbackTypes.map(({ type, label, icon: Icon, description }) => (
                                     <button
                                         key={type}
+                                        type="button"
                                         onClick={() => setSelectedType(type)}
                                         className="w-full flex items-center gap-3 p-3 rounded-xl bg-slate-700/50 hover:bg-slate-700 transition-colors text-left group"
                                     >
@@ -189,12 +239,13 @@ export function FeedbackWidget({
                                 </button>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                                    <label htmlFor={messageId} className="block text-sm font-medium text-slate-300 mb-2">
                                         {selectedType === 'bug' ? 'Describe the issue' :
                                             selectedType === 'praise' ? 'What did you enjoy?' :
                                                 'Your feedback'}
                                     </label>
                                     <textarea
+                                        id={messageId}
                                         value={message}
                                         onChange={(e) => setMessage(e.target.value)}
                                         rows={4}
@@ -214,10 +265,14 @@ export function FeedbackWidget({
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                                    <p className="text-xs text-slate-500 mb-2">
+                                        You must be 18+ to submit feedback.
+                                    </p>
+                                    <label htmlFor={emailId} className="block text-sm font-medium text-slate-300 mb-2">
                                         Email <span className="text-slate-500">(optional)</span>
                                     </label>
                                     <input
+                                        id={emailId}
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
@@ -226,14 +281,37 @@ export function FeedbackWidget({
                                     />
                                 </div>
 
+                                <div className="flex items-start gap-2">
+                                    <input
+                                        id={adultId}
+                                        type="checkbox"
+                                        checked={confirmedAdult}
+                                        onChange={(e) => setConfirmedAdult(e.target.checked)}
+                                        required
+                                        className={`mt-1 w-4 h-4 rounded border-slate-600 bg-slate-700 text-amber-500 focus:ring-2 ${accent.focus}`}
+                                    />
+                                    <label htmlFor={adultId} className="text-xs text-slate-400 leading-relaxed">
+                                        I confirm I am 18 years of age or older.
+                                    </label>
+                                </div>
+
                                 {/* Page Info */}
                                 <div className="text-xs text-slate-500 truncate">
                                     📍 {pageUrl.replace(/^https?:\/\//, '').slice(0, 40)}...
                                 </div>
 
+                                {/* Error state */}
+                                {error && (
+                                    <div className="flex items-start gap-2 bg-red-950/30 border border-red-900/50 rounded-xl p-3">
+                                        <AlertTriangle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                                        <p className="text-xs text-red-200 leading-relaxed">{error}</p>
+                                    </div>
+                                )}
+
                                 <button
                                     type="submit"
-                                    disabled={!message.trim() || isSubmitting}
+                                    disabled={!message.trim() || !confirmedAdult || isSubmitting}
+                                    title="By submitting, you confirm you are 18 or older."
                                     className={`w-full ${accent.button} disabled:bg-slate-600 disabled:cursor-not-allowed text-slate-900 font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2`}
                                 >
                                     {isSubmitting ? (
