@@ -118,6 +118,8 @@ Body Signals is built for a Canadian and US audience, treated as co-equal. Conte
 
 ## Tone Guidelines
 
+> **See also:** [`docs/BRAND_VOICE.md`](BRAND_VOICE.md) for the full voice register table (clinical vs. tactical split), canonical NA terminology, and do/don't examples.
+
 ### Do
 - Be direct and clear
 - Acknowledge uncertainty
