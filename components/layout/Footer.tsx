@@ -62,6 +62,14 @@ export function Footer() {
                   Methodology
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-slate-400 hover:text-amber-500 text-sm transition-colors"
+                >
+                  Contact / Corrections
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
