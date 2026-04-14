@@ -45,7 +45,7 @@ import type { MovementProgram } from '@/types';
 const LAST_UPDATED = '2026-04-10';
 
 export const MOVEMENT_DISCLAIMER =
-  'This is educational information, not medical advice. Stop immediately if pain increases, radiates, or persists beyond the session. Seek a physiotherapist for acute injuries, swelling, numbness, tingling, or symptoms that worsen over 1–2 weeks of consistent protocol. Movement-based rehab should gradually reduce pain, not cause it. In an emergency, call 911.';
+  'This is a research summary, not medical advice. Body Signals is an independent research digest — it summarises published research for informational purposes and is not a healthcare provider. Stop immediately if pain increases, radiates, or persists beyond the session. Seek a physiotherapist for acute injuries, swelling, numbness, tingling, or symptoms that worsen over 1–2 weeks of consistent protocol. Movement-based rehab should gradually reduce pain, not cause it. In an emergency, call 911.';
 
 export const MOVEMENT_PHYSIO_CALLOUT =
   'See a physiotherapist if you experience: pain that radiates down a limb, numbness or tingling, swelling that does not resolve within 72 hours of rest, or symptoms that worsen over 1–2 weeks of consistent protocol.';

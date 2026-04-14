@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "check:crisis": "grep -q '988' lib/data/conditions.ts lib/data/adhd.ts && grep -q '741741' lib/data/conditions.ts lib/data/adhd.ts && grep -q '686868' lib/data/conditions.ts lib/data/adhd.ts"
+    "check:crisis": "grep -q '988' lib/data/conditions.ts lib/data/adhd.ts && grep -q '741741' lib/data/conditions.ts lib/data/adhd.ts && grep -q '686868' lib/data/conditions.ts lib/data/adhd.ts",
+    "check:phrases": "bash scripts/check-forbidden-phrases.sh"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.0",

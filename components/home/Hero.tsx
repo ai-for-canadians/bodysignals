@@ -9,7 +9,7 @@ export function Hero() {
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-amber-400 text-sm mb-6">
                         <ShieldCheck className="w-4 h-4" />
-                        <span>Evidence-based. Doctor-reviewed guidelines.</span>
+                        <span>Independent research digest · Not medical advice</span>
                     </div>
 
                     <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight text-slate-50">
@@ -18,7 +18,7 @@ export function Hero() {
                     </h1>
 
                     <p className="text-xl text-slate-400 mb-8">
-                        Symptoms, conditions, and what actually works. Evidence-based, built for Canadian and US readers, with transparent methodology.
+                        Peer-reviewed research on symptoms, conditions, and interventions — summarised in plain language for Canadian and US readers.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -40,8 +40,10 @@ export function Hero() {
                     <div className="flex items-center justify-center gap-8 text-sm text-slate-500">
                         <div className="flex items-center gap-2">
                             <Activity className="w-4 h-4 text-amber-500" />
-                            <span>Medical Guidelines</span>
+                            <span>A–F Evidence Ratings</span>
                         </div>
+                        <div>•</div>
+                        <div>Transparent Sourcing</div>
                         <div>•</div>
                         <div>No Affiliate Bias</div>
                     </div>

@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Search, Sparkles, X } from 'lucide-react';
 import type { ADHDSystem } from '@/types';
 import { ADHDSystemCard } from './ADHDSystemCard';
+import { EvidenceScaleLegend } from '@/components/shared/EvidenceScaleLegend';
 import {
   ADHD_CATEGORY_DISPLAY_ORDER,
   ADHD_CATEGORY_LABELS,
@@ -85,6 +86,11 @@ export function ADHDLibrary({ systems }: ADHDLibraryProps) {
 
   return (
     <div>
+      {/* Evidence scale legend */}
+      <div className="mb-6 max-w-xl">
+        <EvidenceScaleLegend />
+      </div>
+
       {/* Search input */}
       <div className="relative mb-6 max-w-xl">
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500 pointer-events-none" />

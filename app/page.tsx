@@ -276,17 +276,23 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-2xl p-8 md:p-12">
           <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-6" />
           <h2 className="text-2xl font-bold mb-4 text-slate-50">
-            This is for information only
+            Research digest — not medical advice
           </h2>
           <p className="text-slate-400 mb-8 max-w-2xl mx-auto">
-            BodySignals provides evidence-based information to help you understand your symptoms, but it does not replace professional medical advice. If you think you are having a medical emergency, call emergency services immediately.
+            Body Signals summarises published, peer-reviewed research for informational purposes. It is not a healthcare provider and does not replace professional medical advice, diagnosis, or treatment. If you think you are having a medical emergency, call emergency services immediately.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/about"
+              href="/methodology"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-slate-50 font-semibold rounded-lg transition-colors"
             >
-              Read our Methodology
+              Our Methodology
+            </Link>
+            <Link
+              href="/disclaimer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-50 font-semibold rounded-lg border border-slate-700 transition-colors"
+            >
+              Full Disclaimer
             </Link>
           </div>
         </div>

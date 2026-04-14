@@ -2,8 +2,12 @@ import { notFound } from 'next/navigation';
 import { symptoms } from '@/lib/data/symptoms';
 import { bodyAreas } from '@/lib/data/categories';
 import { STANDARD_DISCLAIMER } from '@/lib/data/conditions';
+import { SourceList } from '@/components/shared/SourceList';
+import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
 import { AlertTriangle, Clock, Stethoscope, Home, Activity, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
+import { ReferralCTA } from '@/components/referrals/ReferralCTA';
+import { getPlacementForSlug } from '@/lib/data/referral-placements';
 
 export function generateStaticParams() {
     return symptoms.map((symptom) => ({
@@ -22,6 +26,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
 
     return (
         <div className="min-h-screen pb-20">
+            <ResearchDigestBanner />
             {/* Header */}
             <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
                 <div className="max-w-4xl mx-auto">
@@ -147,6 +152,9 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                             </section>
                         )}
 
+                        {/* Sources */}
+                        <SourceList sources={symptom.sources} />
+
                     </div>
 
                     {/* Sidebar */}
@@ -166,6 +174,12 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                                 ))}
                             </ul>
                         </div>
+
+                        {/* Referral CTA */}
+                        {(() => {
+                            const placement = getPlacementForSlug(params.slug, 'symptom');
+                            return placement ? <ReferralCTA {...placement} /> : null;
+                        })()}
 
                         <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
                             <h3 className="text-lg font-bold text-slate-50 mb-4">Quick Facts</h3>

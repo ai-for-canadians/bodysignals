@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Search, Stethoscope, X } from 'lucide-react';
 import type { Condition, ConditionCategory } from '@/types';
 import { ConditionCard } from './ConditionCard';
+import { EvidenceScaleLegend } from '@/components/shared/EvidenceScaleLegend';
 import { CATEGORY_DISPLAY_ORDER, CATEGORY_LABELS } from '@/lib/data/conditions';
 
 interface ConditionsLibraryProps {
@@ -94,6 +95,11 @@ export function ConditionsLibrary({ conditions }: ConditionsLibraryProps) {
           <p className="text-xl text-slate-400">
             Comprehensive guides for chronic, digestive, mental health, and other conditions — each with evidence-rated treatments, lifestyle factors, and Canadian and US provider context. Every intervention is graded on the A–F evidence scale.
           </p>
+        </div>
+
+        {/* Evidence scale legend */}
+        <div className="mb-6 max-w-xl">
+          <EvidenceScaleLegend />
         </div>
 
         {/* Search input */}

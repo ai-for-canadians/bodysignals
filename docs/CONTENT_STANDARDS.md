@@ -33,6 +33,42 @@ This intervention improved outcomes by 30% [1].
 
 ---
 
+## Research Publisher Positioning
+
+Body Signals is an **independent research digest and publisher**. This framing is legally load-bearing.
+
+### Identity statements (use these)
+- "Independent research digest"
+- "Research publisher"
+- "Evidence-based research summaries"
+- "Published research summarised in plain language"
+
+### Forbidden identity framing (never use in content or UI)
+- "Medical site" / "medical information site" / "health information site"
+- "Health education publisher" / "health education service"
+- "We recommend" (outside editorial guides — never in reader-facing content)
+- "Health advice" / "medical advice" (outside explicit disclaimers)
+- "Doctor-reviewed" / "physician-approved" (implies clinical authority)
+
+### Directive language replacement guide
+
+| Forbidden | Replacement |
+|---|---|
+| "You should [do X]" | "Research suggests [X] may help" / "some people find" |
+| "We recommend" | "The research suggests" / "peer-reviewed evidence points to" |
+| "Avoid [X]" (as a directive) | "Research has associated [X] with [negative outcome]" |
+| "Always [do X]" / "Never [do X]" | "Published guidance generally suggests" / "research has not supported" |
+| "Make sure to" / "Be sure to" | "It may be worth noting" / "research indicates" |
+| "Consider taking [X]" | "Studies have evaluated [X] for" |
+| "Increase your [X]" / "Reduce your [X]" | "Higher [X] intake has been associated with" / "Lower [X] has been studied for" |
+
+**Exception:** Tactical content (ADHD systems, movement protocols) may use second-person imperative for step-by-step instructions ("Place your keys in the launch pad"), but the framing around those instructions must make clear these are research-informed tactics, not medical prescriptions.
+
+### Disclaimer language standard
+All disclaimers must open with: "This is a research summary, not medical advice. Body Signals is an independent research digest..."
+
+---
+
 ## Forbidden Phrases
 
 Never use without specific citation:

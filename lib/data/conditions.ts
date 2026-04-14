@@ -36,10 +36,10 @@ import type { Condition, EvidenceRating } from '@/types';
 const LAST_UPDATED = '2026-04-10';
 
 export const STANDARD_DISCLAIMER =
-  'This is educational information, not medical advice. Consult a qualified healthcare provider before making changes to diet, exercise, supplements, or medication — especially if you have existing conditions or take prescription drugs.';
+  'This is a research summary, not medical advice. Body Signals is an independent research digest — it summarises published research for informational purposes and is not a healthcare provider. Consult a qualified healthcare provider before making changes to diet, exercise, supplements, or medication — especially if you have existing conditions or take prescription drugs.';
 
 const MH_DISCLAIMER =
-  'This is educational information, not medical advice. Mental health care works best with a qualified provider. If you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support: text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada). Canadian LGBTQ+ youth can reach LGBT Youth Line 1-800-268-9688 or Trans Lifeline 1-877-330-6366; US LGBTQ+ youth can reach the Trevor Project 1-866-488-7386. In an emergency, call 911. Evidence ratings for mental health interventions default to B (standard clinical treatments with established research); individual response varies.';
+  'This is a research summary, not medical advice. Body Signals is an independent research digest — it summarises published research for informational purposes and is not a healthcare provider. Mental health care works best with a qualified provider. If you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support: text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada). Canadian LGBTQ+ youth can reach LGBT Youth Line 1-800-268-9688 or Trans Lifeline 1-877-330-6366; US LGBTQ+ youth can reach the Trevor Project 1-866-488-7386. In an emergency, call 911. Evidence ratings for mental health interventions default to B (standard clinical treatments with established research); individual response varies.';
 
 // Canadian category display labels (used by UI layers)
 export const CATEGORY_LABELS: Record<
@@ -127,7 +127,15 @@ export const conditions: Condition[] = [
         mechanism: 'Lowers blood glucose directly; reduces hepatic fat.',
         protocol: ['<50g net carbs/day for remission; <100g for management.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Efficacy and safety of low and very low carbohydrate diets for type 2 diabetes remission: systematic review and meta-analysis of published and unpublished randomized trial data',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/33441384/',
+            type: 'review',
+            year: 2021,
+            authors: 'Goldenberg JZ, Day A, Brinkworth GD, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -139,7 +147,15 @@ export const conditions: Condition[] = [
         mechanism: 'Allows prolonged periods of low insulin, enabling fat oxidation.',
         protocol: ['16:8 schedule (fast 16h, eat 8h).'],
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Time-Restricted Eating Improves Glycemic Control in Patients with Type 2 Diabetes: A Meta-Analysis and Systematic Review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/40806442/',
+            type: 'review',
+            year: 2025,
+            authors: 'Nam T, Oh H, Kim A, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -151,7 +167,15 @@ export const conditions: Condition[] = [
         mechanism: 'Muscle tissue acts as a "glucose sink" independent of insulin.',
         protocol: ['Full body resistance training 2-3x/week.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'The Impact of Resistance Exercise Training on Glycemic Control Among Adults with Type 2 Diabetes: A Systematic Review and Meta-Analysis of Randomized Controlled Trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/38623887/',
+            type: 'review',
+            year: 2024,
+            authors: 'Wan Y, Su Z',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -163,9 +187,31 @@ export const conditions: Condition[] = [
     },
     evidenceRating: 'A', // median([A, C, A]) = A
     disclaimer:
-      'Consult your doctor before changing diet if you are on medication (insulin or metformin), as hypoglycaemia can occur.',
+      STANDARD_DISCLAIMER + ' Dietary changes while on medication (insulin or metformin) may affect blood sugar levels — a healthcare provider can advise on adjustments.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Standards of Care in Diabetes — 2024',
+        url: 'https://diabetesjournals.org/care/issue/47/Supplement_1',
+        type: 'medical_guideline',
+        year: 2024,
+        authors: 'American Diabetes Association',
+      },
+      {
+        title: 'Diabetes Canada 2018 Clinical Practice Guidelines for the Prevention and Management of Diabetes in Canada',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29650080/',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'Diabetes Canada Clinical Practice Guidelines Expert Committee',
+      },
+      {
+        title: 'Dietary Carbohydrate Restriction as the First Approach in Diabetes Management: Critical Review and Evidence Base',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/25287761/',
+        type: 'review',
+        year: 2015,
+        authors: 'Feinman RD et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue', 'frequent-urination', 'vision-changes'],
   },
   {
@@ -189,7 +235,15 @@ export const conditions: Condition[] = [
         mechanism: 'Reduces insulin spikes, which drive androgen production in the ovaries.',
         protocol: ['Prioritize whole foods, fibre, and protein. Avoid refined carbs and sugars.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Ranking the dietary interventions by their effectiveness in the management of polycystic ovary syndrome: a systematic review and network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/38388374/',
+            type: 'review',
+            year: 2024,
+            authors: 'Juhász AE, Stubnya MP, Teutsch B, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -201,7 +255,15 @@ export const conditions: Condition[] = [
         mechanism: 'Acts as insulin sensitizer; restores ovulation in many cases.',
         protocol: ['40:1 ratio (myo:d-chiro), typically 4g myo-inositol daily.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Inositol for Polycystic Ovary Syndrome: A Systematic Review and Meta-analysis to Inform the 2023 Update of the International Evidence-based PCOS Guidelines',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/38163998/',
+            type: 'review',
+            year: 2024,
+            authors: 'Fitz V, Graca S, Mahalingaiah S, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -213,7 +275,15 @@ export const conditions: Condition[] = [
         mechanism: 'Muscle mass increases insulin sensitivity independent of weight loss.',
         protocol: ['2-3 sessions per week of compound movements.'],
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Exercise Interventions in Polycystic Ovary Syndrome: A Systematic Review and Meta-Analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/32733258/',
+            type: 'review',
+            year: 2020,
+            authors: 'Patten RK, Boyle RA, Moholdt T, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -226,7 +296,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'A', // median([A, A, C]) = A
     disclaimer: 'Work with an endocrinologist or reproductive specialist for fertility concerns.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'International Evidence-Based Guideline for the Assessment and Management of Polycystic Ovary Syndrome 2023',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37164405/',
+        type: 'medical_guideline',
+        year: 2023,
+        authors: 'Teede HJ et al.',
+      },
+      {
+        title: 'Effects of Inositol(s) in Women with PCOS: A Systematic Review of Randomized Controlled Trials',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28012781/',
+        type: 'review',
+        year: 2017,
+        authors: 'Unfer V et al.',
+      },
+      {
+        title: 'NICE Guideline NG217: Fertility Problems — Assessment and Treatment',
+        url: 'https://www.nice.org.uk/guidance/ng217',
+        type: 'medical_guideline',
+        year: 2023,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+    ],
   },
 
   // --------------------------------------------------------------------------
@@ -253,7 +345,15 @@ export const conditions: Condition[] = [
         mechanism: 'Potassium relaxes blood vessel walls and helps excrete sodium.',
         protocol: ['4700mg/day target via avocados, leafy greens, and potatoes.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Effect of increased potassium intake on cardiovascular risk factors and disease: systematic review and meta-analyses',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/23558164/',
+            type: 'review',
+            year: 2013,
+            authors: 'Aburto NJ, Hanson S, Gutierrez H, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -265,7 +365,15 @@ export const conditions: Condition[] = [
         mechanism: 'Increases vagal tone, shifting the nervous system to a parasympathetic state.',
         protocol: ['5-10 mins daily; 5 seconds in, 5 seconds out.'],
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Effect of breathing exercises on blood pressure and heart rate: A systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/38179185/',
+            type: 'review',
+            year: 2023,
+            authors: 'Garg P, Mendiratta A, Banga A, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -278,7 +386,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'C', // median([A, C]) = C (index 1 of sorted [A, C])
     disclaimer: 'Monitor BP at home. Do not stop beta-blockers abruptly.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: '2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29133356/',
+        type: 'medical_guideline',
+        year: 2017,
+        authors: 'Whelton PK et al.',
+      },
+      {
+        title: 'Hypertension Canada 2020 Comprehensive Guidelines for the Prevention, Diagnosis, Risk Assessment, and Treatment of Hypertension',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32249063/',
+        type: 'medical_guideline',
+        year: 2020,
+        authors: 'Rabi DM et al.',
+      },
+      {
+        title: 'Effect of Increased Potassium Intake on Cardiovascular Risk Factors and Disease: Systematic Review and Meta-Analyses',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23558164/',
+        type: 'review',
+        year: 2013,
+        authors: 'Aburto NJ et al.',
+      },
+    ],
     relatedSymptomSlugs: ['headache', 'vision-changes'],
   },
   {
@@ -302,7 +432,15 @@ export const conditions: Condition[] = [
         mechanism: 'Soluble fibre binds to cholesterol in the gut, preventing absorption.',
         protocol: ['10-25g soluble fibre daily. Oatmeal, beans, flaxseed, apples.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'The effect of oat β-glucan on LDL-cholesterol, non-HDL-cholesterol and apoB for CVD risk reduction: a systematic review and meta-analysis of randomised-controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/27724985/',
+            type: 'review',
+            year: 2016,
+            authors: 'Ho HV, Sievenpiper JL, Zurbau A, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -314,7 +452,15 @@ export const conditions: Condition[] = [
         mechanism: 'Compete with cholesterol in the intestine, reducing absorption.',
         protocol: ['2g daily via fortified foods or supplements.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'LDL-cholesterol-lowering effect of plant sterols and stanols across different dose ranges: a meta-analysis of randomised controlled studies',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/24780090/',
+            type: 'review',
+            year: 2014,
+            authors: 'Ras RT, Geleijnse JM, Trautwein EA',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -326,7 +472,15 @@ export const conditions: Condition[] = [
         mechanism: 'Raises HDL, lowers triglycerides, improves LDL particle size.',
         protocol: ['150 mins/week moderate intensity (brisk walking, cycling).'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'The Effect of Exercise Training on Blood Lipids: A Systematic Review and Meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/39331324/',
+            type: 'review',
+            year: 2025,
+            authors: 'Smart NA, Downes D, van der Touw T, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -340,7 +494,29 @@ export const conditions: Condition[] = [
     disclaimer:
       "Family history matters greatly. Discuss statin therapy with your doctor if lifestyle isn't enough.",
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: '2018 AHA/ACC/AACVPR/AAPA/ABC/ACPM/ADA/AGS/APhA/ASPC/NLA/PCNA Guideline on the Management of Blood Cholesterol',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30586774/',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'Grundy SM et al.',
+      },
+      {
+        title: 'NICE Guideline CG181: Cardiovascular Disease — Risk Assessment and Reduction, Including Lipid Modification',
+        url: 'https://www.nice.org.uk/guidance/cg181',
+        type: 'medical_guideline',
+        year: 2014,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'Cholesterol-Lowering Effects of Plant Sterols and Stanols in Foods: A Systematic Review and Meta-Analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/24780090/',
+        type: 'review',
+        year: 2014,
+        authors: 'Ras RT et al.',
+      },
+    ],
   },
 
   // --------------------------------------------------------------------------
@@ -367,7 +543,15 @@ export const conditions: Condition[] = [
         mechanism: 'Stabilizes neuronal excitability and vascular tone.',
         protocol: ['400-600mg daily (check with doctor).'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Effects of selected dietary supplements on migraine prophylaxis: A systematic review and dose-response meta-analysis of randomized controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/39404918/',
+            type: 'review',
+            year: 2025,
+            authors: 'Talandashti MK, Shahinfar H, Delgarm P, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -379,7 +563,15 @@ export const conditions: Condition[] = [
         mechanism: 'Reduces inflammatory and excitatory load.',
         protocol: ['Keep a headache diary to spot patterns.'],
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'The Role of Diet and Nutrition in Migraine Triggers and Treatment: A Systematic Literature Review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/32449944/',
+            type: 'review',
+            year: 2020,
+            authors: 'Hindiyeh NA, Zhang N, Farrar M, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -392,7 +584,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'C', // median([A, C]) = C
     disclaimer: 'Sudden "thunderclap" headaches require emergency care.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Canadian Headache Society Guideline for Migraine Prophylaxis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22547960/',
+        type: 'medical_guideline',
+        year: 2012,
+        authors: 'Pringsheim T et al.',
+      },
+      {
+        title: 'NICE Guideline CG150: Headaches in Over 12s — Diagnosis and Management',
+        url: 'https://www.nice.org.uk/guidance/cg150',
+        type: 'medical_guideline',
+        year: 2012,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'Magnesium in Migraine Prophylaxis — Is There an Evidence-Based Rationale? A Systematic Review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28132964/',
+        type: 'review',
+        year: 2017,
+        authors: 'Chiu HY et al.',
+      },
+    ],
     relatedSymptomSlugs: ['headache'],
   },
   {
@@ -416,7 +630,15 @@ export const conditions: Condition[] = [
         mechanism: 'Poor sleep perpetuates pain sensitization; deep sleep is restorative.',
         protocol: ['Strict sleep schedule, dark and cool room, no screens 1hr before bed.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Cognitive behavioral therapy for insomnia (CBT-i) in patients with fibromyalgia: a systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/34297651/',
+            type: 'review',
+            year: 2022,
+            authors: 'Climent-Sanz C, Valenzuela-Pascual F, Martínez-Navarro O, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -428,7 +650,15 @@ export const conditions: Condition[] = [
         mechanism: 'Movement reduces pain sensitivity over time, but too much causes flares.',
         protocol: ['Start with 5-10 min walking, increase by 10% weekly only if tolerated.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Effectiveness of Therapeutic Exercise in Fibromyalgia Syndrome: A Systematic Review and Meta-Analysis of Randomized Clinical Trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29291206/',
+            type: 'review',
+            year: 2017,
+            authors: 'Sosa-Reina MD, Nunez-Nagy S, Gallego-Izquierdo T, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -441,7 +671,15 @@ export const conditions: Condition[] = [
           'Reduces central sensitization and catastrophizing; rewires pain pathways.',
         protocol: ['Daily 10-20 min meditation; structured CBT programme with a therapist.'],
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Mindfulness- and acceptance-based interventions for patients with fibromyalgia - A systematic review and meta-analyses',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/31479478/',
+            type: 'review',
+            year: 2019,
+            authors: 'Haugmark T, Hagen KB, Smedslund G, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -455,7 +693,29 @@ export const conditions: Condition[] = [
     disclaimer:
       'Fibromyalgia is a real medical condition, not "in your head." Seek a rheumatologist.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'EULAR Revised Recommendations for the Management of Fibromyalgia',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27377815/',
+        type: 'medical_guideline',
+        year: 2017,
+        authors: 'Macfarlane GJ et al.',
+      },
+      {
+        title: 'Canadian Guidelines for the Diagnosis and Management of Fibromyalgia Syndrome',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23070991/',
+        type: 'medical_guideline',
+        year: 2012,
+        authors: 'Fitzcharles MA et al.',
+      },
+      {
+        title: 'Efficacy of Exercise in Fibromyalgia: A Cochrane Systematic Review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/28125080/',
+        type: 'review',
+        year: 2017,
+        authors: 'Bidonde J et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue', 'joint-pain', 'muscle-cramps'],
   },
 
@@ -485,7 +745,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Elimination diet reducing fermentable carbohydrates.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Efficacy of a low FODMAP diet in irritable bowel syndrome: systematic review and network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/34376515/',
+            type: 'review',
+            year: 2022,
+            authors: 'Black CJ, Staudacher HM, Ford AC',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -495,7 +763,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Enteric-coated antispasmodic supplement.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Systematic review and meta-analysis: efficacy of peppermint oil in irritable bowel syndrome',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/35942669/',
+            type: 'review',
+            year: 2022,
+            authors: 'Ingrosso MR, Ianiro G, Nee J, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -505,7 +781,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Psyllium husk for IBS-C.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'The effect of fiber supplementation on irritable bowel syndrome: a systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/25070054/',
+            type: 'review',
+            year: 2014,
+            authors: 'Moayyedi P, Quigley EM, Lacy BE, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -515,7 +799,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Non-absorbable antibiotic for IBS-D.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Rifaximin therapy for patients with irritable bowel syndrome without constipation',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/21208106/',
+            type: 'study',
+            year: 2011,
+            authors: 'Pimentel M, Lembo A, Chey WD, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -525,7 +817,29 @@ export const conditions: Condition[] = [
     disclaimer:
       'IBS is a diagnosis of exclusion. Rule out coeliac disease and inflammatory bowel disease with your doctor before starting restrictive diets.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Management of Irritable Bowel Syndrome',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33315591/',
+        type: 'medical_guideline',
+        year: 2021,
+        authors: 'Lacy BE et al.',
+      },
+      {
+        title: 'NICE Guideline CG61: Irritable Bowel Syndrome in Adults',
+        url: 'https://www.nice.org.uk/guidance/cg61',
+        type: 'medical_guideline',
+        year: 2008,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'Diets That Differ in FODMAP Content Alter Colonic Luminal Microenvironment and Symptoms in IBS',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/25070051/',
+        type: 'study',
+        year: 2015,
+        authors: 'Halmos EP et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'diarrhea', 'constipation'],
   },
   {
@@ -551,7 +865,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Non-absorbable antibiotic.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Systematic review with meta-analysis: rifaximin is effective and safe for the treatment of small intestine bacterial overgrowth',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/28078798/',
+            type: 'review',
+            year: 2017,
+            authors: 'Gatta L, Scarpignato C',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -561,7 +883,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Reduces bacterial fuel.',
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Nutritional Approach to Small Intestinal Bacterial Overgrowth: A Narrative Review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/40362719/',
+            type: 'review',
+            year: 2025,
+            authors: 'Velasco-Aburto S, Llama-Palacios A, Sánchez MC, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -571,7 +901,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Improves gut motility.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Small Intestinal Bacterial Overgrowth (SIBO) - Prevention and Therapeutic Role of Nutrition, Prebiotics, Probiotics, and Prokinetics',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/40296627/',
+            type: 'review',
+            year: 2025,
+            authors: 'Mustafa F, Noor R, Murtaza A, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -580,7 +918,15 @@ export const conditions: Condition[] = [
     evidenceRating: 'B', // median([A, C, B]) sorted [A,B,C] idx 1 = B
     disclaimer: STANDARD_DISCLAIMER + ' Underlying causes must be addressed to prevent relapse.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Small Intestinal Bacterial Overgrowth',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32023228/',
+        type: 'medical_guideline',
+        year: 2020,
+        authors: 'Pimentel M, Saad RJ, Long MD, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain'],
   },
   {
@@ -606,7 +952,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Proton Pump Inhibitors.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Comparing the efficacy of different proton pump inhibitor dosing regimens for the treatment of gastroesophageal reflux disease: a systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/39673371/',
+            type: 'review',
+            year: 2025,
+            authors: 'Nguyen T, Barnhill K, Zhornitskiy A, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -616,7 +970,15 @@ export const conditions: Condition[] = [
         category: 'lifestyle',
         description: 'Reduces abdominal pressure.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Weight loss can lead to resolution of gastroesophageal reflux disease symptoms: a prospective intervention trial',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/23532991/',
+            type: 'study',
+            year: 2013,
+            authors: 'Singh M, Lee J, Gupta N, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -626,7 +988,15 @@ export const conditions: Condition[] = [
         category: 'lifestyle',
         description: 'Sleeping on an incline.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Head of bed elevation to relieve gastroesophageal reflux symptoms: a systematic review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/33468060/',
+            type: 'review',
+            year: 2021,
+            authors: 'Albarqouni L, Moynihan R, Clark J, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -636,7 +1006,29 @@ export const conditions: Condition[] = [
     disclaimer:
       "Chronic GERD can lead to Barrett's oesophagus. See a GI specialist if symptoms persist.",
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline for the Diagnosis and Management of Gastroesophageal Reflux Disease',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34807007/',
+        type: 'medical_guideline',
+        year: 2022,
+        authors: 'Katz PO et al.',
+      },
+      {
+        title: 'NICE Guideline NG12: Suspected Cancer — Recognition and Referral (oesophageal section)',
+        url: 'https://www.nice.org.uk/guidance/ng12',
+        type: 'medical_guideline',
+        year: 2015,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'Management of Gastroesophageal Reflux Disease: Canadian Association of Gastroenterology Clinical Practice Guideline',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/15825745/',
+        type: 'medical_guideline',
+        year: 2005,
+        authors: 'Armstrong D et al.',
+      },
+    ],
     relatedSymptomSlugs: ['chest-pain'],
   },
   {
@@ -662,7 +1054,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Targeted immune therapies (e.g. infliximab).',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Tumor necrosis factor-alpha antibodies (infliximab, adalimumab and certolizumab) in Crohn\'s disease: systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/24273556/',
+            type: 'review',
+            year: 2013,
+            authors: 'Kawalec P, Mikrut A, Wisniewska N, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -672,7 +1072,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Reduce inflammation acutely.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Traditional corticosteroids for induction of remission in Crohn\'s disease',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/18425970/',
+            type: 'review',
+            year: 2008,
+            authors: 'Benchimol EI, Seow CH, Steinhart AH, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -682,7 +1090,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Liquid diet therapy.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Enteral nutritional therapy for induction of remission in Crohn\'s disease',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29607496/',
+            type: 'review',
+            year: 2018,
+            authors: 'Narula N, Dhillon A, Zhang D, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -692,7 +1108,29 @@ export const conditions: Condition[] = [
     disclaimer:
       'Complex autoimmune condition requiring lifelong management. Smoking cessation is critical. Work with a gastroenterologist.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Management of Crohn\'s Disease in Adults',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29610508/',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'Lichtenstein GR et al.',
+      },
+      {
+        title: 'NICE Guideline NG129: Crohn\'s Disease — Management',
+        url: 'https://www.nice.org.uk/guidance/ng129',
+        type: 'medical_guideline',
+        year: 2019,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'ECCO Guidelines on Therapeutics in Crohn\'s Disease: Medical Treatment',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31711158/',
+        type: 'medical_guideline',
+        year: 2020,
+        authors: 'Torres J et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'diarrhea', 'fatigue'],
   },
   {
@@ -718,7 +1156,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Anti-inflammatory drugs (mesalamine).',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Efficacy of Oral, Topical, or Combined Oral and Topical 5-Aminosalicylates, in Ulcerative Colitis: Systematic Review and Network Meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/33433562/',
+            type: 'review',
+            year: 2021,
+            authors: 'Barberio B, Segal JP, Quraishi MN, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -728,7 +1174,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Targeted immune therapies.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Systematic Review with Network Meta-Analysis: Comparative Efficacy of Biologics in the Treatment of Moderately to Severely Active Ulcerative Colitis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/27776175/',
+            type: 'review',
+            year: 2016,
+            authors: 'Vickers AD, Ainsworth C, Mody R, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -738,7 +1192,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Adjunctive anti-inflammatory therapy.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Safety and efficacy of curcumin in the treatment of ulcerative colitis: An updated systematic review and meta-analysis of randomized controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/39612780/',
+            type: 'review',
+            year: 2025,
+            authors: 'Peng Z, Li D, Wu N, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -748,7 +1210,29 @@ export const conditions: Condition[] = [
     disclaimer:
       "Similar to Crohn's but limited to the colon. Lifelong management with a gastroenterologist.",
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Ulcerative Colitis in Adults',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30840605/',
+        type: 'medical_guideline',
+        year: 2019,
+        authors: 'Rubin DT et al.',
+      },
+      {
+        title: 'NICE Guideline NG130: Ulcerative Colitis — Management',
+        url: 'https://www.nice.org.uk/guidance/ng130',
+        type: 'medical_guideline',
+        year: 2019,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'ECCO Guidelines on Therapeutics in Ulcerative Colitis: Medical Treatment',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35226428/',
+        type: 'medical_guideline',
+        year: 2022,
+        authors: 'Raine T et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'diarrhea'],
   },
   {
@@ -774,7 +1258,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Supplement taken with dairy.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Update on lactose malabsorption and intolerance: pathogenesis, diagnosis and clinical management',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/31427404/',
+            type: 'review',
+            year: 2019,
+            authors: 'Misselwitz B, Butter M, Verbeke K, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -784,7 +1276,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Removing lactose from diet.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Systematic review: effective management strategies for lactose intolerance',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/20404262/',
+            type: 'review',
+            year: 2010,
+            authors: 'Shaukat A, Levitt MD, Taylor BC, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -794,7 +1294,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Pre-treated dairy products.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Systematic review: effective management strategies for lactose intolerance',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/20404262/',
+            type: 'review',
+            year: 2010,
+            authors: 'Shaukat A, Levitt MD, Taylor BC, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -803,7 +1311,22 @@ export const conditions: Condition[] = [
     evidenceRating: 'A', // median([A, A, A]) = A
     disclaimer: STANDARD_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'NIH Consensus Development Conference Statement: Lactose Intolerance and Health',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/20186234/',
+        type: 'medical_guideline',
+        year: 2010,
+        authors: 'National Institutes of Health',
+      },
+      {
+        title: 'Systematic Review: Effective Management Strategies for Lactose Intolerance',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/20404262/',
+        type: 'review',
+        year: 2010,
+        authors: 'Shaukat A et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'diarrhea'],
   },
   {
@@ -829,7 +1352,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Strict lifelong avoidance of wheat, barley, and rye.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Younger age at diagnosis predisposes to mucosal recovery in celiac disease on a gluten-free diet: A meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29095937/',
+            type: 'review',
+            year: 2017,
+            authors: 'Szakacs Z, Matrai P, Hegyi P, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -839,7 +1370,29 @@ export const conditions: Condition[] = [
     disclaimer:
       STANDARD_DISCLAIMER + ' Diagnosis must be confirmed BEFORE starting a gluten-free diet, otherwise testing becomes unreliable.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Diagnosis and Management of Celiac Disease',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23609613/',
+        type: 'medical_guideline',
+        year: 2013,
+        authors: 'Rubio-Tapia A et al.',
+      },
+      {
+        title: 'NICE Guideline NG20: Coeliac Disease — Recognition, Assessment and Management',
+        url: 'https://www.nice.org.uk/guidance/ng20',
+        type: 'medical_guideline',
+        year: 2015,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'European Society Paediatric Gastroenterology, Hepatology and Nutrition Guidelines for Diagnosing Coeliac Disease 2020',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31568141/',
+        type: 'medical_guideline',
+        year: 2020,
+        authors: 'Husby S et al.',
+      },
+    ],
     relatedSymptomSlugs: ['diarrhea', 'fatigue', 'abdominal-pain'],
   },
   {
@@ -865,7 +1418,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Avoidance of gluten.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Suspected Nonceliac Gluten Sensitivity Confirmed in Few Patients After Gluten Challenge in Double-Blind, Placebo-Controlled Trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/27523634/',
+            type: 'review',
+            year: 2017,
+            authors: 'Molina-Infante J, Carroccio A',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -875,7 +1436,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Many respond to fructan reduction.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Fructan, Rather Than Gluten, Induces Symptoms in Patients With Self-Reported Non-Celiac Gluten Sensitivity',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29102613/',
+            type: 'study',
+            year: 2018,
+            authors: 'Skodje GI, Sarna VK, Minelle IH, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -885,7 +1454,15 @@ export const conditions: Condition[] = [
     disclaimer:
       STANDARD_DISCLAIMER + ' Rule out coeliac disease before starting a gluten-free diet.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Systematic review: noncoeliac gluten sensitivity',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/25753138/',
+        type: 'review',
+        year: 2015,
+        authors: 'Molina-Infante J, Santolaria S, Sanders DS, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue', 'abdominal-pain'],
   },
   {
@@ -911,7 +1488,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Avoiding aged and fermented foods.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Histamine Intolerance: The Current State of the Art',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/32824107/',
+            type: 'review',
+            year: 2020,
+            authors: 'Comas-Basté O, Sánchez-Pérez S, Veciana-Nogués MT, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -921,7 +1506,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Supplement to aid histamine breakdown.',
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Diamine oxidase deficiency implications for health, current management, and future directions in the treatment of histamine intolerance: A review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/40865824/',
+            type: 'review',
+            year: 2025,
+            authors: 'Alemany-Fornés M, Bori J, Muguerza B, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -930,7 +1523,15 @@ export const conditions: Condition[] = [
     evidenceRating: 'C', // median([B, C]) idx 1 = C
     disclaimer: STANDARD_DISCLAIMER + ' Clinical recognition is growing but high-quality trials are limited.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Histamine intolerance: the current state of the art',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32824107/',
+        type: 'review',
+        year: 2020,
+        authors: 'Comas-Baste O, Sanchez-Perez S, Veciana-Nogues MT, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['headache', 'diarrhea'],
   },
   {
@@ -955,7 +1556,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Specific strains proven for specific conditions.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Probiotics fortify intestinal barrier function: a systematic review and meta-analysis of randomized trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/37168869/',
+            type: 'review',
+            year: 2023,
+            authors: 'Zheng Y, Zhang Z, Tang P, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -965,7 +1574,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Fibres that feed beneficial bacteria.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'The effects of inulin on gut microbial composition: a systematic review of evidence from human studies',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/31707507/',
+            type: 'review',
+            year: 2020,
+            authors: 'Le Bastard Q, Chapelet G, Javaudin F, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -975,7 +1592,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Yoghurt, kefir, kimchi, sauerkraut.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Gut-microbiota-targeted diets modulate human immune status',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/34256014/',
+            type: 'study',
+            year: 2021,
+            authors: 'Wastyk HC, Fragiadakis GK, Perelman D, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -984,7 +1609,15 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: STANDARD_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Gut microbiome health and dysbiosis: a clinical primer',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/36168753/',
+        type: 'review',
+        year: 2022,
+        authors: 'Bidell MR, Hobbs ALV, Lodise TP',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain'],
   },
   {
@@ -1009,7 +1642,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Fuel for enterocytes.',
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'A systematic review and meta-analysis of clinical trials on the effects of glutamine supplementation on gut permeability in adults',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/39397201/',
+            type: 'review',
+            year: 2024,
+            authors: 'Abbasi F, Haghighat Lari MM, Khosravi GR, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1019,7 +1660,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Supports mucosal integrity.',
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'The role of Zinc L-Carnosine in the prevention and treatment of gastrointestinal mucosal disease in humans: a review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/35659631/',
+            type: 'review',
+            year: 2022,
+            authors: 'Efthymakis K, Neri M',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -1030,7 +1679,15 @@ export const conditions: Condition[] = [
       STANDARD_DISCLAIMER +
       ' "Leaky Gut Syndrome" as a standalone cause of all illness is not medically accepted, though increased intestinal permeability is recognized in coeliac and Crohn\'s.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Leaky gut and autoimmune diseases',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22109896/',
+        type: 'review',
+        year: 2012,
+        authors: 'Fasano A',
+      },
+    ],
     relatedSymptomSlugs: ['joint-pain', 'fatigue'],
   },
   {
@@ -1053,7 +1710,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Triple therapy antibiotics if H. pylori is present.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Empiric quadruple vs. triple therapy for primary treatment of Helicobacter pylori infection: Systematic review and meta-analysis of efficacy and tolerability',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/19755966/',
+            type: 'review',
+            year: 2010,
+            authors: 'Luther J, Higgins PD, Schoenfeld PS, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1063,7 +1728,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Allow the stomach lining to heal.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Comparing the Safety and Efficacy of Proton Pump Inhibitors and Histamine-2 Receptor Antagonists in the Management of Patients With Peptic Ulcer Disease: A Systematic Review',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/37779765/',
+            type: 'review',
+            year: 2023,
+            authors: 'Begg M, Tarhuni M, Fotso MN, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -1074,7 +1747,15 @@ export const conditions: Condition[] = [
       STANDARD_DISCLAIMER +
       ' H. pylori is a major cause and treating it prevents ulcers and stomach cancer.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'ACG Clinical Guideline: Treatment of Helicobacter pylori Infection',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/39626064/',
+        type: 'medical_guideline',
+        year: 2024,
+        authors: 'Chey WD, Howden CW, Moss SF, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'nausea'],
   },
   {
@@ -1098,7 +1779,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'For acute infection.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Antibiotics for uncomplicated diverticulitis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/35731704/',
+            type: 'review',
+            year: 2022,
+            authors: 'Dichman ML, Rosenstock SJ, Shabanzadeh DM',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1108,7 +1797,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Bowel rest during acute phase.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Acute Diverticulitis Management',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29413216/',
+            type: 'review',
+            year: 2018,
+            authors: 'Ellison DL',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -1118,7 +1815,15 @@ export const conditions: Condition[] = [
     disclaimer:
       STANDARD_DISCLAIMER + ' Old advice to avoid nuts and seeds has been debunked.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'AGA Clinical Practice Update on Medical Management of Colonic Diverticulitis: Expert Review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33279517/',
+        type: 'medical_guideline',
+        year: 2021,
+        authors: 'Peery AF, Shaukat A, Strate LL',
+      },
+    ],
     relatedSymptomSlugs: ['abdominal-pain', 'fever'],
   },
   {
@@ -1141,7 +1846,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'Fluconazole or herbal antifungals.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Small intestinal fungal overgrowth',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/25786900/',
+            type: 'review',
+            year: 2015,
+            authors: 'Erdogan A, Rao SSC',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1151,7 +1864,15 @@ export const conditions: Condition[] = [
         category: 'diet',
         description: 'Starving the yeast.',
         evidenceRating: 'C',
-        sources: [],
+        sources: [
+          {
+            title: 'Review article: fungal alterations in inflammatory bowel diseases',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/31648369/',
+            type: 'review',
+            year: 2019,
+            authors: 'Lam S, Zuo T, Ho M, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -1162,7 +1883,15 @@ export const conditions: Condition[] = [
       STANDARD_DISCLAIMER +
       ' Systemic candidiasis is rare and serious. Gut candida as a cause of vague symptoms is controversial in conventional medicine.',
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Small Intestinal Bacterial and Fungal Overgrowth: Health Implications and Management Perspectives',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/40284229/',
+        type: 'review',
+        year: 2025,
+        authors: 'Soliman N, Kruithoff C, San Valentin EM, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue'],
   },
   {
@@ -1185,7 +1914,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Bulk-forming fibre.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'The Effect of Fiber Supplementation on Chronic Constipation in Adults: An Updated Systematic Review and Meta-Analysis of Randomized Controlled Trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/35816465/',
+            type: 'review',
+            year: 2022,
+            authors: 'van der Schoot A, Drysdale C, Whelan K, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1195,7 +1932,15 @@ export const conditions: Condition[] = [
         category: 'medication',
         description: 'PEG typically.',
         evidenceRating: 'A',
-        sources: [],
+        sources: [
+          {
+            title: 'Lactulose versus Polyethylene Glycol for Chronic Constipation',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/20614462/',
+            type: 'review',
+            year: 2010,
+            authors: 'Lee-Robichaud H, Thomas K, Morgan J, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
       {
@@ -1205,7 +1950,15 @@ export const conditions: Condition[] = [
         category: 'supplement',
         description: 'Osmotic effect.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Senna Versus Magnesium Oxide for the Treatment of Chronic Constipation: A Randomized, Placebo-Controlled Trial',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/32969946/',
+            type: 'study',
+            year: 2021,
+            authors: 'Morishita D, Tomita T, Mori S, et al.',
+          },
+        ],
         lastUpdated: '2025-01-26',
       },
     ],
@@ -1214,7 +1967,15 @@ export const conditions: Condition[] = [
     evidenceRating: 'A', // median([A, A, B]) idx 1 = A
     disclaimer: STANDARD_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'American Gastroenterological Association-American College of Gastroenterology Clinical Practice Guideline: Pharmacological Management of Chronic Idiopathic Constipation',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37204227/',
+        type: 'medical_guideline',
+        year: 2023,
+        authors: 'Chang L, Chey WD, Imdad A, et al.',
+      },
+    ],
     relatedSymptomSlugs: ['constipation'],
   },
 
@@ -1249,7 +2010,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Increases synaptic serotonin (and noradrenaline for SNRIs), gradually rebalancing mood-regulation circuits over 4-6 weeks.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Comparative efficacy and acceptability of 21 antidepressant drugs for the acute treatment of adults with major depressive disorder: a systematic review and network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29477251/',
+            type: 'review',
+            year: 2018,
+            authors: 'Cipriani A, Furukawa TA, Salanti G, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1261,7 +2030,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Identifies and restructures cognitive distortions that perpetuate low mood; pairs this with behavioural activation to rebuild engagement with rewarding activities.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Cognitive behavior therapy vs. control conditions, other psychotherapies, pharmacotherapies and combined treatment for depression: a comprehensive meta-analysis including 409 trials with 52,702 patients',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/36640411/',
+            type: 'review',
+            year: 2023,
+            authors: 'Cuijpers P, Miguel C, Harrer M, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1273,7 +2050,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Targets grief, role disputes, role transitions, and interpersonal deficits that trigger and maintain depressive episodes.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Interpersonal psychotherapy for mental health problems: a comprehensive meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/27032627/',
+            type: 'review',
+            year: 2016,
+            authors: 'Cuijpers P, Donker T, Weissman MM, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1286,7 +2071,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'APA Clinical Practice Guideline for the Treatment of Depression Across Three Age Cohorts',
+        url: 'https://www.apa.org/depression-guideline',
+        type: 'medical_guideline',
+        year: 2019,
+        authors: 'American Psychological Association',
+      },
+      {
+        title: 'NICE Guideline CG90: Depression in Adults — Recognition and Management',
+        url: 'https://www.nice.org.uk/guidance/cg90',
+        type: 'medical_guideline',
+        year: 2009,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'CANMAT 2016 Clinical Guidelines for the Management of Adults with Major Depressive Disorder',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27486148/',
+        type: 'medical_guideline',
+        year: 2016,
+        authors: 'Kennedy SH et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue'],
   },
   {
@@ -1315,7 +2122,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Teaches worry postponement, cognitive restructuring, and graduated exposure to uncertainty — breaking the cycle of chronic excessive worry.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Cognitive behavioral therapy for anxiety and related disorders: a meta-analysis of randomized placebo-controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/29451967/',
+            type: 'review',
+            year: 2018,
+            authors: 'Carpenter JK, Andrews LA, Witcraft SM, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1327,7 +2142,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Modulates serotonin signalling to dampen baseline anxiety arousal. Takes 4-6 weeks to reach therapeutic effect.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Pharmacological treatments for generalised anxiety disorder: a systematic review and network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/30712879/',
+            type: 'review',
+            year: 2019,
+            authors: 'Slee A, Nazareth I, Bondaronek P, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1339,7 +2162,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Teaches present-moment awareness and decentering from anxious thoughts, so worry loses its grip without needing to be argued with.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Mindfulness-based therapy: a comprehensive meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/23796855/',
+            type: 'review',
+            year: 2013,
+            authors: 'Khoury B, Lecomte T, Fortin G, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1352,7 +2183,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'NICE Guideline CG113: Generalised Anxiety Disorder and Panic Disorder in Adults',
+        url: 'https://www.nice.org.uk/guidance/cg113',
+        type: 'medical_guideline',
+        year: 2011,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'CANMAT 2014 Clinical Guidelines for the Management of Anxiety, Posttraumatic Stress and Obsessive-Compulsive Disorders',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/25007419/',
+        type: 'medical_guideline',
+        year: 2014,
+        authors: 'Katzman MA et al.',
+      },
+      {
+        title: 'Cognitive Behavioural Therapy for Anxiety Disorders: An Update on the Empirical Evidence',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31552067/',
+        type: 'review',
+        year: 2020,
+        authors: 'Carpenter JK et al.',
+      },
+    ],
     relatedSymptomSlugs: ['palpitations', 'dizziness'],
   },
   {
@@ -1381,7 +2234,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Increases dopamine and noradrenaline in the prefrontal cortex, improving attention, working memory, and impulse control typically within 30-60 minutes.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Comparative efficacy and tolerability of medications for attention-deficit hyperactivity disorder in children, adolescents, and adults: a systematic review and network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/30097390/',
+            type: 'review',
+            year: 2018,
+            authors: 'Cortese S, Adamo N, Del Giovane C, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1393,7 +2254,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Works more slowly via noradrenaline reuptake inhibition or alpha-2 adrenergic pathways. Preferred when stimulants are contraindicated or cause intolerable side effects.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Nonstimulant medications for attention-deficit/hyperactivity disorder (ADHD) in adults: systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/37166701/',
+            type: 'review',
+            year: 2023,
+            authors: 'Radonjic NV, Bellato A, Khoury NM, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1405,7 +2274,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Helps build practical scaffolding (planning, prioritization, follow-through) in real-life contexts — particularly effective alongside medication.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Efficacy of ADHD coaching for adults with ADHD',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/19276311/',
+            type: 'study',
+            year: 2010,
+            authors: 'Kubik JA',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1418,7 +2295,22 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'Attention deficit hyperactivity disorder: diagnosis and management',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29634174/',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'National Institute for Health and Care Excellence (NICE)',
+      },
+      {
+        title: 'Comparative efficacy and tolerability of medications for attention-deficit hyperactivity disorder in children, adolescents, and adults: a systematic review and network meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30097390/',
+        type: 'review',
+        year: 2018,
+        authors: 'Cortese S, Adamo N, Del Giovane C, et al.',
+      },
+    ],
   },
   {
     id: 'bipolar',
@@ -1444,7 +2336,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Lithium and anticonvulsants reduce the frequency and severity of both manic and depressive episodes. Lithium is also the only psychiatric medication with strong evidence for reducing suicide risk.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Lithium for prevention of mood episodes in bipolar disorders: systematic review and meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/25530932/',
+            type: 'review',
+            year: 2014,
+            authors: 'Severus E, Taylor MJ, Sauer C, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1456,7 +2356,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Treats acute mania and can prevent episode recurrence as maintenance therapy. Often combined with mood stabilizers.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Atypical antipsychotics in the treatment of mania: a meta-analysis of randomized, placebo-controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/16669715/',
+            type: 'review',
+            year: 2006,
+            authors: 'Perlis RH, Welge JA, Vornik LA, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1468,7 +2376,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Helps stabilize daily routines (sleep, meals, activity), recognize early warning signs of episodes, and improve medication adherence.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Adjunctive psychotherapy for bipolar disorder: a systematic review and component network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/33052390/',
+            type: 'review',
+            year: 2021,
+            authors: 'Miklowitz DJ, Efthimiou O, Furukawa TA, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1481,7 +2397,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'NICE Guideline CG185: Bipolar Disorder — Assessment and Management',
+        url: 'https://www.nice.org.uk/guidance/cg185',
+        type: 'medical_guideline',
+        year: 2014,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'CANMAT and ISBD 2018 Guidelines for the Management of Patients with Bipolar Disorder',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29536616/',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'Yatham LN et al.',
+      },
+      {
+        title: 'Lithium in the Prevention of Suicide in Mood Disorders: Updated Systematic Review and Meta-Analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23814104/',
+        type: 'review',
+        year: 2013,
+        authors: 'Cipriani A et al.',
+      },
+    ],
     relatedSymptomSlugs: ['fatigue'],
   },
   {
@@ -1509,7 +2447,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Uses bilateral eye movements (or taps/sounds) while recalling traumatic memories to reduce their emotional charge over 6-12 sessions.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Efficacy of EMDR in post-traumatic stress disorder: a systematic review and meta-analysis of randomized clinical trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/37882423/',
+            type: 'review',
+            year: 2023,
+            authors: 'Rasines-Laudes P, Serrano-Pintado I',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1521,7 +2467,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Gradually exposes the patient to trauma memories in a controlled way, pairing this with cognitive restructuring of related beliefs (safety, trust, self-worth).',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Psychological treatments for post-traumatic stress disorder in adults: a network meta-analysis',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/32063234/',
+            type: 'review',
+            year: 2020,
+            authors: 'Lewis C, Roberts NP, Andrew M, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1533,7 +2487,15 @@ export const conditions: Condition[] = [
         mechanism:
           'SSRIs are first-line and treat the core symptoms. Prazosin, an alpha-1 blocker, specifically targets trauma-related nightmares.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Pharmacotherapy for post traumatic stress disorder (PTSD)',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/35234292/',
+            type: 'review',
+            year: 2022,
+            authors: 'Williams T, Phillips NJ, Stein DJ, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1546,7 +2508,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'NICE Guideline NG116: Post-Traumatic Stress Disorder',
+        url: 'https://www.nice.org.uk/guidance/ng116',
+        type: 'medical_guideline',
+        year: 2018,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'APA Clinical Practice Guideline for the Treatment of PTSD',
+        url: 'https://www.apa.org/ptsd-guideline',
+        type: 'medical_guideline',
+        year: 2017,
+        authors: 'American Psychological Association',
+      },
+      {
+        title: 'Psychological and Pharmacological Treatments of PTSD: A Systematic Review and Network Meta-Analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33606933/',
+        type: 'review',
+        year: 2021,
+        authors: 'Coventry PA et al.',
+      },
+    ],
     relatedSymptomSlugs: ['palpitations'],
   },
   {
@@ -1574,7 +2558,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Deliberately exposes the patient to feared triggers while preventing the compulsive ritual, breaking the fear-relief reinforcement loop that perpetuates OCD.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Cognitive behavioural therapy with exposure and response prevention in the treatment of obsessive-compulsive disorder: a systematic review and meta-analysis of randomised controlled trials',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/33618297/',
+            type: 'review',
+            year: 2021,
+            authors: 'Reid JE, Laws KR, Drummond L, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
       {
@@ -1586,7 +2578,15 @@ export const conditions: Condition[] = [
         mechanism:
           'Reduces obsessive-compulsive symptoms over 8-12 weeks. OCD typically requires higher SSRI doses than depression — often 2-3x the standard dose.',
         evidenceRating: 'B',
-        sources: [],
+        sources: [
+          {
+            title: 'Meta-analysis of the dose-response relationship of SSRI in obsessive-compulsive disorder',
+            url: 'https://pubmed.ncbi.nlm.nih.gov/19468281/',
+            type: 'review',
+            year: 2010,
+            authors: 'Bloch MH, McGuire J, Landeros-Weisenberger A, et al.',
+          },
+        ],
         lastUpdated: LAST_UPDATED,
       },
     ],
@@ -1599,7 +2599,29 @@ export const conditions: Condition[] = [
     evidenceRating: 'B',
     disclaimer: MH_DISCLAIMER,
     lastUpdated: LAST_UPDATED,
-    sources: [],
+    sources: [
+      {
+        title: 'NICE Guideline CG31: Obsessive-Compulsive Disorder and Body Dysmorphic Disorder',
+        url: 'https://www.nice.org.uk/guidance/cg31',
+        type: 'medical_guideline',
+        year: 2005,
+        authors: 'National Institute for Health and Care Excellence',
+      },
+      {
+        title: 'APA Practice Guidelines for Obsessive-Compulsive Disorder',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/17849776/',
+        type: 'medical_guideline',
+        year: 2007,
+        authors: 'American Psychiatric Association',
+      },
+      {
+        title: 'Cognitive-Behavioural Therapy for Obsessive-Compulsive Disorder: A Systematic Review and Meta-Analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31280547/',
+        type: 'review',
+        year: 2019,
+        authors: 'Ost LG et al.',
+      },
+    ],
   },
 ];
 

@@ -196,7 +196,190 @@ If the fix above doesn't work, add `vercel.json`:
 
 ---
 
-## 8. Review Schedule
+## 8. Handling Corrections
+
+When a content error is confirmed and corrected, it must be logged in the corrections system.
+
+### Procedure
+
+1. Fix the error in the relevant `lib/data/*.ts` file.
+2. Add a `CorrectionEntry` to `lib/data/corrections.ts`:
+   ```typescript
+   {
+     id: 'correction-YYYY-MM-DD-slug',
+     date: '2026-04-13',
+     pageSlug: 'conditions/depression',
+     pageTitle: 'Depression',
+     originalText: 'The incorrect claim...',
+     correctedText: 'The corrected claim...',
+     reason: 'Source updated; original citation retracted',
+     severity: 'moderate',
+   }
+   ```
+3. Run `npm run typecheck && npm run build`.
+4. Commit with message format: `fix: correct [description] — logged in corrections`.
+5. Deploy. The `/corrections` page will automatically render the new entry.
+
+### Severity guide
+
+| Severity | Criteria |
+|---|---|
+| minor | Spelling, formatting, non-clinical factual error |
+| moderate | Evidence rating change, source update, clinical nuance correction |
+| significant | Safety-relevant correction, crisis resource error, withdrawn claim |
+
+---
+
+## 9. Handling Editorial Firewall Events
+
+If a situation arises where commercial considerations conflict with editorial integrity (e.g., a referral partner's evidence quality drops, or a conflict of interest is identified):
+
+### Procedure
+
+1. Document the event in `lib/data/corrections.ts` as a `FirewallEvent`.
+2. Take the editorially correct action (demote, remove, or update the content).
+3. Update the `/disclosures` page if applicable.
+4. Commit with message format: `editorial: firewall event — [description]`.
+5. Update the "editorial firewall test count" on the `/disclosures` page.
+
+---
+
+## 10. Legal Audit Launch Gate
+
+Before the site goes live, verify all of the following:
+
+- [ ] "Research digest" framing appears in Hero, About, Footer, Disclaimer, CLAUDE.md, README.md
+- [ ] All 6 legal pages exist and render: /terms, /privacy, /disclaimer, /editorial, /corrections, /methodology
+- [ ] Footer links to all 6 legal pages
+- [ ] Evidence badges link to /methodology
+- [ ] Sources visible on condition and symptom detail pages (SourceList component)
+- [ ] Persistent ResearchDigestBanner on all detail pages
+- [ ] `rg -i "medical site" .` → 0 hits
+- [ ] `rg -i "health advice" .` → 0 hits in source code
+- [ ] `rg -i "we recommend" app/ components/ lib/data/` → 0 hits
+- [ ] `npm run typecheck && npm run lint && npm run build` → zero errors
+- [ ] Sitemap includes all routes (legal, conditions, topics, providers)
+- [ ] Crisis numbers verified on MH and ADHD pages
+
+---
+
+## 11. Managing Referral Partnerships
+
+### Adding a partner
+
+1. Add a new entry to `lib/data/referrals.ts` with `active: false` and `commercialRelationship: 'no_commercial_relationship'`.
+2. Populate all fields: id, name, slug, type, jurisdiction, category, description, url.
+3. Set `lastReviewed` to today's date.
+4. Run `npm run typecheck && npm run build`.
+5. Commit with: `feat: add referral partner — [partner name] (inactive)`.
+
+### Activating a partner
+
+1. In `lib/data/referrals.ts`, set `active: true`.
+2. Update `commercialRelationship` to `'affiliate'` or `'sponsored'` as applicable.
+3. Add or update `disclosureText` if the partner has specific disclosure requirements.
+4. Update `lastReviewed` to today's date.
+5. Verify `/disclosures` renders the partner in the commercial relationships table.
+6. Run the partner ID grep check (see Section 12 below).
+7. Commit with: `feat: activate referral partner — [partner name]`.
+
+### Deactivating a partner
+
+1. In `lib/data/referrals.ts`, set `active: false`.
+2. The ReferralCTA component will automatically switch to fallback rendering.
+3. Consider whether to also reset `commercialRelationship` to `'no_commercial_relationship'`.
+4. Update `lastReviewed` to today's date.
+5. Commit with: `feat: deactivate referral partner — [partner name]`.
+
+### Quarterly partner review
+
+Every 3 months, review all entries in `lib/data/referrals.ts`:
+
+1. Verify each partner URL still resolves.
+2. Check for regulatory actions, FTC/Competition Bureau complaints, or data breaches.
+3. Update `lastReviewed` dates.
+4. If a partner's evidence quality or trustworthiness has degraded, deactivate and log a firewall event (see Section 9).
+
+### Handling a partner compliance issue
+
+1. Immediately set `active: false` for the affected partner.
+2. Log a `FirewallEvent` in `lib/data/corrections.ts`.
+3. Update `/disclosures` page if the partner was commercially active.
+4. Follow the editorial firewall procedure in Section 9.
+
+### Removing a partner entirely
+
+1. Remove the entry from `lib/data/referrals.ts`.
+2. Remove any slug-specific placement overrides in `lib/data/referral-placements.ts`.
+3. Run `npm run typecheck && npm run build`.
+4. Commit with: `feat: remove referral partner — [partner name]`.
+
+---
+
+## 12. Referral Infrastructure Verification
+
+### Partner ID grep check
+
+No partner ID should appear in any page file (only in `lib/data/referrals.ts`, `lib/data/referral-placements.ts`, and `app/disclosures/page.tsx`):
+
+```bash
+rg -l "maple|betterhelp|sesame-care|felix-health|lifelabs|dynacare|rocket-doctor|tia-health|jane-app" app/ --glob '!app/disclosures/'
+```
+
+**Expected result:** zero hits.
+
+Update this grep pattern whenever a new partner is added.
+
+---
+
+## 13. Analytics
+
+### Vendor
+
+Plausible Analytics — privacy-respecting, no cookies, GDPR/PIPEDA/CCPA compliant by default.
+
+- **Dashboard:** `https://plausible.io/bodysignals.org`
+- **Script:** loaded in `app/layout.tsx`, production-only (`NODE_ENV === 'production'`)
+- **Event helper:** `lib/analytics/plausible.ts` — typed custom events
+
+### Weekly Metrics Review
+
+Check the Plausible dashboard weekly for:
+
+- Unique visitors and pageviews
+- Bounce rate (target: <60% on detail pages)
+- Top pages (identify high-traffic content for priority source backfill)
+- Top sources (organic search share target: 70%)
+- Top countries (verify CA/US split matches audience assumptions)
+
+### Monetization Gate Tracking
+
+Document current MAU monthly and compare against thresholds:
+
+| Gate | Threshold | Status |
+|---|---|---|
+| Path 1: Affiliate partnerships | 50K MAU | Not reached |
+| Path 2: Provider directory | 100K MAU | Not reached |
+| Organic search share | 70% of traffic | Pending measurement |
+| Detail page bounce rate | <60% | Pending measurement |
+| Return visitor rate | 20%+ | Pending measurement |
+
+### Custom Events
+
+| Event | Trigger | Purpose |
+|---|---|---|
+| `Referral CTA Clicked` | User clicks a referral CTA | Track affiliate readiness |
+| `Feedback Submitted` | User submits feedback form | Measure engagement |
+| `Search Used` | User performs a search | Validate search feature usage |
+| `Source Link Clicked` | User clicks a citation link | Track source engagement |
+| `Evidence Badge Clicked` | User clicks an evidence badge | Track methodology interest |
+| `External Link Clicked` | User clicks an external link | Track outbound traffic |
+
+Custom events are not yet wired to UI components — `trackEvent()` in `lib/analytics/plausible.ts` is ready to call from client components when needed.
+
+---
+
+## 14. Review Schedule
 
 | Document | Cadence | Next review |
 |---|---|---|
@@ -208,3 +391,5 @@ If the fix above doesn't work, add `vercel.json`:
 | `docs/TESTING_STRATEGY.md` | On test infrastructure change | — |
 | `docs/DEPLOY_CHECKLIST.md` | Pre-deploy | Every deploy |
 | `TASKS.md` | Ongoing | — |
+| Plausible Analytics dashboard | Weekly | Ongoing |
+| Monetization gate thresholds | Monthly | Ongoing |

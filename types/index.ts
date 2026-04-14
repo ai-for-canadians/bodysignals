@@ -16,6 +16,12 @@
 
 export type UrgencyLevel = 'emergency' | 'urgent' | 'routine' | 'self_care' | 'info';
 
+/**
+ * Evidence rating scale (A–F). These are **editorial judgments** about the quality
+ * and consistency of published research — they are not clinical endorsements or
+ * treatment recommendations. See /methodology for the full rubric and
+ * lib/data/evidence-tiers.ts for the structured tier definitions.
+ */
 export type EvidenceRating = 'A' | 'B' | 'C' | 'D' | 'F';
 
 // === Body Areas (existing) ===

@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { Moon, Search, X } from 'lucide-react';
 import type { EvidenceRating, SleepIntervention } from '@/types';
+import { EvidenceScaleLegend } from '@/components/shared/EvidenceScaleLegend';
 import { SleepInterventionCard } from './SleepInterventionCard';
 import {
   SLEEP_CATEGORY_DISPLAY_ORDER,
@@ -164,6 +165,11 @@ export function SleepLibrary({ interventions }: SleepLibraryProps) {
           <p className="text-xl text-slate-400">
             Evidence-rated interventions for falling asleep, staying asleep, and sleeping deeper — from free behavioural habits to supplements and clinical protocols. Every entry is graded on the A–F evidence scale.
           </p>
+        </div>
+
+        {/* Evidence scale legend */}
+        <div className="mb-6 max-w-xl">
+          <EvidenceScaleLegend />
         </div>
 
         {/* Search input */}

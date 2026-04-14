@@ -13,6 +13,7 @@ import {
   UserCheck,
   Wrench,
 } from 'lucide-react';
+import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
 import {
   ADHD_CATEGORY_LABELS,
   ADHD_DISCLAIMER,
@@ -21,6 +22,8 @@ import {
   getADHDToolById,
 } from '@/lib/data/adhd';
 import { ADHDToolCard } from '@/components/topics/ADHDToolCard';
+import { ReferralCTA } from '@/components/referrals/ReferralCTA';
+import { getPlacementForSlug } from '@/lib/data/referral-placements';
 import type { ADHDSystem } from '@/types';
 
 // === Static params ===
@@ -78,6 +81,7 @@ export default function ADHDSystemPage({
 
   return (
     <div className="min-h-screen pb-20">
+      <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -232,6 +236,12 @@ export default function ADHDSystemPage({
                 <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-2 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
               </div>
             </Link>
+
+            {/* Referral CTA */}
+            {(() => {
+              const placement = getPlacementForSlug(params.slug, 'adhd');
+              return placement ? <ReferralCTA {...placement} /> : null;
+            })()}
 
             {/* Cross-link back to clinical condition page */}
             <Link

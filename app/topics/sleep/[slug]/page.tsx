@@ -11,6 +11,7 @@ import {
   Shield,
   Sparkles,
 } from 'lucide-react';
+import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
 import {
   SLEEP_CATEGORY_LABELS,
   SLEEP_DISCLAIMER,
@@ -18,6 +19,8 @@ import {
   sleepInterventions,
 } from '@/lib/data/sleep';
 import { EvidenceBadge } from '@/components/ui';
+import { ReferralCTA } from '@/components/referrals/ReferralCTA';
+import { getPlacementForSlug } from '@/lib/data/referral-placements';
 import type { SleepIntervention } from '@/types';
 
 // === Static params ===
@@ -80,6 +83,7 @@ export default function SleepInterventionPage({
 
   return (
     <div className="min-h-screen pb-20">
+      <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -374,6 +378,12 @@ export default function SleepInterventionPage({
                 {SLEEP_DISCLAIMER}
               </p>
             </div>
+
+            {/* Referral CTA */}
+            {(() => {
+              const placement = getPlacementForSlug(params.slug, 'sleep');
+              return placement ? <ReferralCTA {...placement} /> : null;
+            })()}
 
             {/* Quick Facts */}
             <div className="bg-slate-800 rounded-xl p-5 border border-slate-700">

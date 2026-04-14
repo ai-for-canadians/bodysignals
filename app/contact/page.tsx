@@ -80,7 +80,7 @@ export default function ContactPage() {
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-6 h-6 text-amber-400 shrink-0 mt-0.5" />
               <div className="text-amber-200 text-sm leading-relaxed">
-                <p className="font-semibold mb-1">This is not a medical advice line.</p>
+                <p className="font-semibold mb-1">Body Signals is a research digest, not a healthcare provider.</p>
                 <p>
                   If you are experiencing a medical emergency, call <strong>911</strong>. If you are in crisis, call or text <strong>988</strong> (Suicide &amp; Crisis Lifeline, Canada and US).
                 </p>

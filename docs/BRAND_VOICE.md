@@ -6,10 +6,11 @@
 
 ## Pillar Statements
 
-1. **Evidence transparency** — every claim carries an A–F rating and, where possible, a named source. Users see the strength of evidence before acting.
-2. **No affiliate bias** — no advertising, no sponsored content, no supplement sales. Recommendations are based on evidence, not revenue.
-3. **Canadian and US co-branded** — the site speaks to both jurisdictions as co-equal audiences. Canadian spelling, Health Canada, and Canadian crisis resources are retained; US authorities, coverage, and crisis resources are added alongside, never as replacements.
-4. **Quality over volume** — 113 hand-authored pages, not thousands of SEO-farmed articles. Every record is individually reviewed, evidence-rated, and maintained.
+1. **Independent research digest** — Body Signals is a publisher, not a healthcare provider. It summarises peer-reviewed research in plain language. It does not practise medicine, diagnose conditions, or prescribe treatments.
+2. **Evidence transparency** — every research summary carries an A–F rating (editorial judgment about research quality, not clinical endorsement) and, where possible, a named source. Readers see the strength of evidence before making their own decisions.
+3. **No affiliate bias** — no advertising, no sponsored content, no supplement sales. Research summaries are based on evidence, not revenue.
+4. **Canadian and US co-branded** — the site speaks to both jurisdictions as co-equal audiences. Canadian spelling, Health Canada, and Canadian crisis resources are retained; US authorities, coverage, and crisis resources are added alongside, never as replacements.
+5. **Quality over volume** — hand-authored pages, not thousands of SEO-farmed articles. Every record is individually reviewed, evidence-rated, and maintained.
 
 ---
 

@@ -15,11 +15,11 @@ export function Disclaimer() {
           <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <p className="text-sm text-amber-200">
-              <strong className="font-semibold">Not Medical Advice:</strong>{' '}
-              BodySignals is for educational purposes only and does not replace professional medical advice.
+              <strong className="font-semibold">Research Digest — Not Medical Advice:</strong>{' '}
+              BodySignals summarises published research for informational purposes. It is not a healthcare provider and does not replace professional medical advice.
               If you believe you are having a medical emergency, call emergency services immediately.{' '}
               <Link
-                href="/about#disclaimer"
+                href="/disclaimer"
                 className="underline hover:text-amber-100"
               >
                 Full disclaimer

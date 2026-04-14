@@ -9,6 +9,9 @@ import {
   Target,
   Wrench,
 } from 'lucide-react';
+import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
+import { ReferralCTA } from '@/components/referrals/ReferralCTA';
+import { getPlacementForSlug } from '@/lib/data/referral-placements';
 import {
   MOVEMENT_DISCLAIMER,
   MOVEMENT_PHYSIO_CALLOUT,
@@ -59,6 +62,7 @@ export default function MovementProgramPage({
 
   return (
     <div className="min-h-screen pb-20">
+      <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -337,6 +341,12 @@ export default function MovementProgramPage({
                 {MOVEMENT_DISCLAIMER}
               </p>
             </div>
+
+            {/* Referral CTA */}
+            {(() => {
+              const placement = getPlacementForSlug(params.slug, 'movement');
+              return placement ? <ReferralCTA {...placement} /> : null;
+            })()}
 
             {/* Quick Facts */}
             <div className="bg-slate-800 rounded-xl p-5 border border-slate-700">

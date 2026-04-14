@@ -11,14 +11,17 @@ export default function AboutPage() {
           <section className="mb-12">
             <h2 className="text-3xl font-bold mb-4 flex items-center gap-2 text-slate-50">
               <Target className="w-8 h-8 text-amber-500" />
-              Our Mission
+              What Body Signals Is
             </h2>
             <div className="bg-slate-800 border border-slate-700 rounded-lg p-6">
               <p className="text-slate-300 leading-relaxed mb-4">
-                BodySignals exists to bridge the gap between &ldquo;Dr. Google&rdquo; panic and actual medical knowledge. We believe everyone should understand what their body is telling them without navigating through jargon or alarmist clickbait.
+                Body Signals is an independent research digest and publisher. We summarise published health research — peer-reviewed studies, clinical guidelines, and recognised medical-organisation reports — in plain language for Canadian and US readers.
+              </p>
+              <p className="text-slate-300 leading-relaxed mb-4">
+                Body Signals is not a healthcare provider, does not practise medicine, and does not provide medical advice, diagnosis, or treatment. We are a publisher, not a clinical service.
               </p>
               <p className="text-slate-300 leading-relaxed">
-                Our goal is to provide clear, evidence-based context for symptoms so you know when to seek help immediately, when to make a routine appointment, and when to practice self-care at home.
+                Every claim on this site carries an A–F evidence rating so readers can see the strength of the underlying research before making their own decisions. Where the evidence is weak or mixed, we say so. Where there is no evidence, we say that too.
               </p>
             </div>
           </section>
@@ -62,7 +65,7 @@ export default function AboutPage() {
                   Evidence Standards
                 </h3>
                 <p className="text-slate-300">
-                  Our content is derived from clinical practice guidelines and peer-reviewed literature. We use a grading system (A-F) to indicate the strength of evidence supporting our recommendations.
+                  Content is derived from clinical practice guidelines and peer-reviewed literature. We use a grading system (A–F) to indicate the strength of evidence behind each research summary. These grades reflect editorial judgment about research quality — they are not clinical endorsements.
                 </p>
               </div>
             </div>
@@ -101,16 +104,16 @@ export default function AboutPage() {
             <div className="bg-amber-500/10 border border-amber-500/30 rounded-lg p-6">
               <div className="text-amber-200 space-y-4">
                 <p>
-                  <strong>Not Medical Advice:</strong> BodySignals is an information resource only. It is not a substitute for professional medical advice, diagnosis, or treatment.
+                  <strong>Research Digest — Not Medical Advice:</strong> Body Signals is an independent research publisher. It summarises published research for informational purposes and is not a substitute for professional medical advice, diagnosis, or treatment.
                 </p>
                 <p>
                   <strong>Emergencies:</strong> If you think you may have a medical emergency, call your doctor, go to the emergency department, or call emergency services immediately.
                 </p>
                 <p>
-                  <strong>No Doctor-Patient Relationship:</strong> Using this website does not establish a doctor-patient relationship.
+                  <strong>No Practitioner–Patient Relationship:</strong> Using this website does not establish a doctor-patient or practitioner-patient relationship.
                 </p>
                 <p>
-                  <strong>Variation:</strong> Symptoms can manifest differently in different people. Always trust your instincts—if you feel something is wrong, get it checked out.
+                  <strong>Individual Variation:</strong> Symptoms can manifest differently in different people. The research summarised here reflects population-level findings and may not apply to any individual case.
                 </p>
               </div>
             </div>

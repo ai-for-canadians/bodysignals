@@ -1,6 +1,6 @@
 # Body Signals
 
-A unified, evidence-rated health and body destination built on Next.js 14. Consolidates symptoms, conditions, and deep topic hubs for sleep, ADHD, and movement into a single static site with Canadian and US context throughout (Canadian spelling is retained as a deliberate positioning choice).
+An independent health research digest built on Next.js 14. Body Signals summarises peer-reviewed research on symptoms, conditions, and interventions in plain language for Canadian and US readers. It consolidates seven source sites into a single static destination with A–F evidence ratings, transparent sourcing, and Canadian spelling throughout. Body Signals is a publisher, not a healthcare provider — it does not practise medicine or provide medical advice.
 
 **Live:** _deploy URL goes here once Vercel is connected_
 
@@ -113,9 +113,9 @@ To add a new condition, sleep intervention, ADHD system, or movement program:
 4. Run `npm run typecheck && npm run build` — the new route will appear in the build output
 5. Verify the Canadian spelling and medical disclaimer conventions in `docs/CONTENT_STANDARDS.md`
 
-## Medical disclaimer
+## Disclaimer
 
-This is educational information, not medical advice. Every piece of content on this site is intended to help people make informed decisions and have better conversations with their healthcare providers. If you are in crisis, call or text **988** (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support, text **HOME to 741741** (Crisis Text Line, US) or **CONNECT to 686868** (Kids Help Phone, Canada). In an emergency, call **911**.
+Body Signals is an independent research digest. It summarises published, peer-reviewed health research for informational purposes. Body Signals is not a healthcare provider, does not practise medicine, and does not provide medical advice, diagnosis, or treatment. If you are in crisis, call or text **988** (Suicide & Crisis Lifeline, Canada and US). For text-only crisis support, text **HOME to 741741** (Crisis Text Line, US) or **CONNECT to 686868** (Kids Help Phone, Canada). In an emergency, call **911**.
 
 ## License
 

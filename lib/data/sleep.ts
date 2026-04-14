@@ -35,7 +35,7 @@ import type { SleepIntervention } from '@/types';
 const LAST_UPDATED = '2026-04-10';
 
 export const SLEEP_DISCLAIMER =
-  'This is educational information, not medical advice. Supplements like melatonin, valerian, and magnesium can interact with prescription medications — always check with your doctor or pharmacist before starting. Chronic insomnia may indicate an underlying condition (sleep apnoea, thyroid dysfunction, depression) and warrants a medical evaluation.';
+  'This is a research summary, not medical advice. Body Signals is an independent research digest — it summarises published research for informational purposes and is not a healthcare provider. Supplements like melatonin, valerian, and magnesium can interact with prescription medications — check with your doctor or pharmacist before starting any supplement. Chronic insomnia may indicate an underlying condition (sleep apnoea, thyroid dysfunction, depression) and warrants a medical evaluation.';
 
 export const SLEEP_CATEGORY_LABELS: Record<
   SleepIntervention['category'],
@@ -90,7 +90,7 @@ export const sleepInterventions: SleepIntervention[] = [
     protocol: [
       'Set a wake-up time and stick to it within ±30 minutes, weekends included.',
       'Go to bed only when tired, but aim for a consistent sleep window.',
-      'If you must sleep in, cap it at 60 minutes beyond your usual wake time.',
+      'For sleep-ins, research suggests capping them at 60 minutes beyond the usual wake time to preserve circadian alignment.',
     ],
     safetyProfile: {
       riskLevel: 'very low',
@@ -100,7 +100,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'Consistent sleep timing is a stronger predictor of health outcomes than sleep duration in several recent cohort studies. Free, universally recommended by sleep clinicians.',
-    sources: [],
+    sources: [
+      {
+        title: 'Sleep timing, sleep consistency, and health in adults: a systematic review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33054339/',
+        type: 'review',
+        year: 2020,
+        authors: 'Chaput JP, Dutil C, Featherstone R, et al.',
+      },
+      {
+        title: 'The importance of sleep regularity: a consensus statement of the National Sleep Foundation sleep timing and variability panel',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37684151/',
+        type: 'medical_guideline',
+        year: 2023,
+        authors: 'Sletten TL, Weaver MD, Foster RG, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -138,7 +153,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'A fundamental mechanism of circadian biology. Huberman and other sleep researchers consistently rank this as the single highest-yield free intervention.',
-    sources: [],
+    sources: [
+      {
+        title: 'Systematic review of light exposure impact on human circadian rhythm',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30311830/',
+        type: 'review',
+        year: 2019,
+        authors: 'Tahkamo L, Partonen T, Pesonen AK',
+      },
+      {
+        title: 'Shine light on sleep: morning bright light improves nocturnal sleep and next morning alertness among college students',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/36058557/',
+        type: 'study',
+        year: 2023,
+        authors: 'He M, Ru T, Li S, Li Y, Zhou G',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -181,7 +211,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'Even when caffeine does not delay sleep onset, it reduces slow-wave sleep quality and total deep sleep time in lab-verified polysomnography studies.',
-    sources: [],
+    sources: [
+      {
+        title: 'Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/24235903/',
+        type: 'study',
+        year: 2013,
+        authors: 'Drake C, Roehrs T, Shambroom J, Roth T',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -214,7 +252,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'Blue light (460–480 nm) suppresses melatonin significantly more than other wavelengths. Brainard et al. and others have mapped the action spectrum.',
-    sources: [],
+    sources: [
+      {
+        title: 'Exposure to room light before bedtime suppresses melatonin onset and shortens melatonin duration in humans',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/21193540/',
+        type: 'study',
+        year: 2011,
+        authors: 'Gooley JJ, Chamberlain K, Smith KA, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -247,7 +293,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Mixed evidence — some people tolerate late exercise well, but the general direction of the literature favours earlier sessions.',
-    sources: [],
+    sources: [
+      {
+        title: 'Effects of evening exercise on sleep in healthy participants: a systematic review and meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/30374942/',
+        type: 'review',
+        year: 2019,
+        authors: 'Stutz J, Eiholzer R, Spengler CM',
+      },
+      {
+        title: 'Effects of exercise timing and intensity on physiological circadian rhythm and sleep quality: a systematic review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37946447/',
+        type: 'review',
+        year: 2023,
+        authors: 'Kim N, Ka S, Park J',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -287,7 +348,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'Thermal environment is a key determinant of sleep quality in lab studies and field research. Cheap and universally applicable.',
-    sources: [],
+    sources: [
+      {
+        title: 'Nighttime ambient temperature and sleep in community-dwelling older adults',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/37474050/',
+        type: 'study',
+        year: 2023,
+        authors: 'Baniassadi A, Manor B, Yu W, Travison T, Lipsitz L',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -372,7 +441,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Good evidence for anxiety-related and autism-related sleep issues. Generalised insomnia benefit is smaller but consistent in small trials.',
-    sources: [],
+    sources: [
+      {
+        title: 'A randomized controlled study of weighted chain blankets for insomnia in psychiatric disorders',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32536366/',
+        type: 'study',
+        year: 2020,
+        authors: 'Ekholm B, Spulber S, Adler M',
+      },
+      {
+        title: 'Weighted blanket use: a systematic review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/32204779/',
+        type: 'review',
+        year: 2020,
+        authors: 'Eron K, Kohnert L, Watters A, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -400,7 +484,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Subjective but important. Replacing a mattress older than 8–10 years consistently improves sleep quality scores in trials.',
-    sources: [],
+    sources: [
+      {
+        title: 'Effect of different mattress designs on promoting sleep quality, pain reduction, and spinal alignment in adults with or without back pain; systematic review of controlled trials',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/29073401/',
+        type: 'review',
+        year: 2015,
+        authors: 'Radwan A, Fess P, James D, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -437,7 +529,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'One of the safest sleep aids. Effect size is modest in healthy sleepers but can be meaningful in older adults and in people with subclinical magnesium deficiency.',
-    sources: [],
+    sources: [
+      {
+        title: 'Oral magnesium supplementation for insomnia in older adults: a systematic review and meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33865376/',
+        type: 'review',
+        year: 2021,
+        authors: 'Mah J, Pitre T',
+      },
+      {
+        title: 'The role of magnesium in sleep health: a systematic review of available literature',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/35184264/',
+        type: 'review',
+        year: 2023,
+        authors: 'Arab A, Rafie N, Amani R, Shirani F',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -480,7 +587,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'Well-studied for jet lag and circadian phase shifts. Less effective for chronic primary insomnia than CBT-I. Low doses (0.3–0.5 mg) match physiological levels better than retail 3–10 mg formulations.',
-    sources: [],
+    sources: [
+      {
+        title: 'Meta-analysis: melatonin for the treatment of primary sleep disorders',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/',
+        type: 'review',
+        year: 2013,
+        authors: 'Ferracioli-Oda E, Qawasmi A, Bloch MH',
+      },
+      {
+        title: 'The safety of melatonin in humans',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/26692007/',
+        type: 'review',
+        year: 2016,
+        authors: 'Andersen LP, Gogenur I, Rosenberg J, Reiter RJ',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -508,7 +630,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'C',
     researchSummary:
       'Popularised by Huberman. Limited human trials of the isolated compound. Chamomile tea itself has better (though still modest) evidence.',
-    sources: [],
+    sources: [
+      {
+        title: 'Apigenin, a component of Matricaria recutita flowers, is a central benzodiazepine receptors-ligand with anxiolytic effects',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/7617761/',
+        type: 'study',
+        year: 1995,
+        authors: 'Viola H, Wasowski C, Levi de Stein M, et al.',
+      },
+      {
+        title: 'Apigenin: a natural molecule at the intersection of sleep and aging',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/38476603/',
+        type: 'review',
+        year: 2024,
+        authors: 'Kramer DJ, Johnson AA',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -536,7 +673,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Good safety profile and a small but consistent effect size in anxiety-related sleep trials. Often stacked with magnesium for an additive effect.',
-    sources: [],
+    sources: [
+      {
+        title: 'The effects of L-theanine consumption on sleep outcomes: a systematic review and meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/40056718/',
+        type: 'review',
+        year: 2025,
+        authors: 'Bulman A, D\'Cunha NM, Garg M, Naumovski N',
+      },
+      {
+        title: 'Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults: a randomized controlled trial',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/31623400/',
+        type: 'study',
+        year: 2019,
+        authors: 'Hidese S, Ogawa S, Ota M, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -565,7 +717,22 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Safe, cheap, and backed by several small Japanese trials showing improved subjective sleep quality and next-day alertness.',
-    sources: [],
+    sources: [
+      {
+        title: 'New therapeutic strategy for amino acid medicine: glycine improves the quality of sleep',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22293292/',
+        type: 'review',
+        year: 2012,
+        authors: 'Bannai M, Kawai N',
+      },
+      {
+        title: 'The effects of glycine on subjective daytime performance in partially sleep-restricted healthy volunteers',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/22529837/',
+        type: 'study',
+        year: 2012,
+        authors: 'Bannai M, Kawai N, Ono K, Nakahara K, Murakami N',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -603,7 +770,29 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'C',
     researchSummary:
       'Inconsistent results in meta-analyses. Some individual trials show benefit; others show nothing. Choose magnesium or glycine first if you want a low-risk option.',
-    sources: [],
+    sources: [
+      {
+        title: 'Valerian root in treating sleep problems and associated disorders — a systematic review and meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33086877/',
+        type: 'review',
+        year: 2020,
+        authors: 'Shinjyo N, Waddell G, Green J',
+      },
+      {
+        title: 'A systematic review of valerian as a sleep aid: safe but not effective',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/17517355/',
+        type: 'review',
+        year: 2007,
+        authors: 'Taibi DM, Landis CA, Petry H, Vitiello MV',
+      },
+      {
+        title: 'A case of valerian-associated hepatotoxicity',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/18431248/',
+        type: 'study',
+        year: 2008,
+        authors: 'Cohen DL, Del Toro Y',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -697,7 +886,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Effective if they actually block the relevant wavelengths. The marketing is ahead of the product quality on this one — look for amber/red, not clear lenses.',
-    sources: [],
+    sources: [
+      {
+        title: 'Evening wear of blue-blocking glasses for sleep and mood disorders: a systematic review',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34030534/',
+        type: 'review',
+        year: 2021,
+        authors: 'Hester L, Dang D, Barker CJ, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -729,7 +926,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'A cheap, portable way to replicate the benefits of a blackout bedroom. Recent trials show measurable next-day cognitive improvement from wearing a mask.',
-    sources: [],
+    sources: [
+      {
+        title: 'Wearing an eye mask during overnight sleep improves episodic learning and alertness',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/36521010/',
+        type: 'study',
+        year: 2023,
+        authors: 'Greco V, Bergamo D, Cuoccio P, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 
@@ -773,7 +978,29 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'A',
     researchSummary:
       'First-line treatment for chronic insomnia in every major clinical guideline. More effective than sleep medication long-term. Not widely available in Canada outside major cities, but app-based versions are NICE- and FDA-recognised.',
-    sources: [],
+    sources: [
+      {
+        title: 'Cognitive behavioral therapy for chronic insomnia: a systematic review and meta-analysis',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/26054060/',
+        type: 'review',
+        year: 2015,
+        authors: 'Trauer JM, Qian MY, Doyle JS, Rajaratnam SM, Cunnington D',
+      },
+      {
+        title: 'Management of chronic insomnia disorder in adults: a clinical practice guideline from the American College of Physicians',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/27136449/',
+        type: 'medical_guideline',
+        year: 2016,
+        authors: 'Qaseem A, Kansagara D, Forciea MA, et al.',
+      },
+      {
+        title: 'Behavioral and psychological treatments for chronic insomnia disorder in adults: an American Academy of Sleep Medicine clinical practice guideline',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/33164742/',
+        type: 'medical_guideline',
+        year: 2021,
+        authors: 'Edinger JD, Arnedt JT, Bertisch SM, et al.',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -810,7 +1037,15 @@ export const sleepInterventions: SleepIntervention[] = [
     evidenceRating: 'B',
     researchSummary:
       'Emerging evidence for NSDR as a partial replacement for lost sleep. Strong evidence for reducing subjective stress and improving focus.',
-    sources: [],
+    sources: [
+      {
+        title: 'Yoga nidra practice shows improvement in sleep in patients with chronic insomnia: a randomized controlled trial',
+        url: 'https://pubmed.ncbi.nlm.nih.gov/34825538/',
+        type: 'study',
+        year: 2021,
+        authors: 'Datta K, Tripathi M, Verma M, Masiwal D, Mallick HN',
+      },
+    ],
     lastUpdated: LAST_UPDATED,
   },
 ];

@@ -43,7 +43,7 @@ import type { ADHDSystem, ADHDTool } from '@/types';
 const LAST_UPDATED = '2026-04-10';
 
 export const ADHD_DISCLAIMER =
-  'This is educational information, not medical advice. ADHD management is highly individual — what works for one person may not work for another. These are tactical systems, not medical treatment. If you suspect untreated ADHD, speak with a physician or psychologist. ADHD commonly co-occurs with depression and anxiety; if you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US), text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada).';
+  'This is a research summary, not medical advice. Body Signals is an independent research digest — it summarises published research for informational purposes and is not a healthcare provider. ADHD management is highly individual — what works for one person may not work for another. These are tactical systems, not medical treatment. If you suspect untreated ADHD, speak with a physician or psychologist. ADHD commonly co-occurs with depression and anxiety; if you are in crisis, call or text 988 (Suicide & Crisis Lifeline, Canada and US), text HOME to 741741 (Crisis Text Line, US) or CONNECT to 686868 (Kids Help Phone, Canada).';
 
 export const ADHD_RATING_NOTE =
   "Evidence ratings on this hub are hand-authored per system. 'B' where the tactic maps to well-studied research (body doubling, implementation intentions, externalising working memory, time-boxing). 'C' where evidence is practitioner consensus without direct RCT support. The primary metrics on this hub are difficulty (ease of adoption) and impact (reported life effect) — evidence ratings are a secondary signal. See individual system tooltips for per-system rating context.";
@@ -298,7 +298,7 @@ export const adhdSystems: ADHDSystem[] = [
       },
       {
         order: 3,
-        text: 'Start. Permission to stop after 5 minutes is real — you must honour it if you want the trick to keep working.',
+        text: 'Start. The permission to stop after 5 minutes is genuine — honouring it is what keeps the technique effective long-term.',
       },
     ],
     commonPitfalls: [
@@ -355,7 +355,7 @@ export const adhdSystems: ADHDSystem[] = [
     category: 'home',
     tagline: 'Never lose your keys again',
     description:
-      'A dedicated station right by the door for everything you need to leave the house — keys, wallet, bag, charger, headphones.',
+      'A dedicated station right by the door for everything needed to leave the house — keys, wallet, bag, charger, headphones.',
     whyItWorks:
       'Removes the "hunt" variable from leaving the house. Visual cues trigger memory retrieval better than internal recall. One designated spot reduces decision load at a moment when executive function is already low.',
     difficulty: 'Easy',

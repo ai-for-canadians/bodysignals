@@ -27,7 +27,7 @@ export function Header() {
                 Body<span className="text-amber-500">Signals</span>
               </div>
               <div className="text-xs text-slate-500 hidden sm:block">
-                What your symptoms actually mean
+                Independent health research digest
               </div>
             </div>
           </Link>

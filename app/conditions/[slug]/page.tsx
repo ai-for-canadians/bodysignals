@@ -22,6 +22,10 @@ import {
 } from '@/lib/data/conditions';
 import { symptoms } from '@/lib/data/symptoms';
 import { EvidenceBadge } from '@/components/ui';
+import { SourceList } from '@/components/shared/SourceList';
+import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
+import { ReferralCTA } from '@/components/referrals/ReferralCTA';
+import { getPlacementForSlug } from '@/lib/data/referral-placements';
 import type { EvidenceRating, Intervention } from '@/types';
 
 // === Static params ===
@@ -102,6 +106,7 @@ export default function ConditionPage({
 
   return (
     <div className="min-h-screen pb-20">
+      <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -448,6 +453,9 @@ export default function ConditionPage({
                   </ul>
                 </section>
               )}
+
+              {/* Sources */}
+              <SourceList sources={condition.sources} />
           </div>
 
           {/* Sidebar */}
@@ -482,6 +490,12 @@ export default function ConditionPage({
                 </span>
               </Link>
             )}
+
+            {/* Referral CTA */}
+            {(() => {
+              const placement = getPlacementForSlug(params.slug, 'condition');
+              return placement ? <ReferralCTA {...placement} /> : null;
+            })()}
 
             {/* Quick Facts */}
             <div className="bg-slate-800 rounded-xl p-5 border border-slate-700">

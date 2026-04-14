@@ -11,21 +11,37 @@ All must be green:
 - [ ] `npm run typecheck` — zero errors
 - [ ] `npm run lint` — zero warnings or errors
 - [ ] `npm run check:crisis` — crisis numbers present in source
-- [ ] `npm run build` — succeeds with **113 pages** (or current expected count)
+- [ ] `npm run build` — succeeds with **119+ pages** (or current expected count)
 
-### Content Regression Checks
+### Legal/Editorial Regression Checks
 
+- [ ] Research-digest forbidden phrases return 0 hits:
+  ```bash
+  rg -i "medical site|health advice|health education publisher|we recommend|doctor-reviewed" app/ components/ lib/data/
+  ```
 - [ ] Expanded variant grep returns 0 hits:
   ```bash
   rg -i "(studies?|research|evidence|experts?) (show|suggest|indicate|agree|demonstrate)" lib/data/
   ```
+- [ ] "Research digest" framing present:
+  ```bash
+  rg -c "research digest" components/home/Hero.tsx app/about/page.tsx components/layout/Footer.tsx CLAUDE.md README.md
+  ```
+  (All files should return ≥1 hit)
 - [ ] No unintentional console output:
   ```bash
   rg -n "console\.(log|error|warn)" components/ app/
   ```
   (Expect 0 hits, or marked with `// eslint-disable` or `// TODO`)
-
 - [ ] Meta descriptions all ≤160 chars (run the audit script from Phase 4)
+
+### Legal Pages Exist
+
+- [ ] All 6 legal pages render: `/terms`, `/privacy`, `/disclaimer`, `/editorial`, `/corrections`, `/methodology`
+- [ ] Footer links to all 6 legal pages
+- [ ] Evidence badges link to `/methodology`
+- [ ] ResearchDigestBanner visible on condition, symptom, and topic detail pages
+- [ ] SourceList component renders on condition and symptom detail pages
 
 ### Crisis-Line Verification
 
@@ -47,6 +63,18 @@ All must be green:
 
 - [ ] `package.json` contains `"packageManager": "npm@..."` field
 - [ ] `package-lock.json` is committed (not `pnpm-lock.yaml`)
+
+### Referral Infrastructure
+
+- [ ] Partner ID grep returns 0 hits in page files:
+  ```bash
+  rg -l "maple|betterhelp|sesame-care|felix-health|lifelabs|dynacare|rocket-doctor|tia-health|jane-app" app/ --glob '!app/disclosures/'
+  ```
+- [ ] `/disclosures` page renders (check for commercial relationships table or empty state)
+- [ ] Footer links to `/disclosures`
+- [ ] Sitemap includes `/disclosures`
+- [ ] `rel` attributes correct on partner links: `sponsored` for commercial, `noopener noreferrer` for editorial
+- [ ] UTM parameters present on all partner URLs (check via View Source on any active CTA)
 
 ### Content Spot Checks (on `npm run dev`)
 
@@ -84,7 +112,9 @@ All must be green:
 (First production deploy only — skip on subsequent deploys)
 
 - [ ] DNS cutover: `bodysignals.org` → Vercel, SSL cert active, HSTS header verified
-- [ ] Analytics installed and verified (Plausible or Fathom — log one test event before opening traffic)
+- [ ] Plausible Analytics: verify script loads on production (Network tab → `plausible.io/js/script.js`)
+- [ ] Plausible Analytics: log one test pageview and confirm it appears in dashboard (`https://plausible.io/bodysignals.org`)
+- [ ] Plausible Analytics: verify no analytics script loads in development (`NODE_ENV !== 'production'`)
 - [ ] `NEXT_PUBLIC_FEEDBACK_FORM_ID` env var set in Vercel project settings (if Formspree path taken)
 - [ ] Submit one test feedback from production to confirm Formspree endpoint works end-to-end
 - [ ] Social preview / OG image renders correctly on Facebook debugger + Twitter card validator
