@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { conditions } from '@/lib/data/conditions';
 import { ConditionsLibrary } from '@/components/conditions/ConditionsLibrary';
+import { BASE_URL } from '@/lib/config';
+import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
 
 export const metadata: Metadata = {
   title: 'Condition Library',
@@ -14,5 +16,20 @@ export const metadata: Metadata = {
 };
 
 export default function ConditionsPage() {
-  return <ConditionsLibrary conditions={conditions} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Conditions', url: `${BASE_URL}/conditions` },
+            ]),
+          ),
+        }}
+      />
+      <ConditionsLibrary conditions={conditions} />
+    </>
+  );
 }

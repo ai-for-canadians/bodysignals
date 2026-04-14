@@ -5,9 +5,10 @@ import { conditions, CATEGORY_LABELS } from '@/lib/data/conditions';
 import { sleepInterventions } from '@/lib/data/sleep';
 import { adhdSystems } from '@/lib/data/adhd';
 import { movementPrograms } from '@/lib/data/movement';
+import { BASE_URL } from '@/lib/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bodysignals.ca';
+  const baseUrl = BASE_URL;
 
   // === Static pages ===
   const staticPages: MetadataRoute.Sitemap = [

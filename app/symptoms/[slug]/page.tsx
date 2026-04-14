@@ -1,18 +1,47 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { symptoms } from '@/lib/data/symptoms';
 import { bodyAreas } from '@/lib/data/categories';
 import { STANDARD_DISCLAIMER } from '@/lib/data/conditions';
+import { EVIDENCE_TIERS_MAP } from '@/lib/data/evidence-tiers';
 import { SourceList } from '@/components/shared/SourceList';
 import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
 import { AlertTriangle, Clock, Stethoscope, Home, Activity, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
 import { ReferralCTA } from '@/components/referrals/ReferralCTA';
 import { getPlacementForSlug } from '@/lib/data/referral-placements';
+import { BASE_URL } from '@/lib/config';
+import {
+    jsonLdScript,
+    medicalWebPageJsonLd,
+    symptomJsonLd,
+    symptomFaqJsonLd,
+    breadcrumbJsonLd,
+} from '@/lib/utils/structured-data';
 
 export function generateStaticParams() {
     return symptoms.map((symptom) => ({
         slug: symptom.slug,
     }));
+}
+
+export function generateMetadata({
+    params,
+}: {
+    params: { slug: string };
+}): Metadata {
+    const symptom = symptoms.find((s) => s.slug === params.slug);
+    if (!symptom) {
+        return { title: 'Symptom Not Found' };
+    }
+    return {
+        title: symptom.name,
+        description: symptom.summary,
+        openGraph: {
+            title: `${symptom.name} | Body Signals`,
+            description: symptom.summary,
+        },
+    };
 }
 
 export default function SymptomPage({ params }: { params: { slug: string } }) {
@@ -23,10 +52,51 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
     }
 
     const area = bodyAreas.find((a) => a.id === symptom.bodyArea);
+    const faqData = symptomFaqJsonLd(symptom);
 
     return (
-        <div className="min-h-screen pb-20">
-            <ResearchDigestBanner />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: jsonLdScript(
+                        medicalWebPageJsonLd({
+                            title: symptom.name,
+                            description: symptom.summary,
+                            url: `${BASE_URL}/symptoms/${symptom.slug}`,
+                            dateModified: symptom.lastUpdated,
+                        }),
+                    ),
+                }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: jsonLdScript(symptomJsonLd(symptom)),
+                }}
+            />
+            {faqData && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: jsonLdScript(faqData),
+                    }}
+                />
+            )}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: jsonLdScript(
+                        breadcrumbJsonLd([
+                            { name: 'Home', url: BASE_URL },
+                            { name: 'Symptoms', url: `${BASE_URL}/symptoms` },
+                            { name: symptom.name, url: `${BASE_URL}/symptoms/${symptom.slug}` },
+                        ]),
+                    ),
+                }}
+            />
+            <div className="min-h-screen pb-20">
+                <ResearchDigestBanner />
             {/* Header */}
             <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
                 <div className="max-w-4xl mx-auto">
@@ -194,11 +264,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                                 <div>
                                     <div className="text-xs text-slate-500 uppercase font-semibold mb-1">Evidence Rating</div>
                                     <div className="flex items-center gap-2">
-                                        <span className={`text-xl font-bold
-                                    ${symptom.evidenceRating === 'A' ? 'text-emerald-400' : ''}
-                                    ${symptom.evidenceRating === 'B' ? 'text-green-400' : ''}
-                                    ${symptom.evidenceRating === 'C' ? 'text-amber-400' : ''}
-                                 `}>{symptom.evidenceRating}</span>
+                                        <span className={`text-xl font-bold ${EVIDENCE_TIERS_MAP[symptom.evidenceRating].colour}`}>{symptom.evidenceRating}</span>
                                         <span className="text-xs text-slate-500">
                                             (Based on clinical guidelines)
                                         </span>
@@ -226,6 +292,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

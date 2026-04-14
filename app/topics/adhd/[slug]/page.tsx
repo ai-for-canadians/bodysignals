@@ -24,6 +24,13 @@ import {
 import { ADHDToolCard } from '@/components/topics/ADHDToolCard';
 import { ReferralCTA } from '@/components/referrals/ReferralCTA';
 import { getPlacementForSlug } from '@/lib/data/referral-placements';
+import { BASE_URL } from '@/lib/config';
+import {
+  jsonLdScript,
+  medicalWebPageJsonLd,
+  adhdSystemJsonLd,
+  breadcrumbJsonLd,
+} from '@/lib/utils/structured-data';
 import type { ADHDSystem } from '@/types';
 
 // === Static params ===
@@ -80,8 +87,41 @@ export default function ADHDSystemPage({
     .filter((t): t is NonNullable<typeof t> => Boolean(t));
 
   return (
-    <div className="min-h-screen pb-20">
-      <ResearchDigestBanner />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            medicalWebPageJsonLd({
+              title: system.name,
+              description: system.tagline,
+              url: `${BASE_URL}/topics/adhd/${system.slug}`,
+              dateModified: system.lastUpdated,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(adhdSystemJsonLd(system)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'ADHD', url: `${BASE_URL}/topics/adhd` },
+              { name: system.name, url: `${BASE_URL}/topics/adhd/${system.slug}` },
+            ]),
+          ),
+        }}
+      />
+      <div className="min-h-screen pb-20">
+        <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
@@ -358,6 +398,7 @@ export default function ADHDSystemPage({
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

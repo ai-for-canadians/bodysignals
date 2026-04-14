@@ -8,6 +8,8 @@ import {
 } from '@/lib/data/adhd';
 import { ADHDLibrary } from '@/components/topics/ADHDLibrary';
 import { ADHDToolCard } from '@/components/topics/ADHDToolCard';
+import { BASE_URL } from '@/lib/config';
+import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
 
 export const metadata: Metadata = {
   title: 'ADHD Systems Hub',
@@ -22,7 +24,20 @@ export const metadata: Metadata = {
 
 export default function ADHDHubPage() {
   return (
-    <div className="w-full bg-slate-900 py-16">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'ADHD', url: `${BASE_URL}/topics/adhd` },
+            ]),
+          ),
+        }}
+      />
+      <div className="w-full bg-slate-900 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-8">
@@ -119,6 +134,7 @@ export default function ADHDHubPage() {
           </Link>
         </section>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

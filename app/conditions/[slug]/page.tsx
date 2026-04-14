@@ -26,6 +26,13 @@ import { SourceList } from '@/components/shared/SourceList';
 import { ResearchDigestBanner } from '@/components/shared/ResearchDigestBanner';
 import { ReferralCTA } from '@/components/referrals/ReferralCTA';
 import { getPlacementForSlug } from '@/lib/data/referral-placements';
+import { BASE_URL } from '@/lib/config';
+import {
+  jsonLdScript,
+  medicalWebPageJsonLd,
+  conditionJsonLd,
+  breadcrumbJsonLd,
+} from '@/lib/utils/structured-data';
 import type { EvidenceRating, Intervention } from '@/types';
 
 // === Static params ===
@@ -104,13 +111,48 @@ export default function ConditionPage({
       .map((slug) => symptoms.find((s) => s.slug === slug)!)
       .filter(Boolean) ?? [];
 
+  const categoryLabel = CATEGORY_LABELS[condition.category];
+
   return (
-    <div className="min-h-screen pb-20">
-      <ResearchDigestBanner />
-      {/* Header */}
-      <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            medicalWebPageJsonLd({
+              title: condition.name,
+              description: condition.summary,
+              url: `${BASE_URL}/conditions/${condition.slug}`,
+              dateModified: condition.lastUpdated,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(conditionJsonLd(condition)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Conditions', url: `${BASE_URL}/conditions` },
+              { name: categoryLabel, url: `${BASE_URL}/conditions` },
+              { name: condition.name, url: `${BASE_URL}/conditions/${condition.slug}` },
+            ]),
+          ),
+        }}
+      />
+      <div className="min-h-screen pb-20">
+        <ResearchDigestBanner />
+        {/* Header */}
+        <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
             <Link
               href="/conditions"
               className="hover:text-amber-500 transition-colors"
@@ -559,6 +601,7 @@ export default function ConditionPage({
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

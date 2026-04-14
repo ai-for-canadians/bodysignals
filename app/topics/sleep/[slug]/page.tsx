@@ -21,6 +21,13 @@ import {
 import { EvidenceBadge } from '@/components/ui';
 import { ReferralCTA } from '@/components/referrals/ReferralCTA';
 import { getPlacementForSlug } from '@/lib/data/referral-placements';
+import { BASE_URL } from '@/lib/config';
+import {
+  jsonLdScript,
+  medicalWebPageJsonLd,
+  sleepInterventionJsonLd,
+  breadcrumbJsonLd,
+} from '@/lib/utils/structured-data';
 import type { SleepIntervention } from '@/types';
 
 // === Static params ===
@@ -82,10 +89,43 @@ export default function SleepInterventionPage({
   }
 
   return (
-    <div className="min-h-screen pb-20">
-      <ResearchDigestBanner />
-      {/* Header */}
-      <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            medicalWebPageJsonLd({
+              title: intervention.name,
+              description: intervention.tagline,
+              url: `${BASE_URL}/topics/sleep/${intervention.slug}`,
+              dateModified: intervention.lastUpdated,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(sleepInterventionJsonLd(intervention)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'Sleep', url: `${BASE_URL}/topics/sleep` },
+              { name: intervention.name, url: `${BASE_URL}/topics/sleep/${intervention.slug}` },
+            ]),
+          ),
+        }}
+      />
+      <div className="min-h-screen pb-20">
+        <ResearchDigestBanner />
+        {/* Header */}
+        <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
             <Link
@@ -435,6 +475,7 @@ export default function SleepInterventionPage({
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

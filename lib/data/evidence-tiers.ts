@@ -72,3 +72,9 @@ export const EVIDENCE_TIERS: EvidenceTier[] = [
       'Homeopathy for any condition (extensive research shows no effect beyond placebo)',
   },
 ];
+
+/** O(1) lookup by grade letter. Derived from the EVIDENCE_TIERS array. */
+export const EVIDENCE_TIERS_MAP: Record<EvidenceRating, EvidenceTier> =
+  Object.fromEntries(
+    EVIDENCE_TIERS.map((t) => [t.grade, t]),
+  ) as Record<EvidenceRating, EvidenceTier>;

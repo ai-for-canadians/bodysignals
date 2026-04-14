@@ -1,7 +1,10 @@
 import { type HTMLAttributes } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../utils/cn';
-import { EVIDENCE_TIERS } from '@/lib/data/evidence-tiers';
+import { EVIDENCE_TIERS_MAP } from '@/lib/data/evidence-tiers';
+import type { EvidenceRating } from '@/types';
+
+export type { EvidenceRating };
 
 const badgeVariants = cva(
   'inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full',
@@ -31,17 +34,6 @@ export function Badge({ className, variant, ...props }: BadgeProps) {
   );
 }
 
-// Evidence Rating Types
-export type EvidenceRating = 'A' | 'B' | 'C' | 'D' | 'F';
-
-const evidenceConfig: Record<EvidenceRating, { label: string; className: string }> = {
-  A: { label: 'Strong Evidence', className: 'bg-emerald-500/20 text-emerald-400' },
-  B: { label: 'Good Evidence', className: 'bg-green-500/20 text-green-400' },
-  C: { label: 'Moderate Evidence', className: 'bg-amber-500/20 text-amber-400' },
-  D: { label: 'Weak Evidence', className: 'bg-orange-500/20 text-orange-400' },
-  F: { label: 'No Evidence', className: 'bg-red-500/20 text-red-400' },
-};
-
 interface EvidenceBadgeProps extends HTMLAttributes<HTMLSpanElement> {
   rating: EvidenceRating;
   showLabel?: boolean;
@@ -56,24 +48,22 @@ export function EvidenceBadge({
   className,
   ...props
 }: EvidenceBadgeProps) {
-  const config = evidenceConfig[rating];
-  const tier = EVIDENCE_TIERS.find((t) => t.grade === rating);
-  const tooltip = tier
-    ? `${tier.label}: ${tier.criteria} (editorial judgment — not a clinical endorsement)`
-    : config.label;
+  const tier = EVIDENCE_TIERS_MAP[rating];
+  const tooltip = `${tier.label}: ${tier.criteria} (editorial judgment — not a clinical endorsement)`;
 
   const badge = (
     <span
       className={cn(
         'inline-flex items-center text-xs font-medium px-2.5 py-1 rounded-full',
-        config.className,
+        tier.bgColour,
+        tier.colour,
         linkToMethodology && 'cursor-pointer',
         className
       )}
       title={tooltip}
       {...props}
     >
-      {rating}{showLabel && ` - ${config.label}`}
+      {rating}{showLabel && ` - ${tier.label}`}
     </span>
   );
 

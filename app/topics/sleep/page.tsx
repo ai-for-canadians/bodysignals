@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { sleepInterventions } from '@/lib/data/sleep';
 import { SleepLibrary } from '@/components/topics/SleepLibrary';
+import { BASE_URL } from '@/lib/config';
+import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
 
 export const metadata: Metadata = {
   title: 'Sleep Hub',
@@ -14,5 +16,21 @@ export const metadata: Metadata = {
 };
 
 export default function SleepHubPage() {
-  return <SleepLibrary interventions={sleepInterventions} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'Sleep', url: `${BASE_URL}/topics/sleep` },
+            ]),
+          ),
+        }}
+      />
+      <SleepLibrary interventions={sleepInterventions} />
+    </>
+  );
 }

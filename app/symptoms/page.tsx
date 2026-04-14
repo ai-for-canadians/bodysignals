@@ -2,14 +2,28 @@ import Link from 'next/link';
 import { symptoms } from '@/lib/data/symptoms';
 import { bodyAreas } from '@/lib/data/categories';
 import { Search, AlertTriangle, ChevronRight } from 'lucide-react';
+import { BASE_URL } from '@/lib/config';
+import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
 
 export default function SymptomsPage() {
-    // Simple grouping or just list all? 
+    // Simple grouping or just list all?
     // Let's list all for now, sorted alphabetically.
     const sortedSymptoms = [...symptoms].sort((a, b) => a.name.localeCompare(b.name));
 
     return (
-        <div className="min-h-screen py-12 px-4">
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: jsonLdScript(
+                        breadcrumbJsonLd([
+                            { name: 'Home', url: BASE_URL },
+                            { name: 'Symptoms', url: `${BASE_URL}/symptoms` },
+                        ]),
+                    ),
+                }}
+            />
+            <div className="min-h-screen py-12 px-4">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-12">
                     <h1 className="text-4xl font-bold mb-4 text-slate-50">Symptom Library</h1>
@@ -68,6 +82,7 @@ export default function SymptomsPage() {
                     })}
                 </div>
             </div>
-        </div>
+            </div>
+        </>
     );
 }

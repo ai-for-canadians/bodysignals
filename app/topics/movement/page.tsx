@@ -5,6 +5,8 @@ import {
   movementPrograms,
 } from '@/lib/data/movement';
 import { MovementProgramCard } from '@/components/topics/MovementProgramCard';
+import { BASE_URL } from '@/lib/config';
+import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
 
 export const metadata: Metadata = {
   title: 'Movement RX Hub',
@@ -19,9 +21,22 @@ export const metadata: Metadata = {
 
 export default function MovementHubPage() {
   return (
-    <div className="w-full bg-slate-900 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'Movement RX', url: `${BASE_URL}/topics/movement` },
+            ]),
+          ),
+        }}
+      />
+      <div className="w-full bg-slate-900 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
         <div className="max-w-3xl mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400 text-sm mb-6">
             <Activity className="w-4 h-4" />
@@ -53,8 +68,9 @@ export default function MovementHubPage() {
           {movementPrograms.map((program) => (
             <MovementProgramCard key={program.id} program={program} />
           ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -19,6 +19,13 @@ import {
   movementPrograms,
 } from '@/lib/data/movement';
 import { EvidenceBadge } from '@/components/ui';
+import { BASE_URL } from '@/lib/config';
+import {
+  jsonLdScript,
+  medicalWebPageJsonLd,
+  movementProgramJsonLd,
+  breadcrumbJsonLd,
+} from '@/lib/utils/structured-data';
 
 // === Static params ===
 export function generateStaticParams() {
@@ -61,12 +68,45 @@ export default function MovementProgramPage({
   );
 
   return (
-    <div className="min-h-screen pb-20">
-      <ResearchDigestBanner />
-      {/* Header */}
-      <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            medicalWebPageJsonLd({
+              title: program.name,
+              description: program.tagline,
+              url: `${BASE_URL}/topics/movement/${program.slug}`,
+              dateModified: program.lastUpdated,
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(movementProgramJsonLd(program)),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdScript(
+            breadcrumbJsonLd([
+              { name: 'Home', url: BASE_URL },
+              { name: 'Topics', url: `${BASE_URL}/topics` },
+              { name: 'Movement RX', url: `${BASE_URL}/topics/movement` },
+              { name: program.name, url: `${BASE_URL}/topics/movement/${program.slug}` },
+            ]),
+          ),
+        }}
+      />
+      <div className="min-h-screen pb-20">
+        <ResearchDigestBanner />
+        {/* Header */}
+        <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-2 text-sm text-slate-500 mb-4">
             <Link
               href="/topics/movement"
               className="hover:text-amber-500 transition-colors"
@@ -403,6 +443,7 @@ export default function MovementProgramPage({
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

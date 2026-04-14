@@ -1,7 +1,6 @@
 # Body Signals — Task Tracker
 
 ## Active
-- [ ] JSON-LD structured data — MedicalCondition, MedicalSignOrSymptom, MedicalTherapy, BreadcrumbList on all health pages.
 - [ ] Functional search — client-side search index over 120+ pages (Fuse.js or similar).
 - [ ] Accessibility audit — screen reader testing (VoiceOver, NVDA), focus-visible styles (`focus-visible:ring-2 ring-amber-500`), full ARIA coverage.
 - [ ] Analytics deployment — Plausible script ready in `app/layout.tsx`, needs production environment + domain verification.
@@ -13,6 +12,7 @@
 - [x] Phase B: Referral Scaffolding (9 partners, /disclosures, editorial firewall, placement mapping)
 - [x] Session 1: Analytics + Project Docs + Directive Language Cleanup
 - [x] Session 2: Source Citation Backfill — 120/120 source arrays populated with verified PubMed citations. Fixed incorrect lactose PMID.
+- [x] Session 3: JSON-LD Structured Data + Evidence Tier Consolidation — MedicalCondition, MedicalSignOrSymptom, MedicalTherapy, ExercisePlan, FAQPage, MedicalWebPage, BreadcrumbList on all health pages. Evidence tier consolidation (Badge.tsx hardcoded config removed). Domain fix (.ca → .org in sitemap/robots).
 
 ## Deferred
 - Phase C: Content licensing infrastructure (content manifest, licensing page)
