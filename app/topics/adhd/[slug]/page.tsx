@@ -259,22 +259,20 @@ export default function ADHDSystemPage({
             {/* Find an ADHD-informed therapist CTA */}
             <Link
               href="/providers?specialty=adhd"
-              className="group block bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-slate-600 transition-all"
+              className="group flex items-start gap-4 bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-slate-600 transition-all"
             >
-              <div className="flex items-start gap-4">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
-                  <UserCheck className="w-5 h-5 text-amber-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-400 transition-colors">
-                    Find an ADHD-informed therapist
-                  </h3>
-                  <p className="text-sm text-slate-400">
-                    Tactical systems are not a substitute for professional support. If ADHD is untreated or comorbid, talk to someone qualified.
-                  </p>
-                </div>
-                <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-2 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
-              </div>
+              <span className="shrink-0 w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
+                <UserCheck className="w-5 h-5 text-amber-400" />
+              </span>
+              <span className="flex-1">
+                <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-400 transition-colors">
+                  Find an ADHD-informed therapist
+                </h3>
+                <p className="text-sm text-slate-400">
+                  Tactical systems are not a substitute for professional support. If ADHD is untreated or comorbid, talk to someone qualified.
+                </p>
+              </span>
+              <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-2 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
             </Link>
 
             {/* Referral CTA */}
@@ -286,22 +284,20 @@ export default function ADHDSystemPage({
             {/* Cross-link back to clinical condition page */}
             <Link
               href="/conditions/adhd"
-              className="group block bg-gradient-to-br from-amber-500/10 to-slate-800 border border-amber-500/30 rounded-xl p-5 hover:border-amber-500/60 transition-all"
+              className="group flex items-start gap-4 bg-gradient-to-br from-amber-500/10 to-slate-800 border border-amber-500/30 rounded-xl p-5 hover:border-amber-500/60 transition-all"
             >
-              <div className="flex items-start gap-4">
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
-                  <Brain className="w-5 h-5 text-amber-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-300 transition-colors">
-                    Looking for clinical ADHD information?
-                  </h3>
-                  <p className="text-sm text-slate-300">
-                    See the condition page for diagnosis, medication, and professional treatment context.
-                  </p>
-                </div>
-                <ArrowRight className="w-5 h-5 text-amber-400 shrink-0 mt-2 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <span className="shrink-0 w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
+                <Brain className="w-5 h-5 text-amber-400" />
+              </span>
+              <span className="flex-1">
+                <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-300 transition-colors">
+                  Looking for clinical ADHD information?
+                </h3>
+                <p className="text-sm text-slate-300">
+                  See the condition page for diagnosis, medication, and professional treatment context.
+                </p>
+              </span>
+              <ArrowRight className="w-5 h-5 text-amber-400 shrink-0 mt-2 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             {/* Last updated footer */}

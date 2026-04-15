@@ -54,7 +54,7 @@ export default function SymptomsPage() {
                                 href={`/symptoms/${symptom.slug}`}
                                 className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-amber-500/50 transition-all hover:shadow-lg hover:shadow-amber-500/10"
                             >
-                                <div className="flex items-start justify-between mb-2">
+                                <span className="flex items-start justify-between mb-2">
                                     <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                                         {areaName}
                                     </span>
@@ -63,7 +63,7 @@ export default function SymptomsPage() {
                                             <AlertTriangle className="w-5 h-5" />
                                         </span>
                                     )}
-                                </div>
+                                </span>
 
                                 <h2 className="text-xl font-bold text-slate-50 mb-3 group-hover:text-amber-400 transition-colors">
                                     {symptom.name}
@@ -73,10 +73,10 @@ export default function SymptomsPage() {
                                     {symptom.summary}
                                 </p>
 
-                                <div className="flex items-center text-amber-500 text-sm font-medium animate-pulse-0 group-hover:translate-x-1 transition-transform">
+                                <span className="flex items-center text-amber-500 text-sm font-medium animate-pulse-0 group-hover:translate-x-1 transition-transform">
                                     View Details
                                     <ChevronRight className="w-4 h-4 ml-1" />
-                                </div>
+                                </span>
                             </Link>
                         );
                     })}

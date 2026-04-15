@@ -50,7 +50,7 @@ export default function HomePage() {
                 href={`/symptoms/${symptom.slug}`}
                 className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-slate-600 transition-all hover:bg-slate-750"
               >
-                <div className="flex items-start justify-between mb-4">
+                <span className="flex items-start justify-between mb-4">
                   <h3 className="text-xl font-semibold text-slate-50 group-hover:text-amber-400 transition-colors">
                     {symptom.name}
                   </h3>
@@ -70,13 +70,13 @@ export default function HomePage() {
                       Self Care
                     </span>
                   )}
-                </div>
+                </span>
 
                 <p className="text-slate-400 text-sm mb-4 line-clamp-2">
                   {symptom.summary}
                 </p>
 
-                <div className="flex items-center gap-4 text-xs text-slate-500">
+                <span className="flex items-center gap-4 text-xs text-slate-500">
                   <span className="flex items-center gap-1">
                     <Stethoscope className="w-4 h-4" />
                     Medical Guidelines
@@ -84,7 +84,7 @@ export default function HomePage() {
                   <span>
                     Rating: <span className="text-emerald-400">{symptom.evidenceRating}</span>
                   </span>
-                </div>
+                </span>
               </Link>
             ))}
           </div>

@@ -208,12 +208,12 @@ export default function ConditionPage({
                 href="/topics/adhd"
                 className="block bg-gradient-to-br from-amber-500/10 to-slate-800 border border-amber-500/30 rounded-xl p-6 hover:border-amber-500/60 transition-all"
               >
-                <div className="flex items-center gap-3 mb-2">
+                <span className="flex items-center gap-3 mb-2">
                   <Brain className="w-6 h-6 text-amber-500" />
                   <h3 className="text-lg font-bold text-slate-50">
                     Already diagnosed?
                   </h3>
-                </div>
+                </span>
                 <p className="text-slate-300 mb-3">
                   Tactical systems for day-to-day life — productivity, home, finances, health, and relationships. Rated by difficulty and impact.
                 </p>

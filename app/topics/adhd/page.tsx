@@ -58,24 +58,22 @@ export default function ADHDHubPage() {
         {/* Bidirectional cross-link to the condition page — ABOVE the library grid */}
         <Link
           href="/conditions/adhd"
-          className="group block mb-8 bg-gradient-to-br from-amber-500/10 to-amber-500/5 border border-amber-500/30 rounded-xl p-6 hover:border-amber-500/60 hover:from-amber-500/15 transition-all"
+          className="group flex items-start justify-between gap-4 mb-8 bg-gradient-to-br from-amber-500/10 to-amber-500/5 border border-amber-500/30 rounded-xl p-6 hover:border-amber-500/60 hover:from-amber-500/15 transition-all"
         >
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-start gap-4 flex-1">
-              <div className="shrink-0 w-12 h-12 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
-                <Info className="w-6 h-6 text-amber-400" />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-lg font-bold text-slate-50 mb-1 group-hover:text-amber-300 transition-colors">
-                  Looking for clinical info on ADHD?
-                </h2>
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  See the Condition page for diagnosis criteria, medication options, comorbidities, and professional treatment pathways.
-                </p>
-              </div>
-            </div>
-            <ArrowRight className="w-5 h-5 text-amber-400 shrink-0 mt-3 group-hover:translate-x-1 transition-transform" />
-          </div>
+          <span className="flex items-start gap-4 flex-1">
+            <span className="shrink-0 w-12 h-12 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
+              <Info className="w-6 h-6 text-amber-400" />
+            </span>
+            <span className="flex-1">
+              <h2 className="text-lg font-bold text-slate-50 mb-1 group-hover:text-amber-300 transition-colors">
+                Looking for clinical info on ADHD?
+              </h2>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                See the Condition page for diagnosis criteria, medication options, comorbidities, and professional treatment pathways.
+              </p>
+            </span>
+          </span>
+          <ArrowRight className="w-5 h-5 text-amber-400 shrink-0 mt-3 group-hover:translate-x-1 transition-transform" />
         </Link>
 
         {/* ADHD rating note callout — explains why difficulty/impact are primary */}
@@ -113,24 +111,22 @@ export default function ADHDHubPage() {
         <section className="mt-16">
           <Link
             href="/providers?specialty=adhd"
-            className="group block bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-slate-600 transition-all"
+            className="group flex items-start justify-between gap-4 bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-slate-600 transition-all"
           >
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-4 flex-1">
-                <div className="shrink-0 w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center">
-                  <UserCheck className="w-6 h-6 text-amber-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-bold text-slate-50 mb-1 group-hover:text-amber-400 transition-colors">
-                    Find an ADHD-informed therapist
-                  </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    Tactical systems help with day-to-day function, but they are not a substitute for professional support — especially if ADHD is untreated or comorbid with anxiety or depression.
-                  </p>
-                </div>
-              </div>
-              <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-3 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
-            </div>
+            <span className="flex items-start gap-4 flex-1">
+              <span className="shrink-0 w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center">
+                <UserCheck className="w-6 h-6 text-amber-400" />
+              </span>
+              <span className="flex-1">
+                <h3 className="text-lg font-bold text-slate-50 mb-1 group-hover:text-amber-400 transition-colors">
+                  Find an ADHD-informed therapist
+                </h3>
+                <p className="text-sm text-slate-400 leading-relaxed">
+                  Tactical systems help with day-to-day function, but they are not a substitute for professional support — especially if ADHD is untreated or comorbid with anxiety or depression.
+                </p>
+              </span>
+            </span>
+            <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-3 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
           </Link>
         </section>
       </div>
