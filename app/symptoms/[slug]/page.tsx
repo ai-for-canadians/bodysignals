@@ -95,7 +95,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                     ),
                 }}
             />
-            <div className="min-h-screen pb-20">
+            <article className="min-h-screen pb-20">
                 <ResearchDigestBanner />
             {/* Header */}
             <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
@@ -110,25 +110,25 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                         <h1 className="text-4xl md:text-5xl font-bold text-slate-50">{symptom.name}</h1>
                         {symptom.urgency === 'emergency' && (
                             <div className="flex items-center gap-2 bg-red-500/20 text-red-400 px-4 py-2 rounded-lg border border-red-500/30">
-                                <AlertTriangle className="w-6 h-6" />
+                                <AlertTriangle className="w-6 h-6" aria-hidden="true" />
                                 <span className="font-bold">SEEK IMMEDIATE CARE</span>
                             </div>
                         )}
                         {symptom.urgency === 'urgent' && (
                             <div className="flex items-center gap-2 bg-amber-500/20 text-amber-400 px-4 py-2 rounded-lg border border-amber-500/30">
-                                <Clock className="w-6 h-6" />
+                                <Clock className="w-6 h-6" aria-hidden="true" />
                                 <span className="font-bold">SEE DOCTOR SOON</span>
                             </div>
                         )}
                         {symptom.urgency === 'self_care' && (
                             <div className="flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-lg border border-emerald-500/30">
-                                <CheckCircle className="w-6 h-6" />
+                                <CheckCircle className="w-6 h-6" aria-hidden="true" />
                                 <span className="font-bold">USUALLY SELF-CARE</span>
                             </div>
                         )}
                         {symptom.urgency === 'routine' && (
                             <div className="flex items-center gap-2 bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg border border-blue-500/30">
-                                <Stethoscope className="w-6 h-6" />
+                                <Stethoscope className="w-6 h-6" aria-hidden="true" />
                                 <span className="font-bold">ROUTINE CHECK</span>
                             </div>
                         )}
@@ -150,7 +150,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                         {symptom.redFlags.length > 0 && (
                             <section className="bg-red-950/30 border border-red-900/50 rounded-xl p-6">
                                 <h2 className="text-2xl font-bold text-red-400 mb-4 flex items-center gap-2">
-                                    <AlertTriangle className="w-6 h-6" />
+                                    <AlertTriangle className="w-6 h-6" aria-hidden="true" />
                                     Red Flags
                                 </h2>
                                 <p className="text-slate-300 mb-4 text-sm">If you experience these, seek immediate medical attention.</p>
@@ -211,7 +211,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                         {symptom.homeCare.length > 0 && (
                             <section>
                                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                                    <Home className="w-6 h-6 text-amber-500" />
+                                    <Home className="w-6 h-6 text-amber-500" aria-hidden="true" />
                                     Home Care
                                 </h2>
                                 <ul className="list-disc list-inside space-y-2 text-slate-300 leading-relaxed">
@@ -229,10 +229,11 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
 
                     {/* Sidebar */}
                     <div className="space-y-8">
+                        <h2 className="sr-only">Sidebar</h2>
                         {/* Yellow Flags / When to see doctor */}
                         <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-6">
                             <h3 className="text-lg font-bold text-slate-50 mb-4 flex items-center gap-2">
-                                <Stethoscope className="w-5 h-5 text-amber-500" />
+                                <Stethoscope className="w-5 h-5 text-amber-500" aria-hidden="true" />
                                 When to see a doctor
                             </h3>
                             <ul className="space-y-3">
@@ -257,7 +258,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                                 <div>
                                     <div className="text-xs text-slate-500 uppercase font-semibold mb-1">Body Area</div>
                                     <div className="text-slate-300 flex items-center gap-2">
-                                        <Activity className="w-4 h-4 text-amber-500" />
+                                        <Activity className="w-4 h-4 text-amber-500" aria-hidden="true" />
                                         {area?.name}
                                     </div>
                                 </div>
@@ -282,7 +283,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                         {/* Medical Disclaimer */}
                         <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
                             <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
-                                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                                <AlertTriangle className="w-5 h-5 text-amber-500" aria-hidden="true" />
                                 Medical Disclaimer
                             </h3>
                             <p className="text-sm text-slate-300 leading-relaxed">
@@ -292,7 +293,7 @@ export default function SymptomPage({ params }: { params: { slug: string } }) {
                     </div>
                 </div>
             </div>
-            </div>
+            </article>
         </>
     );
 }

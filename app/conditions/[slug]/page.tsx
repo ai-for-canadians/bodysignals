@@ -147,7 +147,7 @@ export default function ConditionPage({
           ),
         }}
       />
-      <div className="min-h-screen pb-20">
+      <article className="min-h-screen pb-20">
         <ResearchDigestBanner />
         {/* Header */}
         <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
@@ -209,7 +209,7 @@ export default function ConditionPage({
                 className="block bg-gradient-to-br from-amber-500/10 to-slate-800 border border-amber-500/30 rounded-xl p-6 hover:border-amber-500/60 transition-all"
               >
                 <span className="flex items-center gap-3 mb-2">
-                  <Brain className="w-6 h-6 text-amber-500" />
+                  <Brain className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   <h3 className="text-lg font-bold text-slate-50">
                     Already diagnosed?
                   </h3>
@@ -219,7 +219,7 @@ export default function ConditionPage({
                 </p>
                 <span className="text-amber-400 font-medium inline-flex items-center gap-1">
                   Explore 18 tactical ADHD systems{' '}
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </Link>
             )}
@@ -230,7 +230,7 @@ export default function ConditionPage({
               condition.firstSteps.length > 0 && (
                 <section className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-6">
                   <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                    <Sparkles className="w-6 h-6 text-amber-500" />
+                    <Sparkles className="w-6 h-6 text-amber-500" aria-hidden="true" />
                     First Steps
                   </h2>
                   <ol className="space-y-4">
@@ -376,7 +376,7 @@ export default function ConditionPage({
               condition.firstSteps.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                    <Sparkles className="w-6 h-6 text-amber-500" />
+                    <Sparkles className="w-6 h-6 text-amber-500" aria-hidden="true" />
                     First Steps
                   </h2>
                   <ol className="space-y-3">
@@ -398,7 +398,7 @@ export default function ConditionPage({
             {condition.testingOptions && condition.testingOptions.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <FlaskConical className="w-6 h-6 text-amber-500" />
+                  <FlaskConical className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Testing Options
                 </h2>
                 <ul className="space-y-2">
@@ -407,7 +407,7 @@ export default function ConditionPage({
                       key={idx}
                       className="flex gap-3 text-slate-300 bg-slate-800/50 border border-slate-700 rounded-lg p-3"
                     >
-                      <Stethoscope className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+                      <Stethoscope className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{test}</span>
                     </li>
                   ))}
@@ -429,7 +429,7 @@ export default function ConditionPage({
                     {condition.lifestyleFactors.diet && (
                       <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Utensils className="w-5 h-5 text-amber-500" />
+                          <Utensils className="w-5 h-5 text-amber-500" aria-hidden="true" />
                           <h3 className="font-semibold text-slate-50">Diet</h3>
                         </div>
                         <p className="text-sm text-slate-400 leading-relaxed">
@@ -440,7 +440,7 @@ export default function ConditionPage({
                     {condition.lifestyleFactors.exercise && (
                       <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Activity className="w-5 h-5 text-amber-500" />
+                          <Activity className="w-5 h-5 text-amber-500" aria-hidden="true" />
                           <h3 className="font-semibold text-slate-50">
                             Exercise
                           </h3>
@@ -453,7 +453,7 @@ export default function ConditionPage({
                     {condition.lifestyleFactors.sleep && (
                       <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Moon className="w-5 h-5 text-amber-500" />
+                          <Moon className="w-5 h-5 text-amber-500" aria-hidden="true" />
                           <h3 className="font-semibold text-slate-50">Sleep</h3>
                         </div>
                         <p className="text-sm text-slate-400 leading-relaxed">
@@ -464,7 +464,7 @@ export default function ConditionPage({
                     {condition.lifestyleFactors.stress && (
                       <div className="bg-slate-800 border border-slate-700 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <Heart className="w-5 h-5 text-amber-500" />
+                          <Heart className="w-5 h-5 text-amber-500" aria-hidden="true" />
                           <h3 className="font-semibold text-slate-50">
                             Stress
                           </h3>
@@ -483,7 +483,7 @@ export default function ConditionPage({
               condition.dietaryRecommendations.length > 0 && (
                 <section>
                   <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                    <ListChecks className="w-6 h-6 text-amber-500" />
+                    <ListChecks className="w-6 h-6 text-amber-500" aria-hidden="true" />
                     Dietary Recommendations
                   </h2>
                   <ul className="list-disc list-outside pl-6 space-y-2 text-slate-300">
@@ -502,10 +502,11 @@ export default function ConditionPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
+            <h2 className="sr-only">Sidebar</h2>
             {/* Medical Disclaimer */}
             <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
               <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <AlertTriangle className="w-5 h-5 text-amber-500" aria-hidden="true" />
                 Medical Disclaimer
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -520,7 +521,7 @@ export default function ConditionPage({
                 className="block bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-amber-500/50 transition-colors group"
               >
                 <h3 className="text-base font-bold text-slate-50 mb-2 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-amber-500" />
+                  <Users className="w-5 h-5 text-amber-500" aria-hidden="true" />
                   See a provider
                 </h3>
                 <p className="text-sm text-slate-300 mb-3">
@@ -528,7 +529,7 @@ export default function ConditionPage({
                 </p>
                 <span className="text-xs text-amber-400 font-medium inline-flex items-center gap-1 group-hover:text-amber-300">
                   Compare provider types
-                  <ArrowRight className="w-3 h-3" />
+                  <ArrowRight className="w-3 h-3" aria-hidden="true" />
                 </span>
               </Link>
             )}
@@ -601,7 +602,7 @@ export default function ConditionPage({
           </div>
         </div>
       </div>
-      </div>
+      </article>
     </>
   );
 }

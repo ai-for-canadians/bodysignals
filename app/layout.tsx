@@ -36,10 +36,16 @@ export default function RootLayout({
         )}
       </head>
       <body className={inter.className}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-amber-500 focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded focus:font-semibold"
+        >
+          Skip to main content
+        </a>
         <div className="flex flex-col min-h-screen">
           <Header />
           <Disclaimer />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </div>
         <FeedbackWidget siteId="body-signals" accentColor="amber" />

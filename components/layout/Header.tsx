@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Activity, Menu, X, Search } from 'lucide-react';
+import { SearchDialog, useSearchDialog } from '@/components/search';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isOpen, openSearch, closeSearch } = useSearchDialog();
 
   const navigation = [
     { name: 'Symptoms', href: '/symptoms' },
@@ -17,11 +19,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-800">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <Activity className="w-8 h-8 text-amber-500" />
+            <Activity className="w-8 h-8 text-amber-500" aria-hidden="true" />
             <div>
               <div className="text-xl font-bold text-slate-50">
                 Body<span className="text-amber-500">Signals</span>
@@ -43,30 +45,62 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/symptoms"
+            <button
+              onClick={openSearch}
               className="flex items-center gap-2 text-slate-400 hover:text-slate-50 transition-colors"
+              aria-label="Search (Cmd+K)"
             >
-              <Search className="w-4 h-4" />
-            </Link>
+              <Search className="w-4 h-4" aria-hidden="true" />
+              <kbd className="hidden lg:inline-flex items-center gap-0.5 rounded border border-slate-600 bg-slate-800 px-1.5 py-0.5 text-xs text-slate-400">
+                <span className="text-xs">&#8984;</span>K
+              </kbd>
+            </button>
+            <noscript>
+              <Link
+                href="/symptoms"
+                className="flex items-center gap-2 text-slate-400 hover:text-slate-50 transition-colors"
+                aria-label="Browse symptoms"
+              >
+                <Search className="w-4 h-4" />
+              </Link>
+            </noscript>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-slate-400 hover:text-slate-50"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             )}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div
+            id="mobile-navigation"
+            role="navigation"
+            aria-label="Mobile navigation"
+            className="md:hidden py-4 space-y-2"
+          >
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openSearch();
+              }}
+              className="flex items-center gap-3 w-full px-4 py-2 text-slate-300 hover:bg-slate-800 hover:text-slate-50 rounded-lg transition-colors"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" aria-hidden="true" />
+              Search
+            </button>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -80,6 +114,8 @@ export function Header() {
           </div>
         )}
       </nav>
+
+      <SearchDialog isOpen={isOpen} onClose={closeSearch} />
     </header>
   );
 }

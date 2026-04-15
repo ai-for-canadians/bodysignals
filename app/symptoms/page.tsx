@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { symptoms } from '@/lib/data/symptoms';
 import { bodyAreas } from '@/lib/data/categories';
-import { Search, AlertTriangle, ChevronRight } from 'lucide-react';
+import { AlertTriangle, ChevronRight } from 'lucide-react';
 import { BASE_URL } from '@/lib/config';
 import { jsonLdScript, breadcrumbJsonLd } from '@/lib/utils/structured-data';
+import { SearchTrigger } from '@/components/search';
 
 export default function SymptomsPage() {
     // Simple grouping or just list all?
@@ -32,17 +33,7 @@ export default function SymptomsPage() {
                     </p>
                 </div>
 
-                {/* Search placeholder (visual only for now) */}
-                <div className="relative max-w-xl mb-12">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <Search className="h-5 w-5 text-slate-500" />
-                    </div>
-                    <input
-                        type="text"
-                        className="block w-full pl-10 pr-3 py-3 border border-slate-700 rounded-lg leading-5 bg-slate-800 text-slate-300 placeholder-slate-500 focus:outline-none focus:bg-slate-900 focus:ring-1 focus:ring-amber-500 focus:border-amber-500 sm:text-sm transition duration-150 ease-in-out"
-                        placeholder="Search symptoms (e.g., headache, chest pain)..."
-                    />
-                </div>
+                <SearchTrigger />
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sortedSymptoms.map((symptom) => {

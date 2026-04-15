@@ -1,8 +1,6 @@
 # Body Signals — Task Tracker
 
 ## Active
-- [ ] Functional search — client-side search index over 120+ pages (Fuse.js or similar).
-- [ ] Accessibility audit — screen reader testing (VoiceOver, NVDA), focus-visible styles (`focus-visible:ring-2 ring-amber-500`), full ARIA coverage.
 - [ ] Analytics deployment — Plausible script ready in `app/layout.tsx`, needs production environment + domain verification.
 - [ ] Playwright smoke tests — 120-page smoke tests (assert 200, `<h1>`, disclaimer), crisis-contacts regression, internal link hygiene. Strategy in `docs/TESTING_STRATEGY.md`.
 - [ ] Sidebar extraction — 4 detail pages duplicate Quick Facts + Medical Disclaimer sidebar. Extract to `components/detail/DetailSidebar.tsx`.
@@ -13,6 +11,7 @@
 - [x] Session 1: Analytics + Project Docs + Directive Language Cleanup
 - [x] Session 2: Source Citation Backfill — 120/120 source arrays populated with verified PubMed citations. Fixed incorrect lactose PMID.
 - [x] Session 3: JSON-LD Structured Data + Evidence Tier Consolidation — MedicalCondition, MedicalSignOrSymptom, MedicalTherapy, ExercisePlan, FAQPage, MedicalWebPage, BreadcrumbList on all health pages. Evidence tier consolidation (Badge.tsx hardcoded config removed). Domain fix (.ca → .org in sitemap/robots).
+- [x] Session 4: Functional Search + Accessibility Hardening — Fuse.js client-side search (97-entry build-time index, Cmd+K dialog, analytics wiring, empty-state UX). WCAG 2.1 AA: skip-nav, focus-visible, prefers-reduced-motion, ARIA on Header/Badge, `<article>` + `aria-hidden` on 5 detail pages.
 
 ## Deferred
 - Phase C: Content licensing infrastructure (content manifest, licensing page)

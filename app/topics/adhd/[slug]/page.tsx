@@ -120,7 +120,7 @@ export default function ADHDSystemPage({
           ),
         }}
       />
-      <div className="min-h-screen pb-20">
+      <article className="min-h-screen pb-20">
         <ResearchDigestBanner />
       {/* Header */}
       <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
@@ -158,7 +158,7 @@ export default function ADHDSystemPage({
               {system.impact} impact
             </span>
             <span className="inline-flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300">
-              <Clock className="w-4 h-4" />
+              <Clock aria-hidden="true" className="w-4 h-4" />
               {system.timeToImplement}
             </span>
           </div>
@@ -182,7 +182,7 @@ export default function ADHDSystemPage({
             {/* Why it works */}
             <section className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-amber-500" />
+                <Sparkles aria-hidden="true" className="w-6 h-6 text-amber-500" />
                 Why it works
               </h2>
               <p className="text-slate-300 leading-relaxed">
@@ -194,7 +194,7 @@ export default function ADHDSystemPage({
             {system.steps.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <ListOrdered className="w-6 h-6 text-amber-500" />
+                  <ListOrdered aria-hidden="true" className="w-6 h-6 text-amber-500" />
                   Steps
                 </h2>
                 <ol className="space-y-4">
@@ -209,7 +209,7 @@ export default function ADHDSystemPage({
                         </p>
                         {step.tip && (
                           <div className="mt-2 bg-amber-500/5 border border-amber-500/20 rounded-lg p-3 text-sm text-amber-200 flex gap-2">
-                            <Info className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
+                            <Info aria-hidden="true" className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
                             <span>{step.tip}</span>
                           </div>
                         )}
@@ -224,7 +224,7 @@ export default function ADHDSystemPage({
             {system.commonPitfalls.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
+                  <AlertTriangle aria-hidden="true" className="w-6 h-6 text-red-400" />
                   Common Pitfalls
                 </h2>
                 <ul className="space-y-2">
@@ -233,7 +233,7 @@ export default function ADHDSystemPage({
                       key={idx}
                       className="flex gap-3 text-slate-300 bg-red-950/20 border border-red-900/40 rounded-lg p-3"
                     >
-                      <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                      <AlertTriangle aria-hidden="true" className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                       <span>{pitfall}</span>
                     </li>
                   ))}
@@ -245,7 +245,7 @@ export default function ADHDSystemPage({
             {resolvedTools.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <Wrench className="w-6 h-6 text-amber-500" />
+                  <Wrench aria-hidden="true" className="w-6 h-6 text-amber-500" />
                   Recommended Tools
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -262,7 +262,7 @@ export default function ADHDSystemPage({
               className="group flex items-start gap-4 bg-slate-800 border border-slate-700 rounded-xl p-5 hover:border-slate-600 transition-all"
             >
               <span className="shrink-0 w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center">
-                <UserCheck className="w-5 h-5 text-amber-400" />
+                <UserCheck aria-hidden="true" className="w-5 h-5 text-amber-400" />
               </span>
               <span className="flex-1">
                 <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-400 transition-colors">
@@ -272,7 +272,7 @@ export default function ADHDSystemPage({
                   Tactical systems are not a substitute for professional support. If ADHD is untreated or comorbid, talk to someone qualified.
                 </p>
               </span>
-              <ArrowRight className="w-5 h-5 text-slate-500 shrink-0 mt-2 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
+              <ArrowRight aria-hidden="true" className="w-5 h-5 text-slate-500 shrink-0 mt-2 group-hover:translate-x-1 group-hover:text-amber-400 transition-all" />
             </Link>
 
             {/* Referral CTA */}
@@ -287,7 +287,7 @@ export default function ADHDSystemPage({
               className="group flex items-start gap-4 bg-gradient-to-br from-amber-500/10 to-slate-800 border border-amber-500/30 rounded-xl p-5 hover:border-amber-500/60 transition-all"
             >
               <span className="shrink-0 w-10 h-10 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center">
-                <Brain className="w-5 h-5 text-amber-400" />
+                <Brain aria-hidden="true" className="w-5 h-5 text-amber-400" />
               </span>
               <span className="flex-1">
                 <h3 className="text-base font-bold text-slate-50 mb-1 group-hover:text-amber-300 transition-colors">
@@ -297,7 +297,7 @@ export default function ADHDSystemPage({
                   See the condition page for diagnosis, medication, and professional treatment context.
                 </p>
               </span>
-              <ArrowRight className="w-5 h-5 text-amber-400 shrink-0 mt-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight aria-hidden="true" className="w-5 h-5 text-amber-400 shrink-0 mt-2 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             {/* Last updated footer */}
@@ -308,10 +308,11 @@ export default function ADHDSystemPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
+            <h2 className="sr-only">Sidebar</h2>
             {/* Medical Disclaimer */}
             <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
               <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <AlertTriangle aria-hidden="true" className="w-5 h-5 text-amber-500" />
                 Disclaimer
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -350,7 +351,7 @@ export default function ADHDSystemPage({
                     Time to Implement
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-amber-500" />
+                    <Clock aria-hidden="true" className="w-4 h-4 text-amber-500" />
                     {system.timeToImplement}
                   </div>
                 </div>
@@ -385,7 +386,7 @@ export default function ADHDSystemPage({
                     Last Updated
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-slate-500" />
+                    <CheckCircle aria-hidden="true" className="w-4 h-4 text-slate-500" />
                     {system.lastUpdated}
                   </div>
                 </div>
@@ -394,7 +395,7 @@ export default function ADHDSystemPage({
           </div>
         </div>
       </div>
-      </div>
+      </article>
     </>
   );
 }

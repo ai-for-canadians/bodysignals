@@ -38,3 +38,6 @@ next-env.d.ts
 
 # Vercel
 .vercel
+
+# Build artefacts
+public/search-index.json

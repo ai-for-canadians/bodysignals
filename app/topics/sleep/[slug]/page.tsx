@@ -122,7 +122,7 @@ export default function SleepInterventionPage({
           ),
         }}
       />
-      <div className="min-h-screen pb-20">
+      <article className="min-h-screen pb-20">
         <ResearchDigestBanner />
         {/* Header */}
         <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
@@ -170,7 +170,7 @@ export default function SleepInterventionPage({
             {intervention.slug === 'mouth-tape' && (
               <section className="bg-red-950/30 border border-red-900/50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold text-red-400 mb-3 flex items-center gap-2">
-                  <AlertTriangle className="w-6 h-6" />
+                  <AlertTriangle className="w-6 h-6" aria-hidden="true" />
                   Screen for sleep apnoea first — this is not optional
                 </h2>
                 <p className="text-slate-200 leading-relaxed mb-3">
@@ -202,7 +202,7 @@ export default function SleepInterventionPage({
             {/* How it works */}
             <section className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-6">
               <h2 className="text-2xl font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-amber-500" />
+                <Sparkles className="w-6 h-6 text-amber-500" aria-hidden="true" />
                 How it works
               </h2>
               <p className="text-slate-300 leading-relaxed">
@@ -214,7 +214,7 @@ export default function SleepInterventionPage({
             {intervention.benefits.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <Leaf className="w-6 h-6 text-amber-500" />
+                  <Leaf className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Benefits
                 </h2>
                 <ul className="space-y-3">
@@ -240,7 +240,7 @@ export default function SleepInterventionPage({
             {intervention.protocol && intervention.protocol.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <ClipboardList className="w-6 h-6 text-amber-500" />
+                  <ClipboardList className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Protocol
                 </h2>
                 <ol className="space-y-3">
@@ -273,7 +273,7 @@ export default function SleepInterventionPage({
             {/* Safety profile */}
             <section>
               <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                <Shield className="w-6 h-6 text-amber-500" />
+                <Shield className="w-6 h-6 text-amber-500" aria-hidden="true" />
                 Safety Profile
               </h2>
 
@@ -350,7 +350,7 @@ export default function SleepInterventionPage({
                           key={idx}
                           className="flex gap-3 text-slate-300 bg-red-950/20 border border-red-900/40 rounded-lg p-3"
                         >
-                          <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                          <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" aria-hidden="true" />
                           <span>{contra}</span>
                         </li>
                       )
@@ -364,7 +364,7 @@ export default function SleepInterventionPage({
             {intervention.researchSummary && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <BookOpen className="w-6 h-6 text-amber-500" />
+                  <BookOpen className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Research Summary
                 </h2>
                 <p className="text-slate-300 leading-relaxed">
@@ -408,10 +408,11 @@ export default function SleepInterventionPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
+            <h2 className="sr-only">Sidebar</h2>
             {/* Medical Disclaimer */}
             <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
               <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <AlertTriangle className="w-5 h-5 text-amber-500" aria-hidden="true" />
                 Medical Disclaimer
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -436,7 +437,7 @@ export default function SleepInterventionPage({
                     Category
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2">
-                    <Moon className="w-4 h-4 text-amber-500" />
+                    <Moon className="w-4 h-4 text-amber-500" aria-hidden="true" />
                     {SLEEP_CATEGORY_LABELS[intervention.category]}
                   </div>
                 </div>
@@ -458,7 +459,7 @@ export default function SleepInterventionPage({
                   <span
                     className={`inline-flex items-center text-xs font-medium px-2 py-1 rounded-full uppercase ${RISK_LEVEL_STYLES[intervention.safetyProfile.riskLevel]}`}
                   >
-                    <CheckCircle className="w-3 h-3 mr-1" />
+                    <CheckCircle className="w-3 h-3 mr-1" aria-hidden="true" />
                     {intervention.safetyProfile.riskLevel}
                   </span>
                 </div>
@@ -475,7 +476,7 @@ export default function SleepInterventionPage({
           </div>
         </div>
       </div>
-      </div>
+      </article>
     </>
   );
 }

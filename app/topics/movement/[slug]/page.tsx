@@ -101,7 +101,7 @@ export default function MovementProgramPage({
           ),
         }}
       />
-      <div className="min-h-screen pb-20">
+      <article className="min-h-screen pb-20">
         <ResearchDigestBanner />
         {/* Header */}
         <div className="bg-slate-900 border-b border-slate-800 py-12 px-4">
@@ -149,7 +149,7 @@ export default function MovementProgramPage({
             {program.contraindications.length > 0 && (
               <section className="bg-red-950/30 border border-red-900/50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold text-red-400 mb-3 flex items-center gap-2">
-                  <AlertTriangle className="w-6 h-6" />
+                  <AlertTriangle className="w-6 h-6" aria-hidden="true" />
                   Do NOT start this protocol if:
                 </h2>
                 <p className="text-slate-300 mb-4 text-sm">
@@ -174,7 +174,7 @@ export default function MovementProgramPage({
             {/* "When to see a physiotherapist" — amber, still above the fold */}
             <section className="bg-amber-500/5 border border-amber-500/30 rounded-xl p-6">
               <h2 className="text-xl font-bold text-amber-300 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-400" />
+                <AlertTriangle className="w-5 h-5 text-amber-400" aria-hidden="true" />
                 When to see a physiotherapist
               </h2>
               <p className="text-slate-300 leading-relaxed">
@@ -196,7 +196,7 @@ export default function MovementProgramPage({
             {program.equipmentNeeded.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-4 flex items-center gap-2">
-                  <Wrench className="w-6 h-6 text-amber-500" />
+                  <Wrench className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Equipment Needed
                 </h2>
                 <ul className="space-y-2">
@@ -217,7 +217,7 @@ export default function MovementProgramPage({
             {program.phases.length > 0 && (
               <section>
                 <h2 className="text-2xl font-bold text-slate-50 mb-6 flex items-center gap-2">
-                  <Layers className="w-6 h-6 text-amber-500" />
+                  <Layers className="w-6 h-6 text-amber-500" aria-hidden="true" />
                   Phases
                 </h2>
                 <div className="space-y-10">
@@ -250,7 +250,7 @@ export default function MovementProgramPage({
                       {phase.goals.length > 0 && (
                         <div className="mb-5">
                           <h4 className="text-sm font-semibold text-slate-400 mb-2 uppercase flex items-center gap-1.5">
-                            <Target className="w-4 h-4" />
+                            <Target className="w-4 h-4" aria-hidden="true" />
                             Goals
                           </h4>
                           <ul className="space-y-1">
@@ -371,10 +371,11 @@ export default function MovementProgramPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
+            <h2 className="sr-only">Sidebar</h2>
             {/* Medical Disclaimer */}
             <div className="bg-slate-800 border-l-4 border-amber-500 rounded-r-xl p-5">
               <h3 className="text-base font-bold text-slate-50 mb-3 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                <AlertTriangle className="w-5 h-5 text-amber-500" aria-hidden="true" />
                 Medical Disclaimer
               </h3>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -399,7 +400,7 @@ export default function MovementProgramPage({
                     Body Part
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2 capitalize">
-                    <Activity className="w-4 h-4 text-amber-500" />
+                    <Activity className="w-4 h-4 text-amber-500" aria-hidden="true" />
                     {program.bodyPart}
                   </div>
                 </div>
@@ -408,7 +409,7 @@ export default function MovementProgramPage({
                     Phases
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-amber-500" />
+                    <Layers className="w-4 h-4 text-amber-500" aria-hidden="true" />
                     {program.phases.length}
                   </div>
                 </div>
@@ -434,7 +435,7 @@ export default function MovementProgramPage({
                     Last Updated
                   </div>
                   <div className="text-slate-300 inline-flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-slate-500" />
+                    <CheckCircle className="w-4 h-4 text-slate-500" aria-hidden="true" />
                     {program.lastUpdated}
                   </div>
                 </div>
@@ -443,7 +444,7 @@ export default function MovementProgramPage({
           </div>
         </div>
       </div>
-      </div>
+      </article>
     </>
   );
 }

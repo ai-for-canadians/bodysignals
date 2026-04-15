@@ -61,6 +61,7 @@ export function EvidenceBadge({
         className
       )}
       title={tooltip}
+      aria-label={tooltip}
       {...props}
     >
       {rating}{showLabel && ` - ${tier.label}`}
@@ -69,7 +70,11 @@ export function EvidenceBadge({
 
   if (linkToMethodology) {
     return (
-      <a href="/methodology" className="no-underline">
+      <a
+        href="/methodology"
+        className="no-underline"
+        aria-label={`${tooltip} — view methodology`}
+      >
         {badge}
       </a>
     );
