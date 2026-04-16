@@ -54,6 +54,16 @@ export function generateMetadata({
     openGraph: {
       title: `${system.name} | Body Signals`,
       description: system.tagline,
+      url: `/topics/adhd/${system.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${system.name} | Body Signals`,
+      description: system.tagline,
+    },
+    alternates: {
+      canonical: `/topics/adhd/${system.slug}`,
     },
   };
 }

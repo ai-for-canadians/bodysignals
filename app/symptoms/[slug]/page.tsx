@@ -40,6 +40,16 @@ export function generateMetadata({
         openGraph: {
             title: `${symptom.name} | Body Signals`,
             description: symptom.summary,
+            url: `/symptoms/${symptom.slug}`,
+            type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${symptom.name} | Body Signals`,
+            description: symptom.summary,
+        },
+        alternates: {
+            canonical: `/symptoms/${symptom.slug}`,
         },
     };
 }

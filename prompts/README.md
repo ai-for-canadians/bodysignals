@@ -4,13 +4,21 @@ Five Claude Code session prompts, ordered by impact. Each is self-contained and 
 
 ## Session Order
 
+### Pre-Launch (run in order)
+
 | # | Prompt | What It Does | New Files | Modified | Impact |
 |---|--------|-------------|-----------|----------|--------|
 | 1 | [Analytics + Project Docs](SESSION_1_ANALYTICS_AND_PROJECT_DOCS.md) | Plausible analytics, CLAUDE.md, TASKS.md, directive language cleanup | ~3 | ~5 | Can't measure anything without this |
 | 2 | [Source Citation Backfill](SESSION_2_SOURCE_CITATION_BACKFILL.md) | 40+ real PubMed/DOI citations for critical/high-priority claims | 0 | ~5 | Core brand promise depends on this |
-| 3 | [JSON-LD + Evidence Tiers](SESSION_3_JSON_LD_STRUCTURED_DATA.md) | Schema.org structured data on all 450+ pages, evidence tier consolidation | ~3 | ~15 | SEO rich results, single source of truth |
-| 4 | [Search + Accessibility](SESSION_4_SEARCH_AND_ACCESSIBILITY.md) | Fuse.js client-side search, WCAG 2.1 AA hardening, skip nav, focus styles | ~5 | ~15 | Usability for 450+ page site |
-| 5 | [Content Manifest + Launch](SESSION_5_CONTENT_MANIFEST_AND_LAUNCH.md) | Content catalogue, /licensing page, full launch verification | ~3 | ~5 | B2B readiness + deploy gate |
+| 3 | [JSON-LD + Evidence Tiers](SESSION_3_JSON_LD_STRUCTURED_DATA.md) | Schema.org structured data on all health pages, evidence tier consolidation | ~3 | ~15 | SEO rich results, single source of truth |
+| 4 | [Search + Accessibility](SESSION_4_SEARCH_AND_ACCESSIBILITY.md) | Fuse.js client-side search, WCAG 2.1 AA hardening, skip nav, focus styles | ~5 | ~15 | Usability for 120+ page site |
+| 5 | [Launch Hardening](SESSION_5_LAUNCH_HARDENING.md) | OG/Twitter cards, robots.txt, favicon, web manifest, error monitoring, final verification | ~5 | ~5 | Launch-ready deploy gate |
+
+### Deferred (run only when triggered)
+
+| # | Prompt | When To Run | New Files | Modified |
+|---|--------|-------------|-----------|----------|
+| 6 | [Content Manifest + Licensing](SESSION_6_CONTENT_MANIFEST_AND_LICENSING.md) | When a B2B prospect surfaces or you start outbound to enterprise buyers | ~3 | ~3 |
 
 ## How To Use
 

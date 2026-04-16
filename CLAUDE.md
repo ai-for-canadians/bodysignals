@@ -4,10 +4,11 @@
 An independent research digest and publisher built on Next.js 14. Body Signals summarises peer-reviewed health research — symptoms, conditions, interventions — in plain language for Canadian and US readers. It consolidates 7 source sites from the InfoBank network into one unified destination. Body Signals is not a healthcare provider, does not practise medicine, and does not provide medical advice.
 
 ## Current State
-- **Pages:** 120 statically generated
+- **Pages:** 120 statically generated (121 routes including manifest)
 - **Content:** 99 conditions, 23 symptoms, 21 sleep interventions, 19 ADHD systems, 5 movement programs
 - **Phase A (Legal Audit):** Complete — 6 legal pages, research-digest framing, evidence badges link to /methodology
 - **Phase B (Referral Scaffolding):** Complete — 9 partners registered (all inactive), /disclosures page, editorial firewall
+- **Sessions 1–5:** Complete — analytics scaffolding, source citation backfill (120/120), JSON-LD structured data, functional search (Fuse.js, Cmd+K), WCAG 2.1 AA accessibility, OG/Twitter cards, favicon/icon suite, web manifest, error monitoring decision
 - **Phase C+ (Licensing, Provider Directory, AI):** Not started — see PHASE_B_C_D_PROMPT.md
 
 ## Source Data Locations (read-only)
@@ -53,9 +54,9 @@ npm run check:crisis # Crisis numbers present
 npm run check:phrases # Forbidden phrases check
 ```
 
-## Key Gaps (as of 2026-04-14)
-- 0 of 120 source arrays are empty — all backfilled with real, verified PubMed citations
-- No JSON-LD structured data on any pages
-- Search is a visual placeholder — not functional
-- Analytics not yet deployed (Plausible ready, needs production env)
-- Accessibility needs screen reader testing
+## Key Gaps (as of 2026-04-15)
+- Analytics not yet deployed (Plausible script ready in layout, needs production environment + domain verification)
+- Playwright smoke tests not yet written (strategy in `docs/TESTING_STRATEGY.md`)
+- Dynamic per-page OG images deferred (currently using single shared `og-image.png`)
+- Screen reader testing not yet performed (WCAG 2.1 AA structural work complete)
+- Sidebar duplication across 4 detail pages (extract to shared component)

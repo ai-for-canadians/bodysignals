@@ -51,6 +51,16 @@ export function generateMetadata({
     openGraph: {
       title: `${intervention.name} | Body Signals`,
       description: intervention.tagline,
+      url: `/topics/sleep/${intervention.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${intervention.name} | Body Signals`,
+      description: intervention.tagline,
+    },
+    alternates: {
+      canonical: `/topics/sleep/${intervention.slug}`,
     },
   };
 }

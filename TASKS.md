@@ -12,11 +12,13 @@
 - [x] Session 2: Source Citation Backfill — 120/120 source arrays populated with verified PubMed citations. Fixed incorrect lactose PMID.
 - [x] Session 3: JSON-LD Structured Data + Evidence Tier Consolidation — MedicalCondition, MedicalSignOrSymptom, MedicalTherapy, ExercisePlan, FAQPage, MedicalWebPage, BreadcrumbList on all health pages. Evidence tier consolidation (Badge.tsx hardcoded config removed). Domain fix (.ca → .org in sitemap/robots).
 - [x] Session 4: Functional Search + Accessibility Hardening — Fuse.js client-side search (97-entry build-time index, Cmd+K dialog, analytics wiring, empty-state UX). WCAG 2.1 AA: skip-nav, focus-visible, prefers-reduced-motion, ARIA on Header/Badge, `<article>` + `aria-hidden` on 5 detail pages.
+- [x] Session 5: Launch Hardening — OG/Twitter Card metadata on layout + 5 detail pages. Favicon/icon suite (512, 192, 180, 32 ICO) + OG image (1200×630, 55KB) via sharp. Web manifest (standalone PWA). Viewport export for themeColor. Error monitoring deliberately deferred (documented in RUNBOOK.md §14). All verification checks pass (typecheck, lint, build, crisis, forbidden phrases, partner isolation).
 
 ## Deferred
 - Phase C: Content licensing infrastructure (content manifest, licensing page)
 - Phase C.P: Provider directory (freemium listings, Psychology Today playbook)
 - Phase D: AI layer (architecture document only)
+- Dynamic per-page OG images via Next.js `opengraph-image.tsx` route handlers (Phase 2 OG enhancement)
 
 ## Content Gaps
 - Sleep apnoea condition page (linked from mouth-tape intervention — high priority)
@@ -24,4 +26,4 @@
 - Dermatological conditions (eczema, psoriasis)
 - Paediatric conditions (requires subject-matter review)
 
-Last updated: 2026-04-14
+Last updated: 2026-04-15

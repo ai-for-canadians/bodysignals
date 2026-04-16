@@ -56,6 +56,16 @@ export function generateMetadata({
     openGraph: {
       title: `${condition.name} | Body Signals`,
       description: condition.summary,
+      url: `/conditions/${condition.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${condition.name} | Body Signals`,
+      description: condition.summary,
+    },
+    alternates: {
+      canonical: `/conditions/${condition.slug}`,
     },
   };
 }

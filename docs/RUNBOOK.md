@@ -379,7 +379,21 @@ Custom events are not yet wired to UI components — `trackEvent()` in `lib/anal
 
 ---
 
-## 14. Review Schedule
+## 14. Error Monitoring
+
+**Status:** Deliberately deferred (as of 2026-04-15).
+
+**Rationale:** Body Signals is a statically generated site with minimal client-side JavaScript (search dialog is the only significant interactive component). Runtime errors are rare in this architecture. Current monitoring relies on:
+
+- **Plausible Analytics** — drop in pageviews signals site-level issues
+- **FeedbackWidget** — users can report broken pages or missing content
+- **Build-time checks** — TypeScript strict mode, ESLint, forbidden-phrase greps, search index build guard
+
+**Revisit when:** Dynamic features are added (provider directory, AI layer, server-side API routes). At that point, integrate Sentry (free tier: 5K errors/month) with `tracesSampleRate: 0.1` to stay within limits.
+
+---
+
+## 15. Review Schedule
 
 | Document | Cadence | Next review |
 |---|---|---|

@@ -48,6 +48,16 @@ export function generateMetadata({
     openGraph: {
       title: `${program.name} | Body Signals`,
       description: program.tagline,
+      url: `/topics/movement/${program.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${program.name} | Body Signals`,
+      description: program.tagline,
+    },
+    alternates: {
+      canonical: `/topics/movement/${program.slug}`,
     },
   };
 }
